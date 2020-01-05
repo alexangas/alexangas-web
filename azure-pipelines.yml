@@ -10,9 +10,14 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- task: CmdLine@2
+  displayName: 'Set environment variables'
+  inputs:
+    script: 'export CI=true'
+
 - task: NodeTool@0
   inputs:
-    versionSpec: '10.x'
+    versionSpec: '12.x'
   displayName: 'Install Node.js'
 
 - script: |
@@ -30,6 +35,6 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Public build artifacts'
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)/public'
+    PathtoPublish: '$(Build.SourcesDirectory)/public'
     ArtifactName: 'drop'
     publishLocation: 'Container'
