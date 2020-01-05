@@ -1,12 +1,11 @@
 module.exports = {
   siteMetadata: {
-    // edit below
-    title: `Gatsby Starter Personal Blog`,
-    author: `Kyle Matthews`,
-    description: `A starter personal blog with styled components, dark mode, and Netlify CMS.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    title: `Alex Angas Blog`,
+    author: `Alex Angas`,
+    description: ``,
+    siteUrl: `https://alexangas.com/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `alexangas`,
     },
   },
   plugins: [
@@ -63,8 +62,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        // edit below
-        // trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: `UA-9771527-1`,
       },
     },
     {
@@ -77,7 +75,7 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         // edit below
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/alex2017b_small_adj2_2.png`,
       },
     },
     {
