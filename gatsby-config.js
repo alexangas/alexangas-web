@@ -1,10 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: `Alex Angas Blog`,
+    title: `Alex Angas`,
     author: `Alex Angas`,
     description: ``,
     siteUrl: `https://alexangas.com/`,
     social: {
+      linkedin: `alexangas`,
       twitter: `alexangas`,
     },
   },
