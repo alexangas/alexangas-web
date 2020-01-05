@@ -20,6 +20,7 @@ class Blog extends React.Component {
         <div style={{ margin: "20px 0 40px" }}>
           {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
+            const tags = node.frontmatter.tags || []
             return (
               <div key={node.fields.slug}>
                 <h3
@@ -40,6 +41,7 @@ class Blog extends React.Component {
                     __html: node.frontmatter.description || node.excerpt,
                   }}
                 />
+                <small>{tags.join(', ')}</small>
               </div>
             )
           })}
@@ -72,6 +74,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            tags
           }
         }
       }

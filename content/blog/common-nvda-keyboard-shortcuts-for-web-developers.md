@@ -5,6 +5,7 @@ title: Common NVDA keyboard shortcuts for web developers
 description: >-
   The NVDA keyboard shortcuts I find most useful for building accessible web
   applications.
+tags: ["nvda", "accessibility"]
 ---
 [NVDA](http://nvda-project.org/) is a solid tool for testing that your web applications are accessible to blind and vision-impaired users. (If you find it useful, make sure you [donate here](http://www.nvaccess.org/donate/)!)
 
