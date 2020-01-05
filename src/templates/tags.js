@@ -20,7 +20,7 @@ const Tags = ({ pageContext, data }) => {
           const { title } = node.frontmatter
           return (
             <li key={slug}>
-              <Link to={slug}>{title}</Link>
+              <Link to={`blog${slug}`}>{title}</Link>
             </li>
           )
         })}
@@ -29,7 +29,7 @@ const Tags = ({ pageContext, data }) => {
               This links to a page that does not yet exist.
               You'll come back to it!
             */}
-      <Link to="/tags">All tags</Link>
+      <Link to="blog/tags">All tags</Link>
     </div>
   )
 }
