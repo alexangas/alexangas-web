@@ -3,7 +3,19 @@ const _ = require(`lodash`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage, createRedirect } = actions
+
+  createRedirect({
+    fromPath: `/improving-entity-framework-performance`,
+    isPermanent: true,
+    toPath: `/blog/improving-entity-framework-performance`
+  })
+
+  createRedirect({
+    fromPath: `/common-nvda-keyboard-shortcuts-for-web-developers`,
+    isPermanent: true,
+    toPath: `/blog/common-nvda-keyboard-shortcuts-for-web-developers`
+  })
 
   const blogPostTemplate = path.resolve(`./src/templates/blog-post.js`)
   const tagTemplate = path.resolve(`./src/templates/tags.js`)
