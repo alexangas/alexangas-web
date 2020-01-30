@@ -3,7 +3,7 @@ module.exports = {
     title: `Alex Angas`,
     author: `Alex Angas`,
     description: ``,
-    siteUrl: `https://alexangas.com/`,
+    siteUrl: `https://www.alexangas.com/`,
     social: {
       linkedin: `alexangas`,
       twitter: `alexangas`,
@@ -85,6 +85,7 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-meta-redirect` // make sure to put last in the array
   ],
 }
