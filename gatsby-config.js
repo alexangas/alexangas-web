@@ -79,6 +79,7 @@ module.exports = {
         icon: `content/assets/alex2017b_small_adj2_2.png`,
       },
     },
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
