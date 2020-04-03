@@ -3,8 +3,15 @@ import noriegaTheme from "typography-theme-noriega"
 const CodePlugin = require("typography-plugin-code").default
 
 noriegaTheme.plugins = [
-    new CodePlugin(),
+    new CodePlugin()
 ]
+
+noriegaTheme.overrideThemeStyles = ({ rhythm }) => ({
+    footer: {
+        marginTop: rhythm(1),
+        textAlign: "center"
+    }
+});
 
 const typography = new Typography(noriegaTheme)
 
