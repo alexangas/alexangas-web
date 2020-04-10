@@ -11,7 +11,6 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-netlify-cms`,
-    `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-offline`,
@@ -131,7 +130,6 @@ module.exports = {
         icon: `content/assets/alex2017b_small_adj2_2.png`,
       },
     },
-    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
