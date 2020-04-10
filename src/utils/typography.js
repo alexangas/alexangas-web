@@ -31,6 +31,8 @@ noriegaTheme.overrideThemeStyles = ({ rhythm }) => ({
     }
 });
 
+delete noriegaTheme.googleFonts
+
 const typography = new Typography(noriegaTheme)
 
 export const { scale, rhythm, options } = typography
