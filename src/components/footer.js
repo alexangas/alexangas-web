@@ -17,11 +17,11 @@ const Footer = () => {
     <footer>
       © {new Date().getFullYear()} {author}
       <p>
-      <small>
-        Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </small>
+        <small>
+          Built with
+          {` `}
+          <a href="https://www.gatsbyjs.org">Gatsby</a>
+        </small>
       </p>
     </footer>
   )

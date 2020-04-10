@@ -38,17 +38,15 @@ class BlogPostTemplate extends React.Component {
             >
               {post.frontmatter.date}
             </p>
-            <small>{post.frontmatter.tags.join(', ')}</small>
+            <small>{post.frontmatter.tags.join(", ")}</small>
           </header>
-        <MDXRenderer>{post.body}</MDXRenderer>
+          <MDXRenderer>{post.body}</MDXRenderer>
           <hr
             style={{
               marginBottom: rhythm(1),
             }}
           />
-          <footer>
-            {/* <Bio /> */}
-          </footer>
+          <footer>{/* <Bio /> */}</footer>
         </article>
 
         <nav>
@@ -63,7 +61,7 @@ class BlogPostTemplate extends React.Component {
           >
             <li>
               {previous && (
-              <Link to={`blog${previous.fields.slug}`} rel="prev">
+                <Link to={`blog${previous.fields.slug}`} rel="prev">
                   ← {previous.frontmatter.title}
                 </Link>
               )}

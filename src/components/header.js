@@ -28,7 +28,7 @@ const Header = (props) => {
     header = (
       <h1
         style={{
-          ...scale(1.5)
+          ...scale(1.5),
         }}
       >
         <Link
@@ -46,10 +46,7 @@ const Header = (props) => {
           marginTop: 0,
         }}
       >
-        <Link
-          style={headerLinkStyle}
-          to={`/blog/`}
-        >
+        <Link style={headerLinkStyle} to={`/blog/`}>
           {title}
         </Link>
       </h3>

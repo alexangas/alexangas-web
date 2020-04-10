@@ -40,7 +40,7 @@ class Blog extends React.Component {
                     __html: node.frontmatter.description || node.excerpt,
                   }}
                 />
-                <small>{tags.join(', ')}</small>
+                <small>{tags.join(", ")}</small>
               </div>
             )
           })}
