@@ -4,7 +4,7 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
+import TagList from "../components/tag-list"
 
 class Blog extends React.Component {
   render() {
@@ -21,26 +21,21 @@ class Blog extends React.Component {
             const title = node.frontmatter.title || node.fields.slug
             const tags = node.frontmatter.tags || []
             return (
-              <div key={node.fields.slug}>
-                <h3
-                  style={{
-                    marginBottom: rhythm(1 / 4),
-                  }}
-                >
-                  <Link
-                    style={{ boxShadow: `none` }}
-                    to={`blog${node.fields.slug}`}
-                  >
+              <div className="blog__post--summary" key={node.fields.slug}>
+                <h3>
+                  <Link to={`blog${node.fields.slug}`}>
                     {title}
                   </Link>
                 </h3>
-                <small>{node.frontmatter.date}</small>
+                {/* <small>{node.frontmatter.date}</small> */}
                 <p
                   dangerouslySetInnerHTML={{
                     __html: node.frontmatter.description || node.excerpt,
                   }}
                 />
-                <small>{tags.join(", ")}</small>
+                <small>
+                  <TagList tags={tags}/>
+                </small>
               </div>
             )
           })}
@@ -70,7 +65,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "D MMMM YYYY")
             title
             description
             tags

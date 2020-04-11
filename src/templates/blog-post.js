@@ -4,7 +4,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
+import TagList from "../components/tag-list"
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -19,57 +19,36 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        <article>
+        <article className="blog__post--article">
           <header>
-            <h1
-              style={{
-                marginTop: rhythm(1),
-                marginBottom: 0,
-              }}
-            >
+            <h1>
               {post.frontmatter.title}
             </h1>
-            <p
-              style={{
-                ...scale(-1 / 5),
-                display: `block`,
-                marginBottom: rhythm(1),
-              }}
-            >
+            <small>
               {post.frontmatter.date}
-            </p>
-            <small>{post.frontmatter.tags.join(", ")}</small>
+            </small>
+            <small>
+              <TagList tags={post.frontmatter.tags} />
+            </small>
           </header>
           <MDXRenderer>{post.body}</MDXRenderer>
-          <hr
-            style={{
-              marginBottom: rhythm(1),
-            }}
-          />
-          <footer>{/* <Bio /> */}</footer>
+          <hr />
+          {/*<footer>{<Bio />}</footer>*/}
         </article>
 
-        <nav>
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0,
-            }}
-          >
+        <nav className="blog__post--nav">
+          <ul>
             <li>
               {previous && (
                 <Link to={`blog${previous.fields.slug}`} rel="prev">
-                  ← {previous.frontmatter.title}
+                  &#x2190; {previous.frontmatter.title}
                 </Link>
               )}
             </li>
             <li>
               {next && (
                 <Link to={`blog${next.fields.slug}`} rel="next">
-                  {next.frontmatter.title} →
+                  {next.frontmatter.title} &#x2192;
                 </Link>
               )}
             </li>
@@ -95,7 +74,7 @@ export const pageQuery = graphql`
       body
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "D MMMM YYYY")
         description
         tags
       }
