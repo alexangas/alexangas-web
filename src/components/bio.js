@@ -34,12 +34,7 @@ const Bio = () => {
 
   const { author } = data.site.siteMetadata
   return (
-    <div
-      style={{
-        display: `flex`,
-        marginBottom: rhythm(2.5),
-      }}
-    >
+    <div className="bio">
       <Image
         fixed={data.avatar.childImageSharp.fixed}
         alt={author}
@@ -54,7 +49,8 @@ const Bio = () => {
         }}
       />
       <p>
-        Written by <strong>{author}</strong> who lives and works in London building useful things.
+        Written by <strong>{author}</strong> who lives and works in London
+        building useful things.
       </p>
     </div>
   )

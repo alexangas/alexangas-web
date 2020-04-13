@@ -17,8 +17,6 @@ exports.createPages = async ({ graphql, actions }) => {
     toPath: `/blog/common-nvda-keyboard-shortcuts-for-web-developers`
   })
 
-  const blogPostTemplate = path.resolve(`./src/templates/blog-post.js`)
-  const tagTemplate = path.resolve(`./src/templates/tags.js`)
   const result = await graphql(
     `
       {
@@ -51,9 +49,9 @@ exports.createPages = async ({ graphql, actions }) => {
     throw result.errors
   }
 
-  // Create blog posts pages.
+  // Create blog post pages
+  const blogPostTemplate = path.resolve(`./src/templates/blog-post.js`)
   const posts = result.data.posts.edges
-
   posts.forEach((post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
     const next = index === 0 ? null : posts[index - 1].node
@@ -69,9 +67,9 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  // Extract tag data from query
-  const tags = result.data.tagsGroup.group
   // Make tag pages
+  const tagTemplate = path.resolve(`./src/templates/tags.js`)
+  const tags = result.data.tagsGroup.group
   tags.forEach(tag => {
     createPage({
       path: `blog/tags/${_.kebabCase(tag.fieldValue)}/`,

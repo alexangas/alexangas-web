@@ -11,12 +11,62 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-netlify-cms`,
-    `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-feed-mdx`,
+    {
+      resolve: `gatsby-plugin-feed-mdx`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMdx } }) => {
+              return allMdx.edges.map(edge => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.excerpt,
+                  date: edge.node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + "/blog" + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + "/blog" + edge.node.fields.slug,
+                })
+              })
+            },
+            query: `
+              {
+                allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+                  edges {
+                    node {
+                      excerpt
+                      fields {
+                        slug
+                      }
+                      frontmatter {
+                        date(formatString: "MMMM DD, YYYY")
+                        title
+                        description
+                        tags
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+            title: "Alex Angas",
+          }
+        ]
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -69,16 +119,16 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Alex Angas`,
+        short_name: `Alex Angas`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        // edit below
         icon: `content/assets/alex2017b_small_adj2_2.png`,
       },
     },
+    `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
