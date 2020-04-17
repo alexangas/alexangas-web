@@ -1,5 +1,5 @@
 {
-  "name": "alexangas-blog",
+  "name": "alexangas-web",
   "private": true,
   "description": "Based on the personal blog starter for a blog powered by Netlify CMS",
   "version": "1.0.0",
@@ -7,7 +7,7 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.5.8",
     "@mdx-js/react": "^1.5.8",
-    "gatsby": "2.20.9",
+    "gatsby": "^2.20.9",
     "gatsby-image": "^2.3.2",
     "gatsby-plugin-feed-mdx": "^1.0.1",
     "gatsby-plugin-google-analytics": "^2.2.2",
@@ -54,6 +54,10 @@
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "up": "docker-compose up --build",
+    "stop": "docker-compose stop",
+    "docker-build": "docker build -t alexangas/alexangas-web .",
+    "docker-run": "docker run --rm -p 8000:8000 alexangas/alexangas-web:latest"
   }
 }
