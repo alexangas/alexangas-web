@@ -1,40 +1,44 @@
 import React from "react"
 import PropTypes from "prop-types"
-
-// Components
 import { Link, graphql } from "gatsby"
 
-const Tags = ({ pageContext, data }) => {
-  const { tag } = pageContext
-  const { edges, totalCount } = data.allMdx
-  const tagHeader = `${totalCount} post${
-    totalCount === 1 ? "" : "s"
-  } tagged with "${tag}"`
+import Layout from "../components/layout"
+import SEO from "../components/seo"
 
-  return (
-    <div>
-      <h1>{tagHeader}</h1>
-      <ul>
-        {edges.map(({ node }) => {
-          const { slug } = node.fields
-          const { title } = node.frontmatter
-          return (
-            <li key={slug}>
-              <Link to={`blog${slug}`}>{title}</Link>
-            </li>
-          )
-        })}
-      </ul>
-      {/*
-              This links to a page that does not yet exist.
-              You'll come back to it!
-            */}
-      <Link to="blog/tags">All tags</Link>
-    </div>
-  )
+class TagTemplate extends React.Component {
+  render() {
+    const { pageContext, data } = this.props
+    const { tag } = pageContext
+    const { edges, totalCount } = data.allMdx
+    const siteTitle = `${tag} tag`
+    const tagHeader = `${totalCount} post${
+      totalCount === 1 ? "" : "s"
+    } tagged with "${tag}"`
+
+    return (
+      <Layout location={this.props.location} title={siteTitle}>
+        <SEO
+          title={siteTitle}
+        />
+        <h1>{tagHeader}</h1>
+        <ul>
+          {edges.map(({ node }) => {
+            const { slug } = node.fields
+            const { title } = node.frontmatter
+            return (
+              <li key={slug}>
+                <Link to={`blog${slug}`}>{title}</Link>
+              </li>
+            )
+          })}
+        </ul>
+        <Link to="blog/tags">All tags</Link>
+      </Layout>
+    );
+  }
 }
 
-Tags.propTypes = {
+TagTemplate.propTypes = {
   pageContext: PropTypes.shape({
     tag: PropTypes.string.isRequired,
   }),
@@ -57,7 +61,7 @@ Tags.propTypes = {
   }),
 }
 
-export default Tags
+export default TagTemplate
 
 export const pageQuery = graphql`
   query($tag: String) {
