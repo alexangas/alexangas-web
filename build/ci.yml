@@ -1,0 +1,16 @@
+pool:
+  vmImage: "ubuntu-latest"
+
+jobs:
+  - job: InstallNpm
+    displayName: Install npm
+    template: ./_install.yml
+
+  - job: Build
+    template: ./_build.yml
+    parameters:
+      publish: false
+
+  - job: UnitTests
+    displayName: Run unit tests
+    template: ./_unit-tests.yml
