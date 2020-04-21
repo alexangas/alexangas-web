@@ -8,12 +8,14 @@ import SEO from "../../components/seo"
 
 class TagsPage extends React.Component {
   render() {
-    const { data: {
-      allMdx: { group },
-      site: {
-        siteMetadata: { title },
+    const {
+      data: {
+        allMdx: { group },
+        site: {
+          siteMetadata: { title },
+        },
       },
-    } } = this.props
+    } = this.props
 
     return (
       <Layout location={this.props.location} title={title}>
@@ -31,7 +33,7 @@ class TagsPage extends React.Component {
           </ul>
         </div>
       </Layout>
-    );
+    )
   }
 }
 

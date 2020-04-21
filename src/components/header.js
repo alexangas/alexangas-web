@@ -1,21 +1,10 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import { rhythm, scale } from "../utils/typography"
+import { scale } from "../utils/typography"
 
-const Header = (props) => {
-  const data = useStaticQuery(graphql`
-    query HeaderQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
+export const PureHeader = ({ location, data }) => {
   const { title } = data.site.siteMetadata
 
-  const { location } = props
   const rootPath = `${__PATH_PREFIX__}/`
   const blogPath = `${__PATH_PREFIX__}/blog/`
   const headerLinkStyle = {
@@ -54,6 +43,20 @@ const Header = (props) => {
   }
 
   return <header>{header}</header>
+}
+
+export const Header = props => {
+  const data = useStaticQuery(graphql`
+    query HeaderQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
+
+  return <PureHeader {...props} data={data} />
 }
 
 export default Header

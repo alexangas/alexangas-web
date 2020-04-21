@@ -17,9 +17,7 @@ class TagTemplate extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO
-          title={siteTitle}
-        />
+        <SEO title={siteTitle} />
         <h1>{tagHeader}</h1>
         <ul>
           {edges.map(({ node }) => {
@@ -34,7 +32,7 @@ class TagTemplate extends React.Component {
         </ul>
         <Link to="blog/tags">All tags</Link>
       </Layout>
-    );
+    )
   }
 }
 

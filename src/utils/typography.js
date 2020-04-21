@@ -25,7 +25,7 @@ noriegaTheme.overrideThemeStyles = ({ rhythm }) => ({
     borderRadius: rhythm(1 / 4),
   },
   "a:hover": {
-    textDecoration: "underline"
+    textDecoration: "underline",
   },
   "a.link-button:hover": {
     boxShadow: "inset 0 0 100px 100px rgba(255, 255, 255, 0.25)",
@@ -39,34 +39,34 @@ noriegaTheme.overrideThemeStyles = ({ rhythm }) => ({
     marginBottom: rhythm(1),
   },
   ".bio p": {
-    marginBottom: 0
+    marginBottom: 0,
   },
   ".tag-list": {
     margin: 0,
-    listStyle: "none"
+    listStyle: "none",
   },
   ".tag-list li": {
     display: "inline",
     margin: 0,
-    padding: 0
+    padding: 0,
   },
   ".blog__post--summary": {
-    marginBottom: rhythm(1)
+    marginBottom: rhythm(1),
   },
   ".blog__post--summary p": {
-    marginBottom: 0
+    marginBottom: 0,
   },
   ".blog__post--summary h3, .blog__post--article h1": {
-    marginBottom: rhythm(1 / 8)
+    marginBottom: rhythm(1 / 8),
   },
   ".blog__post--article header": {
-    marginBottom: rhythm(1)
+    marginBottom: rhythm(1),
   },
   ".blog__post--article small": {
-    display: "block"
+    display: "block",
   },
   ".blog__post--article hr": {
-    marginBottom: rhythm(1)
+    marginBottom: rhythm(1),
   },
   ".blog__post--nav ul": {
     display: `flex`,
@@ -74,12 +74,12 @@ noriegaTheme.overrideThemeStyles = ({ rhythm }) => ({
     justifyContent: `space-between`,
     margin: 0,
     padding: 0,
-    listStyle: `none`
+    listStyle: `none`,
   },
   ".blog__post--nav ul li": {
     marginBottom: 0,
-    fontSize: rhythm(3 / 5)
-  }
+    fontSize: rhythm(3 / 5),
+  },
 })
 
 delete noriegaTheme.googleFonts
