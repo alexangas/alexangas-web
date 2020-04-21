@@ -8,13 +8,13 @@ exports.createPages = async ({ graphql, actions }) => {
   createRedirect({
     fromPath: `/improving-entity-framework-performance`,
     isPermanent: true,
-    toPath: `/blog/improving-entity-framework-performance`
+    toPath: `/blog/improving-entity-framework-performance`,
   })
 
   createRedirect({
     fromPath: `/common-nvda-keyboard-shortcuts-for-web-developers`,
     isPermanent: true,
-    toPath: `/blog/common-nvda-keyboard-shortcuts-for-web-developers`
+    toPath: `/blog/common-nvda-keyboard-shortcuts-for-web-developers`,
   })
 
   const result = await graphql(
@@ -70,7 +70,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // Make tag pages
   const tagTemplate = path.resolve(`./src/templates/tags.js`)
   const tags = result.data.tagsGroup.group
-  tags.forEach(tag => {
+  tags.forEach((tag) => {
     createPage({
       path: `blog/tags/${_.kebabCase(tag.fieldValue)}/`,
       component: tagTemplate,

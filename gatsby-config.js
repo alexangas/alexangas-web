@@ -32,12 +32,12 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMdx } }) => {
-              return allMdx.edges.map(edge => {
+              return allMdx.edges.map((edge) => {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + "/blog" + edge.node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + "/blog" + edge.node.fields.slug,
+                  url: `${site.siteMetadata.siteUrl}/blog${edge.node.fields.slug}`,
+                  guid: `${site.siteMetadata.siteUrl}/blog${edge.node.fields.slug}`,
                 })
               })
             },
@@ -63,9 +63,9 @@ module.exports = {
             `,
             output: "/rss.xml",
             title: "Alex Angas",
-          }
-        ]
-      }
+          },
+        ],
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -136,6 +136,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-sitemap`,
-    `gatsby-plugin-meta-redirect` // make sure to put last in the array
+    `gatsby-plugin-meta-redirect`, // make sure to put last in the array
   ],
 }

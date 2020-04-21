@@ -38,7 +38,12 @@
     "typography-theme-noriega": "^0.16.19"
   },
   "devDependencies": {
-    "prettier": "^2.0.4"
+    "babel-jest": "^25.4.0",
+    "babel-preset-gatsby": "^0.3.3",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^25.4.0",
+    "prettier": "^2.0.4",
+    "react-test-renderer": "^16.13.1"
   },
   "homepage": "https://www.alexangas.com",
   "keywords": [
@@ -52,12 +57,11 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write src/**/*.{js,jsx}",
+    "format": "prettier --write **/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "up": "docker-compose up --build",
     "stop": "docker-compose stop",
-    "docker-build": "docker build -t alexangas/alexangas-web .",
-    "docker-run": "docker run --rm -p 8000:8000 alexangas/alexangas-web:latest"
+    "test": "jest"
   }
 }

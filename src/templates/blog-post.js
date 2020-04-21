@@ -21,12 +21,8 @@ class BlogPostTemplate extends React.Component {
         />
         <article className="blog__post--article">
           <header>
-            <h1>
-              {post.frontmatter.title}
-            </h1>
-            <small>
-              {post.frontmatter.date}
-            </small>
+            <h1>{post.frontmatter.title}</h1>
+            <small>{post.frontmatter.date}</small>
             <small>
               <TagList tags={post.frontmatter.tags} />
             </small>
