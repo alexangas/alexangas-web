@@ -6,7 +6,7 @@ const TagList = ({ tags }) => (
   <ul className="tag-list">
     {tags.map((tag, index) => (
       <li key={tag}>
-        <Link to={`blog/tags/${kebabCase(tag)}/`}>{tag}</Link>
+        <Link to={`/blog/tags/${kebabCase(tag)}/`}>{tag}</Link>
         {index < tags.length - 1 ? `, ` : ``}
       </li>
     ))}

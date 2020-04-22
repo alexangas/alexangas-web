@@ -25,7 +25,7 @@ class TagsPage extends React.Component {
           <ul>
             {group.map((tag) => (
               <li key={tag.fieldValue}>
-                <Link to={`blog/tags/${kebabCase(tag.fieldValue)}/`}>
+                <Link to={`/blog/tags/${kebabCase(tag.fieldValue)}/`}>
                   {tag.fieldValue} ({tag.totalCount})
                 </Link>
               </li>

@@ -106,14 +106,14 @@ noriegaTheme.overrideThemeStyles = ({ rhythm }) => ({
     a: {
       color: `#19A3FF`,
     },
-    img:{
+    img: {
       opacity: 0.85,
-      transition: "opacity .25s ease-in-out"
+      transition: "opacity .25s ease-in-out",
     },
     "img:hover": {
-  opacity: 1
-}
-  }
+      opacity: 1,
+    },
+  },
 })
 
 delete noriegaTheme.googleFonts

@@ -23,7 +23,7 @@ class Blog extends React.Component {
             return (
               <div className="blog__post--summary" key={node.fields.slug}>
                 <h3>
-                  <Link to={`blog${node.fields.slug}`}>{title}</Link>
+                  <Link to={`/blog${node.fields.slug}`}>{title}</Link>
                 </h3>
                 {/* <small>{node.frontmatter.date}</small> */}
                 <p
