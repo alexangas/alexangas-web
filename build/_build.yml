@@ -1,0 +1,24 @@
+parameters:
+  - name: publish
+    type: boolean
+    default: true
+
+steps:
+  - template: ./_install.yml
+
+  - script: |
+      npm install -g gatsby-cli
+    displayName: "npm install gatsby-cli"
+
+  - script: |
+      gatsby build
+    displayName: "gatsby build"
+
+  - ${{ if eq(parameters.publish, true) }}:
+    - task: PublishBuildArtifacts@1
+      condition: eq(parameters.publish, true)
+      displayName: "Public build artifacts"
+      inputs:
+        PathtoPublish: "$(Build.SourcesDirectory)/public"
+        ArtifactName: "drop"
+        publishLocation: "Container"

@@ -1,0 +1,17 @@
+trigger:
+  - master
+
+variables:
+  npm_config_cache: $(Pipeline.Workspace)/.npm
+
+jobs:
+  - job: Build
+    pool: Default
+    steps:
+    - template: ./_build.yml
+
+  - job: Test
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+    - template: ./_unit-tests.yml
