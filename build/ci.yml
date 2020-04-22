@@ -9,8 +9,6 @@ jobs:
     pool: Default
     steps:
     - template: ./_build.yml
-      parameters:
-        publish: false
 
   - job: Test
     pool:
