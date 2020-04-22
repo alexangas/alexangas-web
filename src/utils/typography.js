@@ -98,6 +98,22 @@ noriegaTheme.overrideThemeStyles = ({ rhythm }) => ({
     marginBottom: 0,
     fontSize: rhythm(3 / 5),
   },
+  "@media (prefers-color-scheme: dark)": {
+    body: {
+      backgroundColor: `hsla(0,0%,0%,0.9)`,
+      color: `rgb(255, 255, 255, 0.9)`,
+    },
+    a: {
+      color: `#19A3FF`,
+    },
+    img:{
+      opacity: 0.85,
+      transition: "opacity .25s ease-in-out"
+    },
+    "img:hover": {
+  opacity: 1
+}
+  }
 })
 
 delete noriegaTheme.googleFonts
