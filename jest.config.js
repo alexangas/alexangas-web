@@ -12,6 +12,6 @@ module.exports = {
     __PATH_PREFIX__: ``,
   },
   setupFiles: [`<rootDir>/loadershim.js`],
-  reporters: [ "default", "jest-junit" ],
-  coverageReporters: [ "cobertura", "html" ],
+  reporters: ["default", "jest-junit"],
+  coverageReporters: ["cobertura", "html"],
 }

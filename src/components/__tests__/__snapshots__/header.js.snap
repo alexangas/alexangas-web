@@ -12,12 +12,6 @@ exports[`Header renders blog path correctly 1`] = `
   >
     <a
       href="/blog/"
-      style={
-        Object {
-          "color": "inherit",
-          "textDecorationLine": "none",
-        }
-      }
     >
       Name of Blog
     </a>
@@ -27,21 +21,9 @@ exports[`Header renders blog path correctly 1`] = `
 
 exports[`Header renders non-blog path correctly 1`] = `
 <header>
-  <h3
-    style={
-      Object {
-        "marginTop": 0,
-      }
-    }
-  >
+  <h3>
     <a
       href="/blog/"
-      style={
-        Object {
-          "color": "inherit",
-          "textDecorationLine": "none",
-        }
-      }
     >
       Some Page
     </a>
@@ -61,12 +43,6 @@ exports[`Header renders root path correctly 1`] = `
   >
     <a
       href="/"
-      style={
-        Object {
-          "color": "inherit",
-          "textDecorationLine": "none",
-        }
-      }
     >
       Name of Blog
     </a>

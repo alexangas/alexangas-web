@@ -13,9 +13,11 @@ describe("Header", () => {
       },
     }
     const location = {
-        pathname: '/'
+      pathname: "/",
     }
-    const testRenderer = renderer.create(<Header location={location} data={data} />)
+    const testRenderer = renderer.create(
+      <Header location={location} data={data} />
+    )
     const tree = testRenderer.toJSON()
     expect(tree).toMatchSnapshot()
   })
@@ -29,9 +31,11 @@ describe("Header", () => {
       },
     }
     const location = {
-      pathname: '/blog/'
+      pathname: "/blog/",
     }
-    const testRenderer = renderer.create(<Header location={location} data={data} />)
+    const testRenderer = renderer.create(
+      <Header location={location} data={data} />
+    )
     const tree = testRenderer.toJSON()
     expect(tree).toMatchSnapshot()
   })
@@ -45,9 +49,11 @@ describe("Header", () => {
       },
     }
     const location = {
-      pathname: '/some-page/'
+      pathname: "/some-page/",
     }
-    const testRenderer = renderer.create(<Header location={location} data={data} />)
+    const testRenderer = renderer.create(
+      <Header location={location} data={data} />
+    )
     const tree = testRenderer.toJSON()
     expect(tree).toMatchSnapshot()
   })

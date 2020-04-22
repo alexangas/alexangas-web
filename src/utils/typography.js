@@ -30,6 +30,15 @@ noriegaTheme.overrideThemeStyles = ({ rhythm }) => ({
   "a.link-button:hover": {
     boxShadow: "inset 0 0 100px 100px rgba(255, 255, 255, 0.25)",
   },
+  ".container": {
+    marginLeft: `auto`,
+    marginRight: `auto`,
+    maxWidth: rhythm(24),
+    padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+  },
+  "header a": {
+    color: `inherit`,
+  },
   footer: {
     marginTop: rhythm(1),
     textAlign: "center",
@@ -37,6 +46,12 @@ noriegaTheme.overrideThemeStyles = ({ rhythm }) => ({
   ".bio": {
     display: `flex`,
     marginBottom: rhythm(1),
+  },
+  ".bio .gatsby-image-wrapper": {
+    marginRight: rhythm(1 / 2),
+  },
+  ".bio img": {
+    borderRadius: `50%`,
   },
   ".bio p": {
     marginBottom: 0,
@@ -49,6 +64,9 @@ noriegaTheme.overrideThemeStyles = ({ rhythm }) => ({
     display: "inline",
     margin: 0,
     padding: 0,
+  },
+  ".blog__post--container": {
+    margin: "20px 0 40px",
   },
   ".blog__post--summary": {
     marginBottom: rhythm(1),

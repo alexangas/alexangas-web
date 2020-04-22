@@ -12,7 +12,12 @@ module.exports = {
   plugins: [
     `gatsby-plugin-netlify-cms`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaultQuality: 75,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-feed-mdx`,
