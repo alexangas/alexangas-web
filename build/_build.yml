@@ -3,8 +3,6 @@ parameters:
     type: boolean
     default: true
 
-pool: Default
-
 steps:
   - template: ./_install.yml
 

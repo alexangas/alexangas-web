@@ -8,11 +8,15 @@ stages:
   - stage: BuildStage
     jobs:
       - job: Build
-      - template: ./_build.yml
-        parameters:
-          publish: false
+        pool: Default
+        steps:
+        - template: ./_build.yml
+          parameters:
+            publish: false
 
   - stage: UnitTest
     jobs:
       - job: Test
-      - template: ./_unit-tests.yml
+        pool: "Azure Pipelines"
+        steps:
+        - template: ./_unit-tests.yml
