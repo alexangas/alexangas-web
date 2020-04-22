@@ -1,13 +1,18 @@
-pool:
-  vmImage: "ubuntu-latest"
+trigger:
+  - master
 
-jobs:
-  - job: RunCI
-    steps:
-      - template: ./_install.yml
+variables:
+  npm_config_cache: $(Pipeline.Workspace)/.npm
 
+stages:
+  - stage: BuildStage
+    jobs:
+      - job: Build
       - template: ./_build.yml
         parameters:
           publish: false
 
+  - stage: UnitTest
+    jobs:
+      - job: Test
       - template: ./_unit-tests.yml

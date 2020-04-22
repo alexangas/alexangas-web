@@ -3,7 +3,11 @@ parameters:
     type: boolean
     default: true
 
+pool: Default
+
 steps:
+  - template: ./_install.yml
+
   - script: |
       npm install -g gatsby-cli
     displayName: "npm install gatsby-cli"
