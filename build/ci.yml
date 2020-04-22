@@ -13,6 +13,7 @@ jobs:
         publish: false
 
   - job: Test
-    pool: "Azure Pipelines"
+    pool:
+      vmImage: 'ubuntu-latest'
     steps:
     - template: ./_unit-tests.yml
