@@ -4,19 +4,15 @@ trigger:
 variables:
   npm_config_cache: $(Pipeline.Workspace)/.npm
 
-stages:
-  - stage: BuildStage
-    jobs:
-      - job: Build
-        pool: Default
-        steps:
-        - template: ./_build.yml
-          parameters:
-            publish: false
+jobs:
+  - job: Build
+    pool: Default
+    steps:
+    - template: ./_build.yml
+      parameters:
+        publish: false
 
-  - stage: UnitTest
-    jobs:
-      - job: Test
-        pool: "Azure Pipelines"
-        steps:
-        - template: ./_unit-tests.yml
+  - job: Test
+    pool: "Azure Pipelines"
+    steps:
+    - template: ./_unit-tests.yml
