@@ -28,9 +28,9 @@ jobs:
       - task: AzureCLI@2
         displayName: "Sync to storage account"
         inputs:
-          azureSubscription: 'OBS-Discount-VSPremiumWithMSDN (7dd30468-7921-4c8d-975c-8920b8701ce3)'
+          azureSubscription: '$(Subscription)'
           scriptType: 'pscore'
           scriptLocation: 'inlineScript'
           inlineScript: 'az storage blob sync'
-          arguments: '--container --source "drop" --container "$web" --account-name "$(Storage)" --account-key "$(AccountKey)"'
+          arguments: '--source "drop" --container "$web" --account-name "$(Storage)" --account-key "$(AccountKey)"'
           failOnStandardError: true
