@@ -24,11 +24,10 @@ jobs:
           branchName: 'refs/heads/master'
           downloadType: 'single'
           artifactName: 'drop'
-          downloadPath: '$(System.ArtifactsDirectory)/drop'
+          downloadPath: '$(System.ArtifactsDirectory)'
       - task: Bash@3
         displayName: "Sync to storage account"
         inputs:
           targetType: 'inline'
           script: |
             $(Agent.HomeDirectory)/bin/azcopy sync '$(System.ArtifactsDirectory)/drop' 'https://$(Storage).blob.core.windows.net/$web/$(SasToken)' --recursive --delete-destination=true
-          workingDirectory: 'drop'
