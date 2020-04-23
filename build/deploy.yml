@@ -1,0 +1,15 @@
+resources:
+  pipelines:
+  - pipeline: alexangas-web
+    source: alexangas.alexangas-web-ci
+    trigger: 
+      branches:
+      - master
+
+jobs:
+  - job: Deploy
+    timeoutInMinutes: 10
+    cancelTimeoutInMinutes: 0
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
