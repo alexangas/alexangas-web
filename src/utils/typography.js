@@ -1,8 +1,5 @@
 import Typography from "typography"
 import noriegaTheme from "typography-theme-noriega"
-const CodePlugin = require("typography-plugin-code").default
-
-noriegaTheme.plugins = [new CodePlugin()]
 
 noriegaTheme.overrideThemeStyles = ({ rhythm }) => ({
   a: {
@@ -36,7 +33,16 @@ noriegaTheme.overrideThemeStyles = ({ rhythm }) => ({
     maxWidth: rhythm(24),
     padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
   },
-  "header a": {
+  table: {
+    borderStyle: "hidden",
+  },
+  "th, td": {
+    border: `1px solid hsla(0,0%,0%,0.12)`,
+  },
+  "th > p, td > p": {
+    marginBottom: 0,
+  },
+  "header h1 a, header h2 a, header h3 a": {
     color: `inherit`,
   },
   footer: {
@@ -112,6 +118,9 @@ noriegaTheme.overrideThemeStyles = ({ rhythm }) => ({
     },
     "img:hover": {
       opacity: 1,
+    },
+    "th, td": {
+      borderColor: `rgb(255, 255, 255, 0.2)`,
     },
   },
 })

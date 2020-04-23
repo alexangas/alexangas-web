@@ -1,3 +1,5 @@
+const tables = require(`remark-grid-tables`)
+
 module.exports = {
   siteMetadata: {
     title: `Alex Angas`,
@@ -87,6 +89,14 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          `gatsby-remark-prismjs`,
+        ],
+      },
+    },
+    {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [".mdx", ".md"],
@@ -113,6 +123,7 @@ module.exports = {
             resolve: `gatsby-remark-smartypants`,
           },
         ],
+        remarkPlugins: [tables],
       },
     },
     {
