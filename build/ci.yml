@@ -6,11 +6,16 @@ variables:
 
 jobs:
   - job: Build
-    pool: Default
+    timeoutInMinutes: 10
+    cancelTimeoutInMinutes: 1
+    pool:
+      vmImage: 'ubuntu-latest'
     steps:
-    - template: ./_build.yml
+      - template: ./_build.yml
 
   - job: Test
+    timeoutInMinutes: 10
+    cancelTimeoutInMinutes: 1
     pool:
       vmImage: 'ubuntu-latest'
     steps:
