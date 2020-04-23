@@ -14,6 +14,7 @@ jobs:
       vmImage: 'ubuntu-latest'
     steps:
       - task: DownloadBuildArtifacts@0
+        displayName: "Download build artifacts"
         inputs:
           buildType: 'specific'
           project: '$(ProjectId)'
@@ -25,6 +26,7 @@ jobs:
           artifactName: 'drop'
           downloadPath: '$(System.ArtifactsDirectory)/drop'
       - task: AzureCLI@2
+        displayName: "Sync to storage account"
         inputs:
           azureSubscription: '$(Subscription)'
           scriptType: 'pscore'
