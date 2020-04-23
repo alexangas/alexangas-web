@@ -11,7 +11,7 @@ jobs:
     timeoutInMinutes: 10
     cancelTimeoutInMinutes: 0
     pool:
-      vmImage: 'ubuntu-latest'
+      vmImage: 'windows-latest'
     steps:
       - task: DownloadBuildArtifacts@0
         displayName: "Download build artifacts"
@@ -25,9 +25,10 @@ jobs:
           downloadType: 'single'
           artifactName: 'drop'
           downloadPath: '$(System.ArtifactsDirectory)'
-      - task: Bash@3
+      - task: PowerShell@2
         displayName: "Sync to storage account"
         inputs:
           targetType: 'inline'
           script: |
-            /home/vsts/bin/azcopy sync '$(System.ArtifactsDirectory)/drop' 'https://$(Storage).blob.core.windows.net/$web/$(SasToken)' --recursive --delete-destination=true
+            azcopy sync '$(System.ArtifactsDirectory)/drop' 'https://$(Storage).blob.core.windows.net/$web/$(SasToken)' --recursive --delete-destination=true
+          pwsh: true
