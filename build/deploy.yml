@@ -31,5 +31,5 @@ jobs:
           azureSubscription: 'OBS-Discount-VSPremiumWithMSDN (7dd30468-7921-4c8d-975c-8920b8701ce3)'
           scriptType: 'pscore'
           scriptLocation: 'inlineScript'
-          inlineScript: 'az storage blob sync --source "." --container "`$web" --account-name "$(Storage)" --account-key "$(AccountKey)"'
+          inlineScript: 'az storage blob sync --source "." --include-pattern "**/*" --container "`$web" --account-name "$(Storage)" --account-key "$(AccountKey)"'
           workingDirectory: 'drop'
