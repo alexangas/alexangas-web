@@ -30,4 +30,4 @@ jobs:
         inputs:
           targetType: 'inline'
           script: |
-            $(Agent.HomeDirectory)/bin/azcopy sync '$(System.ArtifactsDirectory)/drop' 'https://$(Storage).blob.core.windows.net/$web/$(SasToken)' --recursive --delete-destination=true
+            /home/vsts/bin/azcopy sync '$(System.ArtifactsDirectory)/drop' 'https://$(Storage).blob.core.windows.net/$web/$(SasToken)' --recursive --delete-destination=true
