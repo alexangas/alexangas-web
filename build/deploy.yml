@@ -34,6 +34,5 @@ jobs:
             Expand-Archive "./azcopy.zip" -DestinationPath "./azcopy"
             $azCopyFullPath = $(Get-ChildItem azcopy.exe -Recurse -Path "./azcopy").FullName
             Write-Host $azCopyFullPath
-            # echo "##vso[task.setvariable variable=azCopyFullPath]$azCopyFullPath"
-            Start-Process -FilePath "azcopy" -WorkingDirectory "$azCopyFullPath" -Wait -ArgumentList "sync '$(System.ArtifactsDirectory)/drop' 'https://$(Storage).blob.core.windows.net/`$web/$(SasToken)' --recursive --delete-destination=true"
+            Start-Process -FilePath "azcopy.exe" -WorkingDirectory $azCopyFullPath -Wait -ArgumentList "sync '$(System.ArtifactsDirectory)/drop' 'https://$(Storage).blob.core.windows.net/`$web/$(SasToken)' --recursive --delete-destination=true"
           pwsh: false
