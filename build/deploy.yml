@@ -13,8 +13,16 @@ jobs:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
-      - download: current
-        artifact: 'drop'
+      - task: DownloadPipelineArtifact@2
+        inputs:
+          buildType: 'specific'
+          project: '$(ProjectId)'
+          definition: '$(ProjectDefinition)'
+          specificBuildWithTriggering: true
+          buildVersionToDownload: 'latestFromBranch'
+          branchName: 'refs/heads/master'
+          artifactName: 'drop'
+          targetPath: '$(Pipeline.Workspace)'
       - task: AzureFileCopy@4
         inputs:
           SourcePath: 'drop'
