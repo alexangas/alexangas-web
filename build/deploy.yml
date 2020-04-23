@@ -1,6 +1,6 @@
 resources:
   pipelines:
-  - pipeline: alexangas-web
+  - pipeline: alexangasweb
     source: alexangas.alexangas-web-ci
     trigger: 
       branches:
@@ -13,3 +13,13 @@ jobs:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
+      - download: current
+        artifact: 'drop'
+      - task: AzureFileCopy@4
+        inputs:
+          SourcePath: 'drop'
+          azureSubscription: '$(Subscription)'
+          Destination: 'AzureBlob'
+          storage: '$(Storage)'
+          ContainerName: '$web'
+          sasTokenTimeOutInMinutes: '10'
