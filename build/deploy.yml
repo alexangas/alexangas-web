@@ -7,42 +7,7 @@ resources:
       - master
 
 jobs:
-  # - job: DeployWindows
-  #   timeoutInMinutes: 10
-  #   cancelTimeoutInMinutes: 0
-  #   pool:
-  #     vmImage: 'windows-latest'
-  #   steps:
-  #     - task: DownloadBuildArtifacts@0
-  #       displayName: 'Download build artifacts'
-  #       inputs:
-  #         buildType: 'specific'
-  #         project: '$(ProjectId)'
-  #         pipeline: '$(ProjectDefinition)'
-  #         specificBuildWithTriggering: true
-  #         buildVersionToDownload: 'latestFromBranch'
-  #         branchName: 'refs/heads/master'
-  #         downloadType: 'single'
-  #         artifactName: 'drop'
-  #         downloadPath: '$(System.ArtifactsDirectory)'
-  #     - template: ./_pwsh.yml
-  #       parameters:
-  #         options: "sync '$(System.ArtifactsDirectory)/drop' 'https://azcopyplay.blob.core.windows.net/`$web/?sv=2019-02-02&ss=b&srt=sco&sp=rwdlac&se=2020-04-24T22:52:37Z&st=2020-04-24T14:52:37Z&spr=https&sig=TDBKpGOGviylnRxbs5PLQjgOmObW6NHr6l4ALEUHV3U%3D'"
   - job: DeployLinux
       pool: Default
       steps:
-        # - task: DownloadBuildArtifacts@0
-        #   displayName: 'Download build artifacts'
-        #   inputs:
-        #     buildType: 'specific'
-        #     project: '$(ProjectId)'
-        #     pipeline: '$(ProjectDefinition)'
-        #     specificBuildWithTriggering: true
-        #     buildVersionToDownload: 'latestFromBranch'
-        #     branchName: 'refs/heads/master'
-        #     downloadType: 'single'
-        #     artifactName: 'drop'
-        #     downloadPath: '$(System.ArtifactsDirectory)'
         - template: ./_pwsh.yml
-          parameters:
-            options: "sync '$(System.ArtifactsDirectory)/drop' 'https://azcopyplay.blob.core.windows.net/`$web/?sv=2019-02-02&ss=b&srt=sco&sp=rwdlac&se=2020-04-24T22:52:37Z&st=2020-04-24T14:52:37Z&spr=https&sig=TDBKpGOGviylnRxbs5PLQjgOmObW6NHr6l4ALEUHV3U%3D'"
