@@ -7,7 +7,7 @@ parameters:
 steps:
   - task: PowerShell@2
     displayName: "azcopy Windows"
-    condition: eq(variables['Agent.OS'], 'Windows_NT'))
+    condition: eq(variables['Agent.OS'], 'Windows_NT')
     inputs:
       pwsh: true
       targetType: 'inline'
@@ -19,7 +19,7 @@ steps:
 
   - task: PowerShell@2
     displayName: "azcopy Linux"
-    condition: eq(variables['Agent.OS'], 'Linux'))
+    condition: eq(variables['Agent.OS'], 'Linux')
     inputs:
       pwsh: true
       targetType: 'inline'
