@@ -1,0 +1,29 @@
+parameters:
+  - name: options
+    displayName: 'Options to pass to azcopy'
+    type: string
+    default: "--version"
+
+- task: PowerShell@2
+  displayName: "azcopy Windows"
+  condition: eq(variables['Agent.OS'], 'Windows_NT'))
+  pwsh: true
+  inputs:
+    targetType: 'inline'
+    script: |
+      Invoke-WebRequest "https://aka.ms/downloadazcopy-v10-windows" -OutFile "./azcopy.zip"
+      Expand-Archive "./azcopy.zip" -Force
+      $azCopy = Get-ChildItem "azcopy*" -Recurse -File | Where-Object { $_.FullName -like "*azcopy_win*" } | Select-Object $_.FullName
+      Start-Process -FilePath $azCopy -Wait -NoNewWindow -ArgumentList "${{ parameters.options }}"
+
+- task: PowerShell@2
+  displayName: "azcopy Linux"
+  condition: eq(variables['Agent.OS'], 'Linux'))
+  pwsh: true
+  inputs:
+    targetType: 'inline'
+    script: |
+      Invoke-WebRequest "https://aka.ms/downloadazcopy-v10-linux" -OutFile "./azcopy.tar.gz"
+      tar -zxf "./azcopy.tar.gz"
+      $azCopy = Get-ChildItem "azcopy*" -Recurse -File | Where-Object { $_.FullName -like "*azcopy_linux*" } | Select-Object $_.FullName
+      Start-Process -FilePath $azCopy -Wait -NoNewWindow -ArgumentList "${{ parameters.options }}"

@@ -7,7 +7,7 @@ resources:
       - master
 
 jobs:
-  - job: Deploy
+  - job: DeployWindows
     timeoutInMinutes: 10
     cancelTimeoutInMinutes: 0
     pool:
@@ -25,14 +25,24 @@ jobs:
           downloadType: 'single'
           artifactName: 'drop'
           downloadPath: '$(System.ArtifactsDirectory)'
-      - task: PowerShell@2
-        displayName: "Download azcopy"
+      - template: ./_pwsh.yml
+  - job: DeployLinux
+    timeoutInMinutes: 10
+    cancelTimeoutInMinutes: 0
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+      - task: DownloadBuildArtifacts@0
+        displayName: "Download build artifacts"
         inputs:
-          targetType: 'inline'
-          script: |
-            Invoke-WebRequest "https://aka.ms/downloadazcopy-v10-windows" -OutFile "./azcopy.zip"
-            Expand-Archive "./azcopy.zip" -DestinationPath "./azcopy"
-            $azCopyFullPath = $(Get-ChildItem azcopy.exe -Recurse -Path "./azcopy").FullName
-            Write-Host $azCopyFullPath
-            Start-Process -FilePath "azcopy.exe" -WorkingDirectory $azCopyFullPath -Wait -ArgumentList "sync '$(System.ArtifactsDirectory)/drop' 'https://$(Storage).blob.core.windows.net/`$web/$(SasToken)' --recursive --delete-destination=true"
-          pwsh: false
+          buildType: 'specific'
+          project: '$(ProjectId)'
+          pipeline: '$(ProjectDefinition)'
+          specificBuildWithTriggering: true
+          buildVersionToDownload: 'latestFromBranch'
+          branchName: 'refs/heads/master'
+          downloadType: 'single'
+          artifactName: 'drop'
+          downloadPath: '$(System.ArtifactsDirectory)'
+      - template: ./_pwsh.yml
+    
