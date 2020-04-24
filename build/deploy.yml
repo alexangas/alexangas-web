@@ -8,6 +8,6 @@ resources:
 
 jobs:
   - job: DeployLinux
-      pool: Default
-      steps:
-        - template: ./_pwsh.yml
+    pool: Default
+    steps:
+      - template: ./_pwsh.yml
