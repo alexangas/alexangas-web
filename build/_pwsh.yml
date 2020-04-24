@@ -8,8 +8,8 @@ steps:
   - task: PowerShell@2
     displayName: "azcopy Windows"
     condition: eq(variables['Agent.OS'], 'Windows_NT'))
-    pwsh: true
     inputs:
+      pwsh: true
       targetType: 'inline'
       script: |
         Invoke-WebRequest "https://aka.ms/downloadazcopy-v10-windows" -OutFile "./azcopy.zip"
@@ -20,8 +20,8 @@ steps:
   - task: PowerShell@2
     displayName: "azcopy Linux"
     condition: eq(variables['Agent.OS'], 'Linux'))
-    pwsh: true
     inputs:
+      pwsh: true
       targetType: 'inline'
       script: |
         Invoke-WebRequest "https://aka.ms/downloadazcopy-v10-linux" -OutFile "./azcopy.tar.gz"
