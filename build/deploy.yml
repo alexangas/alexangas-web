@@ -45,4 +45,5 @@ jobs:
           artifactName: 'drop'
           downloadPath: '$(System.ArtifactsDirectory)'
       - template: ./_pwsh.yml
-    
+        parameters:
+          options: 'sync "$(System.ArtifactsDirectory)/drop" "https://azcopyplay.blob.core.windows.net/`$web/?sv=2019-02-02&ss=b&srt=sco&sp=rwdlac&se=2020-04-24T22:52:37Z&st=2020-04-24T14:52:37Z&spr=https&sig=TDBKpGOGviylnRxbs5PLQjgOmObW6NHr6l4ALEUHV3U%3D"'
