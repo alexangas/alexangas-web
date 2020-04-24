@@ -24,6 +24,7 @@ steps:
       pwsh: true
       targetType: 'inline'
       script: |
+        pause
         Invoke-WebRequest "https://aka.ms/downloadazcopy-v10-linux" -OutFile "./azcopy.tar.gz"
         tar -zxf "./azcopy.tar.gz"
         $azCopy = Get-ChildItem "azcopy*" -Recurse -File | Where-Object { $_.FullName -like "*azcopy_linux*" } | Select-Object $_.FullName
