@@ -59,4 +59,4 @@ steps:
         $z = Get-ChildItem ${{ parameters.source }} -Recurse
         $z
         Write-Host $z
-        Start-Process -FilePath $azCopy -Wait -NoNewWindow -ArgumentList '${{ parameters.verb }}','${{ parameters.source }}','${{ parameters.destination }}${{ parameters.destinationsas }}','${{ parameters.flags }}'
+        Start-Process -FilePath $azCopy -Wait -NoNewWindow -ArgumentList "${{ parameters.verb }}","${{ parameters.source }}","${{ parameters.destination }}${{ parameters.destinationsas }}","${{ parameters.flags }}"
