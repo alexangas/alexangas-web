@@ -7,47 +7,39 @@ resources:
       - master
 
 jobs:
-  - job: DeployOne
+  - job: DeployTwo
     pool:
       vmImage: 'windows-latest'
+    dependsOn: DeployOne
     condition: succeededOrFailed()
     steps:
       - template: ./_pwsh.yml
         parameters:
-          options: "sync '$(System.ArtifactsDirectory)/drop' 'https://azcopyplay.blob.core.windows.net/`$web/?sv=2019-10-10&ss=b&srt=sco&sp=rwdlac&se=2021-04-30T23:13:25Z&st=2020-04-30T15:13:25Z&spr=https&sig=%2Bfnsun00qTpHEQ0GNYzUXUF8Mul2rji37WGrizK8hQc%3D'"
-  - job: DeployTwo
+          options: 'sync "$(System.ArtifactsDirectory)\drop" "https://azcopyplay.blob.core.windows.net/`$web/?sv=2019-10-10&ss=b&srt=sco&sp=rwdlac&se=2021-04-30T23:13:25Z&st=2020-04-30T15:13:25Z&spr=https&sig=%2Bfnsun00qTpHEQ0GNYzUXUF8Mul2rji37WGrizK8hQc%3D"'
+  - job: DeployTwoLinux
     pool:
-      vmImage: 'windows-latest'
+      vmImage: 'ubuntu-latest'
+    dependsOn: DeployTwo
     condition: succeededOrFailed()
-    dependsOn: DeployOne
     steps:
       - template: ./_pwsh.yml
         parameters:
           options: 'sync "$(System.ArtifactsDirectory)/drop" "https://azcopyplay.blob.core.windows.net/`$web/?sv=2019-10-10&ss=b&srt=sco&sp=rwdlac&se=2021-04-30T23:13:25Z&st=2020-04-30T15:13:25Z&spr=https&sig=%2Bfnsun00qTpHEQ0GNYzUXUF8Mul2rji37WGrizK8hQc%3D"'
-  - job: DeployThree
+  - job: DeployTwoMac
     pool:
-      vmImage: 'windows-latest'
+      vmImage: 'macOS-latest'
+    dependsOn: DeployTwoLinux
     condition: succeededOrFailed()
-    dependsOn: DeployTwo
     steps:
       - template: ./_pwsh.yml
         parameters:
-          options: "sync ''$(System.ArtifactsDirectory)/drop'' ''https://azcopyplay.blob.core.windows.net/`$web/?sv=2019-10-10&ss=b&srt=sco&sp=rwdlac&se=2021-04-30T23:13:25Z&st=2020-04-30T15:13:25Z&spr=https&sig=%2Bfnsun00qTpHEQ0GNYzUXUF8Mul2rji37WGrizK8hQc%3D''"
-  - job: DeployFour
-    pool:
-      vmImage: 'windows-latest'
-    condition: succeededOrFailed()
-    dependsOn: DeployThree
-    steps:
-      - template: ./_pwsh.yml
-        parameters:
-          options: "sync '$(System.ArtifactsDirectory)/drop' 'https://azcopyplay.blob.core.windows.net/$web/?sv=2019-10-10&ss=b&srt=sco&sp=rwdlac&se=2021-04-30T23:13:25Z&st=2020-04-30T15:13:25Z&spr=https&sig=%2Bfnsun00qTpHEQ0GNYzUXUF8Mul2rji37WGrizK8hQc%3D'"
-  - job: DeployFive
-    pool:
-      vmImage: 'windows-latest'
-    condition: succeededOrFailed()
-    dependsOn: DeployFour
-    steps:
-      - template: ./_pwsh.yml
-        parameters:
-          options: 'sync ''$(System.ArtifactsDirectory)/drop'' ''https://azcopyplay.blob.core.windows.net/$web/?sv=2019-10-10&ss=b&srt=sco&sp=rwdlac&se=2021-04-30T23:13:25Z&st=2020-04-30T15:13:25Z&spr=https&sig=%2Bfnsun00qTpHEQ0GNYzUXUF8Mul2rji37WGrizK8hQc%3D'''
+          options: 'sync "$(System.ArtifactsDirectory)/drop" "https://azcopyplay.blob.core.windows.net/`$web/?sv=2019-10-10&ss=b&srt=sco&sp=rwdlac&se=2021-04-30T23:13:25Z&st=2020-04-30T15:13:25Z&spr=https&sig=%2Bfnsun00qTpHEQ0GNYzUXUF8Mul2rji37WGrizK8hQc%3D"'
+  # - job: DeployThree
+  #   pool:
+  #     vmImage: 'windows-latest'
+  #   dependsOn: DeployTwoMac
+  #   condition: succeededOrFailed()
+  #   steps:
+  #     - template: ./_pwsh.yml
+  #       parameters:
+  #         options: "sync ''$(System.ArtifactsDirectory)\drop'' ''https://azcopyplay.blob.core.windows.net/`$web/?sv=2019-10-10&ss=b&srt=sco&sp=rwdlac&se=2021-04-30T23:13:25Z&st=2020-04-30T15:13:25Z&spr=https&sig=%2Bfnsun00qTpHEQ0GNYzUXUF8Mul2rji37WGrizK8hQc%3D''"
