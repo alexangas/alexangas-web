@@ -8,34 +8,39 @@ resources:
 
 jobs:
   - job: DeployOne
-    pool: Default
+    pool:
+      vmImage: 'windows-latest'
     steps:
       - template: ./_pwsh.yml
         parameters:
           options: "sync '$(System.ArtifactsDirectory)/drop' 'https://azcopyplay.blob.core.windows.net/`$web/?sv=2019-10-10&ss=b&srt=sco&sp=rwdlac&se=2021-04-30T23:13:25Z&st=2020-04-30T15:13:25Z&spr=https&sig=%2Bfnsun00qTpHEQ0GNYzUXUF8Mul2rji37WGrizK8hQc%3D'"
   - job: DeployTwo
-    pool: Default
+    pool:
+      vmImage: 'windows-latest'
     dependsOn: DeployOne
     steps:
       - template: ./_pwsh.yml
         parameters:
           options: 'sync "$(System.ArtifactsDirectory)/drop" "https://azcopyplay.blob.core.windows.net/`$web/?sv=2019-10-10&ss=b&srt=sco&sp=rwdlac&se=2021-04-30T23:13:25Z&st=2020-04-30T15:13:25Z&spr=https&sig=%2Bfnsun00qTpHEQ0GNYzUXUF8Mul2rji37WGrizK8hQc%3D"'
   - job: DeployThree
-    pool: Default
+    pool:
+      vmImage: 'windows-latest'
     dependsOn: DeployTwo
     steps:
       - template: ./_pwsh.yml
         parameters:
           options: "sync ''$(System.ArtifactsDirectory)/drop'' ''https://azcopyplay.blob.core.windows.net/`$web/?sv=2019-10-10&ss=b&srt=sco&sp=rwdlac&se=2021-04-30T23:13:25Z&st=2020-04-30T15:13:25Z&spr=https&sig=%2Bfnsun00qTpHEQ0GNYzUXUF8Mul2rji37WGrizK8hQc%3D''"
   - job: DeployFour
-    pool: Default
+    pool:
+      vmImage: 'windows-latest'
     dependsOn: DeployThree
     steps:
       - template: ./_pwsh.yml
         parameters:
           options: "sync '$(System.ArtifactsDirectory)/drop' 'https://azcopyplay.blob.core.windows.net/$web/?sv=2019-10-10&ss=b&srt=sco&sp=rwdlac&se=2021-04-30T23:13:25Z&st=2020-04-30T15:13:25Z&spr=https&sig=%2Bfnsun00qTpHEQ0GNYzUXUF8Mul2rji37WGrizK8hQc%3D'"
   - job: DeployFive
-    pool: Default
+    pool:
+      vmImage: 'windows-latest'
     dependsOn: DeployFour
     steps:
       - template: ./_pwsh.yml
