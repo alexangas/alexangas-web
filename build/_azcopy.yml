@@ -12,8 +12,8 @@ parameters:
   - name: destinationsas
     displayName: 'Destination path SAS'
     type: string
-  - name: flags
-    displayName: 'Additional flags'
+  - name: options
+    displayName: 'Additional options'
     type: string
 
 steps:
@@ -27,7 +27,7 @@ steps:
         Invoke-WebRequest 'https://aka.ms/downloadazcopy-v10-windows' -OutFile './azcopy.zip'
         Expand-Archive './azcopy.zip' -Force
         $azCopy = Get-ChildItem 'azcopy*' -Recurse -File | Where-Object { $_.FullName -like '*azcopy_win*' } | Select-Object $_.FullName
-        Start-Process -FilePath $azCopy -Wait -NoNewWindow -ArgumentList "${{ parameters.command }}","${{ parameters.source }}","${{ parameters.destination }}${{ parameters.destinationsas }}","${{ parameters.flags }}"
+        Start-Process -FilePath $azCopy -Wait -NoNewWindow -ArgumentList "${{ parameters.command }}","${{ parameters.source }}","${{ parameters.destination }}${{ parameters.destinationsas }}","${{ parameters.options }}"
 
   - task: PowerShell@2
     name: azcopy_Linux
@@ -39,4 +39,4 @@ steps:
         Invoke-WebRequest 'https://aka.ms/downloadazcopy-v10-linux' -OutFile './azcopy.tar.gz'
         tar -zxf './azcopy.tar.gz'
         $azCopy = Get-ChildItem 'azcopy*' -Recurse -File | Where-Object { $_.FullName -like '*azcopy_linux*' } | Select-Object $_.FullName
-        Start-Process -FilePath $azCopy -Wait -NoNewWindow -ArgumentList "${{ parameters.command }}","${{ parameters.source }}","${{ parameters.destination }}${{ parameters.destinationsas }}","${{ parameters.flags }}"
+        Start-Process -FilePath $azCopy -Wait -NoNewWindow -ArgumentList "${{ parameters.command }}","${{ parameters.source }}","${{ parameters.destination }}${{ parameters.destinationsas }}","${{ parameters.options }}"
