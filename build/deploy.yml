@@ -15,7 +15,7 @@ jobs:
       vmImage: 'windows-latest'
     condition: succeededOrFailed()
     steps:
-      - download: current
+      - download: 'alexangasweb'
         artifact: 'drop'
       - template: ./_pwsh.yml
         parameters:
@@ -30,7 +30,7 @@ jobs:
     dependsOn: DeployTwo
     condition: succeededOrFailed()
     steps:
-      - download: current
+      - download: 'alexangasweb'
         artifact: 'drop'
       - template: ./_pwsh.yml
         parameters:
@@ -38,4 +38,4 @@ jobs:
           source: '$(System.DefaultWorkingDirectory)'
           destination: 'https://azcopyplay.blob.core.windows.net/`$web'
           destinationsas: '?sv=2019-10-10&ss=b&srt=sco&sp=rwdlac&se=2021-04-30T23:13:25Z&st=2020-04-30T15:13:25Z&spr=https&sig=%2Bfnsun00qTpHEQ0GNYzUXUF8Mul2rji37WGrizK8hQc%3D'
-          flags: '--recursive --delete-destination=true'
+          flags: '--delete-destination=true'
