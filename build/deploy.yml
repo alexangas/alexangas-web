@@ -6,6 +6,9 @@ resources:
       branches:
       - master
 
+variables:
+  System.Debug: true
+
 jobs:
   - job: DeployTwo
     pool:
@@ -16,7 +19,7 @@ jobs:
         parameters:
           verb: 'sync'
           source: '$(System.ArtifactsDirectory)\drop'
-          destination: 'https://azcopyplay.blob.core.windows.net/`$web'
+          destination: 'https://azcopyplay.blob.core.windows.net/`$web/'
           destinationsas: '?sv=2019-10-10&ss=b&srt=sco&sp=rwdlac&se=2021-04-30T23:13:25Z&st=2020-04-30T15:13:25Z&spr=https&sig=%2Bfnsun00qTpHEQ0GNYzUXUF8Mul2rji37WGrizK8hQc%3D'
           flags: '--recursive --delete-destination=true'
   - job: DeployTwoLinux
@@ -29,19 +32,6 @@ jobs:
         parameters:
           verb: 'sync'
           source: '$(System.ArtifactsDirectory)/drop'
-          destination: 'https://azcopyplay.blob.core.windows.net/`$web'
+          destination: 'https://azcopyplay.blob.core.windows.net/`$web/'
           destinationsas: '?sv=2019-10-10&ss=b&srt=sco&sp=rwdlac&se=2021-04-30T23:13:25Z&st=2020-04-30T15:13:25Z&spr=https&sig=%2Bfnsun00qTpHEQ0GNYzUXUF8Mul2rji37WGrizK8hQc%3D'
           flags: '--recursive --delete-destination=true'
-  - job: DeployCli
-    pool:
-      vmImage: 'windows-latest'
-    dependsOn: DeployTwoLinux
-    condition: succeededOrFailed()
-    steps:
-      - task: AzureCLI@2
-        inputs:
-          azureSubscription: 'OBS-Discount-VSPremiumWithMSDN (7dd30468-7921-4c8d-975c-8920b8701ce3)'
-          scriptType: 'pscore'
-          scriptLocation: 'inlineScript'
-          inlineScript: 'azcopy sync $(System.ArtifactsDirectory)\drop https://azcopyplay.blob.core.windows.net/`$web?sv=2019-10-10&ss=b&srt=sco&sp=rwdlac&se=2021-04-30T23:13:25Z&st=2020-04-30T15:13:25Z&spr=https&sig=%2Bfnsun00qTpHEQ0GNYzUXUF8Mul2rji37WGrizK8hQc%3D --recursive --delete-destination=true'
-          powerShellErrorActionPreference: 'continue'
