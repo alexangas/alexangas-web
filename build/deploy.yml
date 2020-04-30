@@ -18,8 +18,8 @@ jobs:
       - template: ./_pwsh.yml
         parameters:
           verb: 'sync'
-          source: '$(System.ArtifactsDirectory)\drop'
-          destination: 'https://azcopyplay.blob.core.windows.net/`$web/'
+          source: '$(System.DefaultWorkingDirectory)\drop'
+          destination: 'https://azcopyplay.blob.core.windows.net/`$web'
           destinationsas: '?sv=2019-10-10&ss=b&srt=sco&sp=rwdlac&se=2021-04-30T23:13:25Z&st=2020-04-30T15:13:25Z&spr=https&sig=%2Bfnsun00qTpHEQ0GNYzUXUF8Mul2rji37WGrizK8hQc%3D'
           flags: '--recursive --delete-destination=true'
   - job: DeployTwoLinux
@@ -31,7 +31,7 @@ jobs:
       - template: ./_pwsh.yml
         parameters:
           verb: 'sync'
-          source: '$(System.ArtifactsDirectory)/drop'
-          destination: 'https://azcopyplay.blob.core.windows.net/`$web/'
+          source: '$(System.DefaultWorkingDirectory)/drop'
+          destination: 'https://azcopyplay.blob.core.windows.net/`$web'
           destinationsas: '?sv=2019-10-10&ss=b&srt=sco&sp=rwdlac&se=2021-04-30T23:13:25Z&st=2020-04-30T15:13:25Z&spr=https&sig=%2Bfnsun00qTpHEQ0GNYzUXUF8Mul2rji37WGrizK8hQc%3D'
           flags: '--recursive --delete-destination=true'
