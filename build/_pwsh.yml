@@ -34,7 +34,8 @@ steps:
         Invoke-WebRequest 'https://aka.ms/downloadazcopy-v10-windows' -OutFile './azcopy.zip'
         Expand-Archive './azcopy.zip' -Force
         $azCopy = Get-ChildItem 'azcopy*' -Recurse -File | Where-Object { $_.FullName -like '*azcopy_win*' } | Select-Object $_.FullName
-        Get-ChildItem ${{ parameters.source }} -Recurse
+        Write-Host "$(Get-ChildItem ${{ parameters.source }} -Recurse | Out-String)"
+        Write-Output "$(Get-ChildItem ${{ parameters.source }} -Recurse | Out-String)"
         Start-Process -FilePath $azCopy -Wait -NoNewWindow -ArgumentList '${{ parameters.verb }}','${{ parameters.source }}','${{ parameters.destination }}${{ parameters.destinationsas }}','${{ parameters.flags }}'
 
   - task: PowerShell@2
@@ -54,5 +55,6 @@ steps:
         Invoke-WebRequest 'https://aka.ms/downloadazcopy-v10-linux' -OutFile './azcopy.tar.gz'
         tar -zxf './azcopy.tar.gz'
         $azCopy = Get-ChildItem 'azcopy*' -Recurse -File | Where-Object { $_.FullName -like '*azcopy_linux*' } | Select-Object $_.FullName
-        Get-ChildItem ${{ parameters.source }} -Recurse
+        Write-Host "$(Get-ChildItem ${{ parameters.source }} -Recurse | Out-String)"
+        Write-Output "$(Get-ChildItem ${{ parameters.source }} -Recurse | Out-String)"
         Start-Process -FilePath $azCopy -Wait -NoNewWindow -ArgumentList '${{ parameters.verb }}','${{ parameters.source }}','${{ parameters.destination }}${{ parameters.destinationsas }}','${{ parameters.flags }}'
