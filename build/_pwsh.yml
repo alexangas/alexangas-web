@@ -17,7 +17,7 @@ steps:
         Write-Host "* Arguments ($($args.count)): $args`r`n$($args | Out-String)"
         Write-Host "* Bound parameters:`r`n$($PSBoundParameters | Out-String)"
         Write-Host "* Script text:"
-        Write-Host $($_scriptText -replace '(?ms)''_ScriptDebugStart_.+_ScriptDebugEnd[\w\s''|-]+')
+        Write-Host $($_scriptText -replace '(?ms)''_ScriptDebugStart_.+_ScriptDebugEnd''[\s|]+\w+\-\w+')
         '_ScriptDebugEnd_' | Out-Null
         Invoke-WebRequest 'https://aka.ms/downloadazcopy-v10-windows' -OutFile './azcopy.zip'
         Expand-Archive './azcopy.zip' -Force
@@ -37,7 +37,7 @@ steps:
         Write-Host "* Arguments ($($args.count)): $args`r`n$($args | Out-String)"
         Write-Host "* Bound parameters:`r`n$($PSBoundParameters | Out-String)"
         Write-Host "* Script text:"
-        Write-Host $($_scriptText -replace '(?ms)''_ScriptDebugStart_.+_ScriptDebugEnd[\w\s''|-]+')
+        Write-Host $($_scriptText -replace '(?ms)''_ScriptDebugStart_.+_ScriptDebugEnd''[\s|]+\w+\-\w+')
         '_ScriptDebugEnd_' | Out-Null
         Invoke-WebRequest 'https://aka.ms/downloadazcopy-v10-linux' -OutFile './azcopy.tar.gz'
         tar -zxf './azcopy.tar.gz'
@@ -57,7 +57,7 @@ steps:
         Write-Host "* Arguments ($($args.count)): $args`r`n$($args | Out-String)"
         Write-Host "* Bound parameters:`r`n$($PSBoundParameters | Out-String)"
         Write-Host "* Script text:"
-        Write-Host $($_scriptText -replace '(?ms)''_ScriptDebugStart_.+_ScriptDebugEnd[\w\s''|-]+')
+        Write-Host $($_scriptText -replace '(?ms)''_ScriptDebugStart_.+_ScriptDebugEnd''[\s|]+\w+\-\w+')
         '_ScriptDebugEnd_' | Out-Null
         Invoke-WebRequest 'https://aka.ms/downloadazcopy-v10-mac' -OutFile './azcopy.zip'
         Expand-Archive './azcopy.zip' -Force
