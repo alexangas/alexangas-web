@@ -6,26 +6,61 @@ parameters:
 
 steps:
   - task: PowerShell@2
-    displayName: "azcopy Windows"
+    name: azcopy_Windows
     condition: eq(variables['Agent.OS'], 'Windows_NT')
     inputs:
       pwsh: true
       targetType: 'inline'
       script: |
-        Invoke-WebRequest "https://aka.ms/downloadazcopy-v10-windows" -OutFile "./azcopy.zip"
-        Expand-Archive "./azcopy.zip" -Force
-        $azCopy = Get-ChildItem "azcopy*" -Recurse -File | Where-Object { $_.FullName -like "*azcopy_win*" } | Select-Object $_.FullName
+        '_ScriptDebugStart_' | Out-Null
+        $_scriptText = Get-Content -Raw $PSCommandPath
+        Write-Host "* Arguments ($($args.count)): $args`r`n$($args | Out-String)"
+        Write-Host "* Bound parameters:`r`n$($PSBoundParameters | Out-String)"
+        Write-Host "* Script text:"
+        Write-Host $($_scriptText -replace '(?ms)''_ScriptDebugStart_.+_ScriptDebugEnd[\w\s''|-]+')
+        '_ScriptDebugEnd_' | Out-Null
+        Invoke-WebRequest 'https://aka.ms/downloadazcopy-v10-windows' -OutFile './azcopy.zip'
+        Expand-Archive './azcopy.zip' -Force
+        $azCopy = Get-ChildItem 'azcopy*' -Recurse -File | Where-Object { $_.FullName -like '*azcopy_win*' } | Select-Object $_.FullName
+        Write-Host "azCopy: $azCopy"
         Start-Process -FilePath $azCopy -Wait -NoNewWindow -ArgumentList '${{ parameters.options }}'
 
   - task: PowerShell@2
-    displayName: "azcopy Linux"
+    name: azcopy_Linux
     condition: eq(variables['Agent.OS'], 'Linux')
     inputs:
       pwsh: true
       targetType: 'inline'
       script: |
-        start-sleep -s 1500
-        Invoke-WebRequest "https://aka.ms/downloadazcopy-v10-linux" -OutFile "./azcopy.tar.gz"
-        tar -zxf "./azcopy.tar.gz"
-        $azCopy = Get-ChildItem "azcopy*" -Recurse -File | Where-Object { $_.FullName -like "*azcopy_linux*" } | Select-Object $_.FullName
+        '_ScriptDebugStart_' | Out-Null
+        $_scriptText = Get-Content -Raw $PSCommandPath
+        Write-Host "* Arguments ($($args.count)): $args`r`n$($args | Out-String)"
+        Write-Host "* Bound parameters:`r`n$($PSBoundParameters | Out-String)"
+        Write-Host "* Script text:"
+        Write-Host $($_scriptText -replace '(?ms)''_ScriptDebugStart_.+_ScriptDebugEnd[\w\s''|-]+')
+        '_ScriptDebugEnd_' | Out-Null
+        Invoke-WebRequest 'https://aka.ms/downloadazcopy-v10-linux' -OutFile './azcopy.tar.gz'
+        tar -zxf './azcopy.tar.gz'
+        $azCopy = Get-ChildItem 'azcopy*' -Recurse -File | Where-Object { $_.FullName -like '*azcopy_linux*' } | Select-Object $_.FullName
+        Write-Host "azCopy: $azCopy"
+        Start-Process -FilePath $azCopy -Wait -NoNewWindow -ArgumentList '${{ parameters.options }}'
+
+  - task: PowerShell@2
+    name: azcopy_Mac
+    condition: eq(variables['Agent.OS'], 'Darwin')
+    inputs:
+      pwsh: true
+      targetType: 'inline'
+      script: |
+        '_ScriptDebugStart_' | Out-Null
+        $_scriptText = Get-Content -Raw $PSCommandPath
+        Write-Host "* Arguments ($($args.count)): $args`r`n$($args | Out-String)"
+        Write-Host "* Bound parameters:`r`n$($PSBoundParameters | Out-String)"
+        Write-Host "* Script text:"
+        Write-Host $($_scriptText -replace '(?ms)''_ScriptDebugStart_.+_ScriptDebugEnd[\w\s''|-]+')
+        '_ScriptDebugEnd_' | Out-Null
+        Invoke-WebRequest 'https://aka.ms/downloadazcopy-v10-mac' -OutFile './azcopy.zip'
+        Expand-Archive './azcopy.zip' -Force
+        $azCopy = Get-ChildItem 'azcopy*' -Recurse -File | Where-Object { $_.FullName -like '*azcopy_darwin*' } | Select-Object $_.FullName
+        Write-Host "azCopy: $azCopy"
         Start-Process -FilePath $azCopy -Wait -NoNewWindow -ArgumentList '${{ parameters.options }}'
