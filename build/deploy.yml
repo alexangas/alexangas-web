@@ -14,13 +14,12 @@ jobs:
     steps:
       - download: 'alexangasweb'
         artifact: 'drop'
-      - template: ./_azcopy.yml
+      - template: ./_azcopy-windows.yml
         parameters:
           command: 'sync'
           source: '$(Pipeline.Workspace)\alexangasweb\drop'
           destination: 'https://azcopyplay.blob.core.windows.net/`$web'
           destinationsas: '$(SasToken)'
-          options: ''
   - job: DeployTwoLinux
     pool:
       vmImage: 'ubuntu-latest'
@@ -28,7 +27,7 @@ jobs:
     steps:
       - download: 'alexangasweb'
         artifact: 'drop'
-      - template: ./_azcopy.yml
+      - template: ./_azcopy-linux.yml
         parameters:
           command: 'sync'
           source: '$(Pipeline.Workspace)/alexangasweb/drop'
