@@ -1,36 +1,22 @@
 resources:
   pipelines:
-  - pipeline: alexangasweb
-    source: alexangas.alexangas-web-ci
+  - pipeline: $(PipelineResource)
+    source: $(PipelineDefinition)
     trigger:
       branches:
       - master
 
 jobs:
-  - job: DeployTwo
-    pool:
-      vmImage: 'windows-latest'
-    condition: succeededOrFailed()
-    steps:
-      - download: 'alexangasweb'
-        artifact: 'drop'
-      - template: ./_azcopy-windows.yml
-        parameters:
-          command: 'sync'
-          source: '$(Pipeline.Workspace)\alexangasweb\drop'
-          destination: 'https://azcopyplay.blob.core.windows.net/`$web'
-          destinationsas: '$(SasToken)'
-  - job: DeployTwoLinux
+  - job: Deploy
     pool:
       vmImage: 'ubuntu-latest'
-    condition: succeededOrFailed()
     steps:
-      - download: 'alexangasweb'
-        artifact: 'drop'
+      - download: $(PipelineResource)
+        artifact: $(ArtifactName)
       - template: ./_azcopy-linux.yml
         parameters:
           command: 'sync'
-          source: '$(Pipeline.Workspace)/alexangasweb/drop'
-          destination: 'https://azcopyplay.blob.core.windows.net/`$web'
+          source: '$(Pipeline.Workspace)/$(PipelineResource)/$(ArtifactName)'
+          destination: '$(DestinationContainer)'
           destinationsas: '$(SasToken)'
           options: '--delete-destination=true'
