@@ -12,11 +12,11 @@ jobs:
       vmImage: 'ubuntu-latest'
     steps:
       - download: alexangasweb
-        artifact: '$(ArtifactName)'
+        artifact: drop
       - template: ./_azcopy-linux.yml
         parameters:
           command: 'sync'
-          source: '$(Pipeline.Workspace)/$(PipelineResource)/$(ArtifactName)'
+          source: '$(Pipeline.Workspace)/$(PipelineResource)/drop'
           destination: '$(DestinationContainer)'
           destinationsas: '$(SasToken)'
           options: '--delete-destination=true'
