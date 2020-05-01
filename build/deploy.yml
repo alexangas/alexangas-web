@@ -1,7 +1,7 @@
 resources:
   pipelines:
-  - pipeline: $(PipelineResource)
-    source: $(PipelineDefinition)
+  - pipeline: '$(PipelineResource)'
+    source: '$(PipelineDefinition)'
     trigger:
       branches:
       - master
@@ -11,8 +11,8 @@ jobs:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
-      - download: $(PipelineResource)
-        artifact: $(ArtifactName)
+      - download: '$(PipelineResource)'
+        artifact: '$(ArtifactName)'
       - template: ./_azcopy-linux.yml
         parameters:
           command: 'sync'
