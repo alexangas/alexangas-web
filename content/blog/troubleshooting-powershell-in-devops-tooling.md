@@ -4,7 +4,7 @@ date: 2020-04-29T15:36:31Z
 title: Troubleshooting PowerShell in DevOps tooling
 description: >-
   Tips and tricks to troubleshoot PowerShell when it is executed by DevOps tools such as TeamCity or Azure DevOps Pipelines.
-tags: ["powershell", "devops"]
+tags: ["powershell", "devops", "teamcity", "azure-pipelines"]
 ---
 
 Both Azure DevOps and TeamCity feature the ability to execute PowerShell - either the actual scripts themselves, or as arbitrary inline script.
