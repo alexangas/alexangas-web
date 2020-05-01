@@ -45,6 +45,7 @@ module.exports = {
                   date: edge.node.frontmatter.date,
                   url: `${site.siteMetadata.siteUrl}/blog${edge.node.fields.slug}`,
                   guid: `${site.siteMetadata.siteUrl}/blog${edge.node.fields.slug}`,
+                  custom_elements: [{ "content:encoded": edge.node.html }]
                 })
               })
             },
@@ -54,14 +55,11 @@ module.exports = {
                   edges {
                     node {
                       excerpt
-                      fields {
-                        slug
-                      }
+                      html
+                      fields { slug }
                       frontmatter {
-                        date(formatString: "MMMM DD, YYYY")
                         title
-                        description
-                        tags
+                        date
                       }
                     }
                   }
@@ -70,6 +68,7 @@ module.exports = {
             `,
             output: "/rss.xml",
             title: "Alex Angas",
+            match: "^/blog/"
           },
         ],
       },
