@@ -5,19 +5,23 @@ resources:
     branch: master
     trigger:
       branches:
-      - master
+        - master
+trigger: none  # Disable CI builds, so we rely on the pipeline
+pr: none       # Disable PR builds, not wanted for deployment
 
 jobs:
   - job: Deploy
+    timeoutInMinutes: 5
+    cancelTimeoutInMinutes: 1
     pool:
       vmImage: 'ubuntu-latest'
     steps:
-      - download: current
+      - download: alexangasweb
         artifact: drop
       - template: ./_azcopy-linux.yml
         parameters:
           command: 'sync'
-          source: '$(Pipeline.Workspace)/drop'
+          source: '$(Pipeline.Workspace)/alexangasweb/drop'
           destination: '$(DestinationContainer)'
           destinationsas: '$(SasToken)'
           options: '--delete-destination=true'
