@@ -1,0 +1,36 @@
+parameters:
+  - name: command
+    displayName: 'azcopy Command'
+    type: string
+    default: "--version"
+  - name: source
+    displayName: 'Source path'
+    type: string
+  - name: sourcesas
+    displayName: 'Source path SAS'
+    type: string
+    default: ""
+  - name: destination
+    displayName: 'Destination path'
+    type: string
+  - name: destinationsas
+    displayName: 'Destination path SAS'
+    type: string
+    default: ""
+  - name: options
+    displayName: 'Additional options'
+    type: string
+    default: ""
+
+steps:
+  - task: PowerShell@2
+    name: azcopy
+    condition: eq(variables['Agent.OS'], 'Linux')
+    inputs:
+      pwsh: true
+      targetType: 'inline'
+      script: |
+        Invoke-WebRequest 'https://aka.ms/downloadazcopy-v10-linux' -OutFile './azcopy.tar.gz'
+        tar -zxf './azcopy.tar.gz'
+        $azCopy = Get-ChildItem 'azcopy*' -Recurse -File | Where-Object { $_.FullName -like '*azcopy_linux*' } | Select-Object $_.FullName
+        Start-Process -FilePath $azCopy -Wait -NoNewWindow -ArgumentList "${{ parameters.command }}","${{ parameters.source }}${{ parameters.sourcesas }}","${{ parameters.destination }}${{ parameters.destinationsas }}","${{ parameters.options }}"

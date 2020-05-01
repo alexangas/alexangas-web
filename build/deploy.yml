@@ -1,0 +1,22 @@
+resources:
+  pipelines:
+  - pipeline: alexangasweb
+    source: alexangas.alexangas-web-ci
+    trigger:
+      branches:
+      - master
+
+jobs:
+  - job: Deploy
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+      - download: alexangasweb
+        artifact: drop
+      - template: ./_azcopy-linux.yml
+        parameters:
+          command: 'sync'
+          source: '$(Pipeline.Workspace)/alexangasweb/drop'
+          destination: '$(DestinationContainer)'
+          destinationsas: '$(SasToken)'
+          options: '--delete-destination=true'
