@@ -16,7 +16,7 @@ jobs:
       - template: ./_azcopy-linux.yml
         parameters:
           command: 'sync'
-          source: '$(Pipeline.Workspace)/$(PipelineResource)/drop'
+          source: '$(Pipeline.Workspace)/alexangasweb/drop'
           destination: '$(DestinationContainer)'
           destinationsas: '$(SasToken)'
           options: '--delete-destination=true'
