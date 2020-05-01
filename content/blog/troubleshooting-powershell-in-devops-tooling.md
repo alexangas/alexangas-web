@@ -74,7 +74,7 @@ $_scriptText = Get-Content -Raw $PSCommandPath
 Write-Host "* Arguments ($($args.count)): $args`r`n$($args | Out-String)"
 Write-Host "* Bound parameters:`r`n$($PSBoundParameters | Out-String)"
 Write-Host "* Script text:"
-Write-Host $($_scriptText -replace '(?ms)''_ScriptDebugStart_.+_ScriptDebugEnd[\w\s''|-]+')
+Write-Host $($_scriptText -replace '(?ms)''_ScriptDebugStart_.+_ScriptDebugEnd_''[\s|]+\w+\-\w+')
 '_ScriptDebugEnd_' | Out-Null
 ```
 
@@ -85,7 +85,7 @@ The only trickery here can be found on the first and last two lines.
 It would of course be preferable not to include the debug code as part of this.
 So we can simply strip it out with a regex, and write that output to the host.
 
-If you don't like the regex replace approach, all of the above can be written as a single line, and obviously the parts not needed can be removed:
+If you don't like the bulkiness of lines of debug code, all of the above can be written as a single line. Obviously the parts not needed can be removed as well!
 
 ```powershell
 $_scriptTxt = Get-Content -Raw $PSCommandPath ; Write-Host "* Arguments ($($args.count)): $args`r`n$($args | Out-String)`r`n* Bound parameters:$($PSBoundParameters | Out-String)* Script text:`r`n$($_scriptTxt -replace '\$_scriptTxt.+')"
