@@ -1,7 +1,7 @@
 resources:
   pipelines:
-  - pipeline: '$(PipelineResource)'
-    source: '$(PipelineDefinition)'
+  - pipeline: alexangasweb
+    source: alexangas.alexangas-web-ci
     trigger:
       branches:
       - master
@@ -11,7 +11,7 @@ jobs:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
-      - download: '$(PipelineResource)'
+      - download: alexangasweb
         artifact: '$(ArtifactName)'
       - template: ./_azcopy-linux.yml
         parameters:
