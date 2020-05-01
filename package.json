@@ -59,13 +59,13 @@
     "url": "git+https://github.com/alexangas/alexangas-web.git"
   },
   "scripts": {
-    "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write **/*.{js,jsx}",
-    "start": "npm run develop",
+    "build": "gatsby build",
     "serve": "gatsby serve",
     "up": "docker-compose up --build",
+    "prod": "docker-compose -f docker-compose.yml -f docker-compose.prod.yml up --build",
     "stop": "docker-compose stop",
+    "format": "prettier --write **/*.{js,jsx}",
     "test": "jest"
   }
 }

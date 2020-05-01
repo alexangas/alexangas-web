@@ -1,0 +1,11 @@
+version: "3.7"
+
+services:
+  frontend:
+    build:
+      dockerfile: prod.Dockerfile
+    ports:
+      - "9000:9000"
+    environment:
+      - NODE_ENV=production
+      - PRODUCTION=true
