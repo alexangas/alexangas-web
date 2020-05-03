@@ -16,7 +16,7 @@ export const PureHeader = ({ location, data }) => {
           ...scale(1.5),
         }}
       >
-        <Link to={location.pathname === blogPath ? `/blog/` : `/`}>
+        <Link to={`/`}>
           {title}
         </Link>
       </h1>

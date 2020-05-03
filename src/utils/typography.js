@@ -80,7 +80,7 @@ noriegaTheme.overrideThemeStyles = ({ rhythm }) => ({
   ".blog__post--summary p": {
     marginBottom: 0,
   },
-  ".blog__post--summary h3, .blog__post--article h1": {
+  ".blog__post--summary h2, .blog__post--article h1": {
     marginBottom: rhythm(1 / 8),
   },
   ".blog__post--article header": {

@@ -22,9 +22,9 @@ class Blog extends React.Component {
             const tags = node.frontmatter.tags || []
             return (
               <div className="blog__post--summary" key={node.fields.slug}>
-                <h3>
+                <h2>
                   <Link to={`/blog${node.fields.slug}`}>{title}</Link>
-                </h3>
+                </h2>
                 {/* <small>{node.frontmatter.date}</small> */}
                 <p
                   dangerouslySetInnerHTML={{
