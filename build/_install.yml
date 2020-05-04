@@ -18,3 +18,4 @@ steps:
       path: $(npm_config_cache)
 
   - script: npm ci
+    displayName: 'npm ci'
