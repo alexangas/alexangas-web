@@ -17,7 +17,4 @@ steps:
         npm | "$(Agent.OS)"
       path: $(npm_config_cache)
 
-  - task: Npm@1
-    displayName: 'npm ci'
-    inputs:
-      command: 'ci'
+  - script: npm ci
