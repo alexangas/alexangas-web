@@ -1,0 +1,16 @@
+steps:
+  - template: ./_install.yml
+
+  - task: Npm@1
+    displayName: 'Run e2e tests'
+    inputs:
+      command: 'custom'
+      customCommand: 'test:e2e:ci'
+
+  - task: PublishBuildArtifacts@1
+    condition: succeededOrFailed()
+    displayName: "Public test artifacts"
+    inputs:
+      PathtoPublish: "$(Build.SourcesDirectory)/cypress/videos"
+      ArtifactName: "e2e"
+      publishLocation: "Container"
