@@ -5,14 +5,6 @@ variables:
   npm_config_cache: $(Pipeline.Workspace)/.npm
 
 jobs:
-  - job: Build
-    timeoutInMinutes: 5
-    cancelTimeoutInMinutes: 1
-    pool:
-      vmImage: 'ubuntu-latest'
-    steps:
-      - template: ./_build.yml
-
   - job: UnitTests
     timeoutInMinutes: 5
     cancelTimeoutInMinutes: 1
@@ -22,9 +14,19 @@ jobs:
     - template: ./_unit-tests.yml
 
   - job: e2eTests
+    dependsOn: 'UnitTests'
     timeoutInMinutes: 10
     cancelTimeoutInMinutes: 1
     pool:
       vmImage: 'ubuntu-latest'
     steps:
     - template: ./_e2e-tests.yml
+
+  - job: Build
+    dependsOn: [ 'UnitTests', 'e2eTests' ]
+    timeoutInMinutes: 5
+    cancelTimeoutInMinutes: 1
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+      - template: ./_build.yml
