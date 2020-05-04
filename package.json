@@ -24,7 +24,7 @@
     "gatsby-remark-images": "~3.3.0",
     "gatsby-remark-responsive-iframe": "~2.4.1",
     "gatsby-remark-smartypants": "~2.3.0",
-    "gatsby-remark-vscode": "~2.0.3",
+    "gatsby-remark-vscode": "~2.1.0",
     "gatsby-source-filesystem": "~2.3.0",
     "gatsby-transformer-sharp": "~2.5.0",
     "netlify-cms-app": "~2.12.11",
