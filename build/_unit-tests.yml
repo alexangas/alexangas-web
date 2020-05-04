@@ -5,7 +5,7 @@ steps:
     displayName: 'Run unit tests'
     inputs:
       command: 'custom'
-      customCommand: 'test:ci'
+      customCommand: 'run test:ci'
 
   - task: PublishTestResults@2
     condition: succeededOrFailed()

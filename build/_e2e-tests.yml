@@ -5,7 +5,7 @@ steps:
     displayName: 'Run e2e tests'
     inputs:
       command: 'custom'
-      customCommand: 'test:e2e:ci'
+      customCommand: 'run test:e2e:ci'
 
   - task: PublishBuildArtifacts@1
     condition: succeededOrFailed()
