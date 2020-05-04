@@ -11,7 +11,7 @@ exports[`Header renders blog path correctly 1`] = `
     }
   >
     <a
-      href="/blog/"
+      href="/"
     >
       Name of Blog
     </a>

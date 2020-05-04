@@ -39,13 +39,18 @@
     "typography-theme-noriega": "~0.16.19"
   },
   "devDependencies": {
-    "babel-jest": "~25.5.1",
-    "babel-preset-gatsby": "~0.4.0",
-    "identity-obj-proxy": "~3.0.0",
-    "jest": "~25.5.4",
-    "jest-junit": "~10.0.0",
-    "prettier": "~2.0.5",
-    "react-test-renderer": "~16.13.1"
+    "@testing-library/cypress": "^6.0.0",
+    "axe-core": "^3.5.3",
+    "babel-jest": "^25.5.1",
+    "babel-preset-gatsby": "^0.4.0",
+    "cypress": "^4.5.0",
+    "cypress-axe": "^0.8.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^25.5.4",
+    "jest-junit": "^10.0.0",
+    "prettier": "^2.0.5",
+    "react-test-renderer": "^16.13.1",
+    "start-server-and-test": "^1.11.0"
   },
   "homepage": "https://www.alexangas.com",
   "keywords": [
@@ -64,6 +69,11 @@
     "prod": "docker-compose -f docker-compose.yml -f docker-compose.prod.yml up --build",
     "stop": "docker-compose stop",
     "format": "prettier --write **/*.{js,jsx}",
-    "test": "jest"
+    "test": "jest",
+    "test:ci": "jest --ci --reporters=default --reporters=jest-junit --coverage --coverageReporters=cobertura --coverageReporters=html",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open",
+    "test:e2e:ci": "start-server-and-test develop http://localhost:8000 cy:run"
   }
 }
