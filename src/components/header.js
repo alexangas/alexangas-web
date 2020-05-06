@@ -1,6 +1,5 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import { scale } from "../utils/typography"
 
 export const PureHeader = ({ location, data }) => {
   const { title } = data.site.siteMetadata
@@ -12,9 +11,7 @@ export const PureHeader = ({ location, data }) => {
   if (location.pathname === rootPath || location.pathname === blogPath) {
     header = (
       <h1
-        style={{
-          ...scale(1.5),
-        }}
+        // style={{...scale(1.5)}} // TODO
       >
         <Link to={`/`}>
           {title}

@@ -135,13 +135,6 @@ module.exports = {
         theme_color_in_head: false,
       },
     },
-    // `gatsby-plugin-offline`,
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-meta-redirect`, // make sure to put last in the array
   ],
