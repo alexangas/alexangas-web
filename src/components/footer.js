@@ -14,15 +14,17 @@ const Footer = () => {
 
   const { author } = data.site.siteMetadata
   return (
-    <footer>
-      © {new Date().getFullYear()} {author}
-      <p>
-        <small>
-          Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </small>
-      </p>
+    <footer className="footer">
+      <div className="content has-text-centered">
+        <p>&copy; {new Date().getFullYear()} {author}</p>
+        <p>
+          <small>
+            Built with
+            {` `}
+            <a href="https://www.gatsbyjs.org">Gatsby</a>
+          </small>
+        </p>
+      </div>
     </footer>
   )
 }

@@ -10,17 +10,15 @@ export const PureHeader = ({ location, data }) => {
 
   if (location.pathname === rootPath || location.pathname === blogPath) {
     header = (
-      <h1
-        // style={{...scale(1.5)}} // TODO
-      >
-        <Link to={`/`}>
+      <h1 className="title">
+        <Link to={`/`} className="has-text-dark">
           {title}
         </Link>
       </h1>
     )
   } else {
     header = (
-      <h3>
+      <h3 className="subtitle">
         <Link to={`/blog/`}>{title}</Link>
       </h3>
     )

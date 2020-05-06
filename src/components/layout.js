@@ -7,11 +7,13 @@ class Layout extends React.Component {
     const { children } = this.props
 
     return (
-      <div className="container">
-        <Header location={this.props.location} />
-        <main>{children}</main>
-        <Footer />
-      </div>
+      <section className="section">
+        <div className="container">
+          <Header location={this.props.location} />
+          <main>{children}</main>
+          <Footer />
+        </div>
+      </section>
     )
   }
 }
