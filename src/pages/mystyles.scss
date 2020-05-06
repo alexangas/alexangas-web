@@ -9,6 +9,9 @@ $family-sans-serif: 'Lato', $family-sans-serif;
 // Derived variables
 $primary: $blue;
 $link-hover: $primary;
+$text-string: $black-ter;
+
+$section-padding: $size-4;
 
 $navbar-item-color: $black-bis;
 $navbar-item-hover-color: $black-bis;
@@ -38,6 +41,12 @@ body {
   a.navbar-item {
     text-underline-offset: 0.4rem;
     text-decoration-thickness: 0.1rem;
+  }
+}
+
+.image.is-rounded {
+  img {
+    border-radius: $radius-rounded;
   }
 }
 

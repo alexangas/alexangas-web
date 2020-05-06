@@ -18,6 +18,7 @@ class IndexPage extends React.Component {
           </span>
         </h1>
         <p>You are on the home page of my web site. Welcome!</p>
+        <p>I'm a technical architect, living and working in London building useful things.</p>
       </Layout>
     )
   }

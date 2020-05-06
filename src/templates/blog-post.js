@@ -5,11 +5,13 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import TagList from "../components/tag-list"
+import Image from "gatsby-image"
 
 class BlogPostTemplate extends React.Component {
   render() {
     const { data } = this.props
     const post = data.mdx
+    const { author } = data.site.siteMetadata
     const siteTitle = `Blog - ${data.site.siteMetadata.title}`
     const { previous, next } = this.props.pageContext
 
@@ -19,19 +21,20 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        <article className="blog__post--article">
+        <article>
           <header>
             <h1>{post.frontmatter.title}</h1>
+            <Image fixed={data.avatar.childImageSharp.fixed} alt={author} className="image is-64x64 is-rounded" />
             <small>{post.frontmatter.date}</small>
-            <small>
-              <TagList tags={post.frontmatter.tags} />
-            </small>
+            <TagList tags={post.frontmatter.tags} />
           </header>
-          <MDXRenderer>{post.body}</MDXRenderer>
+          <div className="content is-medium">
+            <MDXRenderer>{post.body}</MDXRenderer>
+          </div>
           <hr />
         </article>
 
-        <nav className="blog__post--nav">
+        <nav>
           <ul>
             <li>
               {previous && (
@@ -61,6 +64,14 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        author
+      }
+    }
+    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+      childImageSharp {
+        fixed(width: 64, height: 64) {
+          ...GatsbyImageSharpFixed
+        }
       }
     }
     mdx(fields: { slug: { eq: $slug } }) {
