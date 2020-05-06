@@ -29,7 +29,6 @@ class BlogPostTemplate extends React.Component {
           </header>
           <MDXRenderer>{post.body}</MDXRenderer>
           <hr />
-          {/*<footer>{<Bio />}</footer>*/}
         </article>
 
         <nav className="blog__post--nav">

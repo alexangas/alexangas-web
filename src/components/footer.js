@@ -16,7 +16,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="content has-text-centered">
-        <p>&copy; {new Date().getFullYear()} {author}</p>
+        <p className="is-marginless">&copy; {new Date().getFullYear()} {author}</p>
         <p>
           <small>
             Built with

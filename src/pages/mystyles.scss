@@ -1,24 +1,44 @@
 @charset "utf-8";
 
 @import "~bulma/sass/utilities/initial-variables.sass";
-//@import "~bulma/sass/utilities/derived-variables.sass";
 
 // Initial variables
 $blue: #007acc;
 $family-sans-serif: 'Lato', $family-sans-serif;
-$size-3: 2.25rem;
 
 // Derived variables
-$primary: $grey-darker;
+$primary: $blue;
+$link-hover: $primary;
+
+$navbar-item-color: $black-bis;
+$navbar-item-hover-color: $black-bis;
 
 $footer-background-color: $white;
-$footer-padding: 2rem 1.5rem 2rem;
+$footer-padding: $size-3 $size-4 $size-3;
+
+$fullhd-enabled: false;
 
 @import "~bulma/bulma.sass";
 
 body {
   font-kerning: normal;
   font-feature-settings: "kern", "liga", "clig", "calt";
+}
+
+.navbar-wrapper {
+  box-shadow: 0 0 ($size-7 / 2) 0 $grey-light;
+
+  .navbar-start {
+    .navbar-item {
+      padding-left: 0;
+      letter-spacing: 0.01rem;
+    }
+  }
+
+  a.navbar-item {
+    text-underline-offset: 0.4rem;
+    text-decoration-thickness: 0.1rem;
+  }
 }
 
 a {

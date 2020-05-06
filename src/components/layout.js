@@ -1,5 +1,5 @@
 import React from "react"
-import Header from "./header"
+import NavBar from "./navbar"
 import Footer from "./footer"
 
 class Layout extends React.Component {
@@ -7,13 +7,15 @@ class Layout extends React.Component {
     const { children } = this.props
 
     return (
-      <section className="section">
-        <div className="container">
-          <Header location={this.props.location} />
-          <main>{children}</main>
-          <Footer />
-        </div>
-      </section>
+      <>
+        <NavBar location={this.props.location} />
+        <section className="section">
+          <div className="container">
+            <main>{children}</main>
+            <Footer />
+          </div>
+        </section>
+      </>
     )
   }
 }
