@@ -13,8 +13,8 @@ class Layout extends React.Component {
           <div className={`container${className ? " " + className : ''}`}>
             <main>{children}</main>
           </div>
+          <Footer />
         </section>
-        <Footer />
       </>
     )
   }

@@ -15,12 +15,12 @@ class Blog extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle} className="blog">
         <SEO title={pageTitle} />
+        <div className="section">
         <header>
           <h1 className="title">{pageTitle}</h1>
         </header>
-        <div>
           {posts.map(({ node }) =>
-            <PostSummary slug={node.fields.slug} title={node.frontmatter.title || node.fields.slug} description={node.frontmatter.description} excerpt={node.excerpt} dateTime={node.frontmatter.date} tags={node.frontmatter.tags || []} />
+            <PostSummary key={node.fields.slug} slug={node.fields.slug} title={node.frontmatter.title || node.fields.slug} description={node.frontmatter.description} excerpt={node.excerpt} dateTime={node.frontmatter.date} tags={node.frontmatter.tags || []} />
           )}
         </div>
       </Layout>

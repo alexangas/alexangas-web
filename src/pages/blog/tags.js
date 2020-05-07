@@ -20,7 +20,7 @@ class TagsPage extends React.Component {
     return (
       <Layout location={this.props.location} title={title}>
         <SEO title="Tags" />
-        <div>
+        <div className="section">
           <header>
             <h1 className="title is-marginless">Tags</h1>
           </header>

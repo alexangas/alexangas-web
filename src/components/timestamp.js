@@ -2,7 +2,7 @@ import React from "react"
 import dayjs from "dayjs"
 
 const Timestamp = ({ dateTime }) => (
-  <div className="is-inline-block">
+  <div className="is-inline-block-tablet">
     <time dateTime={dateTime}>{dayjs(dateTime).format(`D MMMM YYYY`)}</time>
   </div>
 )
