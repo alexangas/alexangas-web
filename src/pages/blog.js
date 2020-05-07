@@ -1,9 +1,9 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import PostMetadata from "../components/post-metadata"
+import PostSummary from "../components/post-summary"
 
 class Blog extends React.Component {
   render() {
@@ -19,23 +19,9 @@ class Blog extends React.Component {
           <h1 className="title">{pageTitle}</h1>
         </header>
         <div>
-          {posts.map(({ node }) => {
-            const title = node.frontmatter.title || node.fields.slug
-            const tags = node.frontmatter.tags || []
-            return (
-              <div key={node.fields.slug} className="content">
-                <h2 className="subtitle is-marginless is-4">
-                  <Link to={`/blog${node.fields.slug}`}>{title}</Link>
-                </h2>
-                <p className="is-marginless"
-                  dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt,
-                  }}
-                />
-                <PostMetadata dateTime={node.frontmatter.date} tags={tags} />
-              </div>
-            )
-          })}
+          {posts.map(({ node }) =>
+            <PostSummary slug={node.fields.slug} title={node.frontmatter.title || node.fields.slug} description={node.frontmatter.description} excerpt={node.excerpt} dateTime={node.frontmatter.date} tags={node.frontmatter.tags || []} />
+          )}
         </div>
       </Layout>
     )

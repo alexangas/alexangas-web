@@ -6,7 +6,7 @@ export const PureNavBar = ({ data }) => {
 
   return (
     <div className="navbar-wrapper">
-      <nav className="container navbar is-transparent" role="navigation" aria-label="main navigation">
+      <nav className="container navbar is-transparent" role="navigation" aria-label="Main navigation">
         <div  className="navbar-menu">
           <div className="navbar-start is-size-4">
             <Link to="/" className="navbar-item has-text-weight-semibold">

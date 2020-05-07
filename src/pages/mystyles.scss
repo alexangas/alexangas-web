@@ -17,12 +17,21 @@ $section-padding: $size-4;
 $navbar-item-color: $black-bis;
 $navbar-item-hover-color: $black-bis;
 
+$pagination-border-color: none;
+$pagination-hover-border-color: none;
+$pagination-focus-border-color: none;
+$pagination-active-border-color: none;
+$pagination-disabled-border-color: none;
+$pagination-current-border-color: none;
+$pagination-shadow-inset: none;
+
 $footer-background-color: $white;
 $footer-padding: $size-4 0;
 
 // Misc config
 $widescreen-enabled: false;
 $fullhd-enabled: false;
+$pre-code-font-size: $size-6;
 $size-8: 0.5rem !default
 $size-9: 0.25rem !default
 
@@ -63,6 +72,18 @@ header {
   }
 }
 
+.grvsc-container {
+  padding: $size-7 0;
+
+  .grvsc-line {
+    padding: 0;
+  }
+}
+
+code {
+  white-space: pre;
+}
+
 a {
   &:hover {
     text-decoration: underline;
@@ -78,12 +99,23 @@ a {
 }
 
 .blog-metadata {
-  time::after {
+  .tags::before {
     content: '\00B7';
     padding: 0 $size-8;
   }
 }
 
-article.section {
-  padding-top: 0;
+article {
+  .section {
+    padding-top: 0;
+  }
+
+  hr {
+    margin-bottom: 0;
+  }
+}
+
+.pagination-previous:active, .pagination-next:active, .pagination-link:active {
+  // Needed because setting $pagination-shadow-inset does not work
+  box-shadow: none;
 }

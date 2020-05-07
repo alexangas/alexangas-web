@@ -24,8 +24,11 @@ Here's what the PowerShell part of the script looks like:
 ```powershell
 Invoke-WebRequest 'https://aka.ms/downloadazcopy-v10-linux' -OutFile './azcopy.tar.gz'
 tar -zxf './azcopy.tar.gz'
-$azCopy = Get-ChildItem 'azcopy*' -Recurse -File | Where-Object { $_.FullName -like '*azcopy_linux*' } | Select-Object $_.FullName
-Start-Process -FilePath $azCopy -Wait -NoNewWindow -ArgumentList "${{ parameters.command }}","${{ parameters.source }}${{ parameters.sourcesas }}","${{ parameters.destination }}${{ parameters.destinationsas }}","${{ parameters.options }}"
+$azCopy = Get-ChildItem 'azcopy*' -Recurse -File | `
+  Where-Object { $_.FullName -like '*azcopy_linux*' } | `
+  Select-Object $_.FullName
+Start-Process -FilePath $azCopy -Wait -NoNewWindow `
+  -ArgumentList "${{ parameters.command }}","${{ parameters.source }}${{ parameters.sourcesas }}","${{ parameters.destination }}${{ parameters.destinationsas }}","${{ parameters.options }}"
 ```
 
 There are a few things you may wish to tweak here, as again I wrote this for deploying the contents of this blog.

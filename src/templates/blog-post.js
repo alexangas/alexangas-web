@@ -30,23 +30,17 @@ class BlogPostTemplate extends React.Component {
           <hr />
         </article>
 
-        <nav>
-          <ul>
-            <li>
-              {previous && (
-                <Link to={`/blog${previous.fields.slug}`} rel="prev">
-                  &#x2190; {previous.frontmatter.title}
-                </Link>
-              )}
-            </li>
-            <li>
-              {next && (
-                <Link to={`/blog${next.fields.slug}`} rel="next">
-                  {next.frontmatter.title} &#x2192;
-                </Link>
-              )}
-            </li>
-          </ul>
+        <nav className="pagination" role="navigation" aria-label="Post navigation">
+          {previous ?
+            <Link to={`/blog${previous.fields.slug}`} rel="prev" className="pagination-previous">
+              &#x2190; {previous.frontmatter.title}
+            </Link>
+          : <span className="pagination-previous" /> }
+          {next ?
+            <Link to={`/blog${next.fields.slug}`} rel="next" className="pagination-next">
+              {next.frontmatter.title} &#x2192;
+            </Link>
+            : <span className="pagination-next" /> }
         </nav>
       </Layout>
     )

@@ -21,7 +21,9 @@ class TagsPage extends React.Component {
       <Layout location={this.props.location} title={title}>
         <SEO title="Tags" />
         <div>
-          <h1>Tags</h1>
+          <header>
+            <h1 className="title is-marginless">Tags</h1>
+          </header>
           <ul>
             {group.map((tag) => (
               <li key={tag.fieldValue}>

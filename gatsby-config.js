@@ -107,6 +107,12 @@ module.exports = {
           },
           {
             resolve: `gatsby-remark-vscode`,
+            options: {
+              theme: {
+                default: 'Default Light+',
+                dark: 'Default Dark+',
+              }
+            }
           },
           {
             resolve: `gatsby-remark-copy-linked-files`,
