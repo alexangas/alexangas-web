@@ -12,9 +12,9 @@ class Layout extends React.Component {
         <section className="section">
           <div className="container">
             <main>{children}</main>
-            <Footer />
           </div>
         </section>
+        <Footer />
       </>
     )
   }
