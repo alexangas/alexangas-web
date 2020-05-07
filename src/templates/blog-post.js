@@ -4,14 +4,12 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import TagList from "../components/tag-list"
-import Image from "gatsby-image"
+import PostMetadata from "../components/post-metadata"
 
 class BlogPostTemplate extends React.Component {
   render() {
     const { data } = this.props
     const post = data.mdx
-    const { author } = data.site.siteMetadata
     const siteTitle = `Blog - ${data.site.siteMetadata.title}`
     const { previous, next } = this.props.pageContext
 
@@ -21,12 +19,10 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        <article>
+        <article className="section">
           <header>
-            <h1>{post.frontmatter.title}</h1>
-            <Image fixed={data.avatar.childImageSharp.fixed} alt={author} className="image is-64x64 is-rounded" />
-            <small>{post.frontmatter.date}</small>
-            <TagList tags={post.frontmatter.tags} />
+            <h1 className="title is-marginless">{post.frontmatter.title}</h1>
+            <PostMetadata dateTime={post.frontmatter.date} tags={post.frontmatter.tags} />
           </header>
           <div className="content is-medium">
             <MDXRenderer>{post.body}</MDXRenderer>
@@ -69,7 +65,7 @@ export const pageQuery = graphql`
     }
     avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
       childImageSharp {
-        fixed(width: 64, height: 64) {
+        fixed(width: 48, height: 48) {
           ...GatsbyImageSharpFixed
         }
       }

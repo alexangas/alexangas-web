@@ -11,6 +11,7 @@ $primary: $blue;
 $link-hover: $primary;
 $text-string: $black-ter;
 
+// Component variables
 $section-padding: $size-4;
 
 $navbar-item-color: $black-bis;
@@ -19,8 +20,11 @@ $navbar-item-hover-color: $black-bis;
 $footer-background-color: $white;
 $footer-padding: $size-4 0;
 
+// Misc config
 $widescreen-enabled: false;
 $fullhd-enabled: false;
+$size-8: 0.5rem !default
+$size-9: 0.25rem !default
 
 @import "~bulma/bulma.sass";
 
@@ -45,6 +49,10 @@ body {
   }
 }
 
+header {
+  margin-bottom: $size-5;
+}
+
 .footer-wrapper {
   border-top: 1px solid $grey-lighter;
 }
@@ -59,4 +67,23 @@ a {
   &:hover {
     text-decoration: underline;
   }
+}
+
+.blog {
+  .content {
+    p {
+      padding: $size-9 0;
+    }
+  }
+}
+
+.blog-metadata {
+  time::after {
+    content: '\00B7';
+    padding: 0 $size-8;
+  }
+}
+
+article.section {
+  padding-top: 0;
 }

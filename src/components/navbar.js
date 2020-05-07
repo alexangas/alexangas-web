@@ -8,7 +8,7 @@ export const PureNavBar = ({ data }) => {
     <div className="navbar-wrapper">
       <nav className="container navbar is-transparent" role="navigation" aria-label="main navigation">
         <div  className="navbar-menu">
-          <div className="navbar-start is-size-3">
+          <div className="navbar-start is-size-4">
             <Link to="/" className="navbar-item has-text-weight-semibold">
               {title}
             </Link>

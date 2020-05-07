@@ -3,20 +3,20 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import TagList from "../components/tag-list"
+import PostMetadata from "../components/post-metadata"
 
 class Blog extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = `Blog - ${data.site.siteMetadata.title}`
-    const pageTitle = `All posts`
+    const pageTitle = `Posts`
     const posts = data.allMdx.edges
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout location={this.props.location} title={siteTitle} className="blog">
         <SEO title={pageTitle} />
         <header>
-          <h1 className="title is-3">{pageTitle}</h1>
+          <h1 className="title">{pageTitle}</h1>
         </header>
         <div>
           {posts.map(({ node }) => {
@@ -24,7 +24,7 @@ class Blog extends React.Component {
             const tags = node.frontmatter.tags || []
             return (
               <div key={node.fields.slug} className="content">
-                <h2 className="title is-marginless is-5">
+                <h2 className="subtitle is-marginless is-4">
                   <Link to={`/blog${node.fields.slug}`}>{title}</Link>
                 </h2>
                 <p className="is-marginless"
@@ -32,8 +32,7 @@ class Blog extends React.Component {
                     __html: node.frontmatter.description || node.excerpt,
                   }}
                 />
-                <span>{node.frontmatter.date}</span>
-                <TagList tags={tags} />
+                <PostMetadata dateTime={node.frontmatter.date} tags={tags} />
               </div>
             )
           })}
@@ -60,7 +59,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "D MMMM YYYY")
+            date
             title
             description
             tags
