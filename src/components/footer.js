@@ -47,8 +47,7 @@ export const PureFooter = ({ data }) => {
             </div>
             <div>
               <small>
-                Built with <a href="https://www.gatsbyjs.org">Gatsby</a>. Theme
-                by me.
+                Built with <a href="https://www.gatsbyjs.org">Gatsby</a> and <a href="https://bulma.io/">Bulma</a>.
               </small>
             </div>
           </div>
