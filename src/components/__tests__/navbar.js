@@ -8,14 +8,12 @@ describe("NavBar", () => {
     const data = {
       site: {
         siteMetadata: {
-          title: 'Site Title'
+          title: "Site Title",
         },
       },
     }
 
-    const testRenderer = renderer.create(
-      <NavBar data={data} />
-    )
+    const testRenderer = renderer.create(<NavBar data={data} />)
     const tree = testRenderer.toJSON()
     expect(tree).toMatchSnapshot()
   })

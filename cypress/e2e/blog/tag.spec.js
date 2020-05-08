@@ -2,19 +2,16 @@
 
 describe("Tag", () => {
   beforeEach(() => {
-    cy.visit("/blog/")
-      .get(".tag")
-      .first()
-      .click()
+    cy.visit("/blog/").get(".tag").first().click()
   })
 
   it("Should verify the lighthouse scores", () => {
     cy.audit({
       accessibility: 100,
       "best-practices": 93,
-      seo: 100
-    });
-  });
+      seo: 100,
+    })
+  })
 
   describe("Accessibility tests", () => {
     beforeEach(() => {

@@ -9,9 +9,9 @@ describe("Tag List", () => {
     cy.audit({
       accessibility: 98,
       "best-practices": 93,
-      seo: 100
-    });
-  });
+      seo: 100,
+    })
+  })
 
   describe("Accessibility tests", () => {
     beforeEach(() => {
@@ -24,10 +24,7 @@ describe("Tag List", () => {
 
   describe("Tags", () => {
     it("Contains tags", () => {
-      cy.get(".section ul")
-        .find("a")
-        .its("length")
-        .should("be.gte", 3)
+      cy.get(".section ul").find("a").its("length").should("be.gte", 3)
     })
   })
 })

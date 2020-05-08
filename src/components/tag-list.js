@@ -7,9 +7,13 @@ const TagList = ({ tags }) =>
   tags ? (
     <div className="tags is-inline-block-tablet">
       {tags.map((tag) => (
-        <Link key={tag} to={`/blog/tags/${kebabCase(tag)}/`} className="tag is-paddingless">
+        <Link
+          key={tag}
+          to={`/blog/tags/${kebabCase(tag)}/`}
+          className="tag is-paddingless"
+        >
           <span className="icon">
-            <FaTag/>
+            <FaTag />
           </span>
           {tag}
         </Link>

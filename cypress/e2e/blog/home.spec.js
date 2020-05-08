@@ -9,9 +9,9 @@ describe("Blog Home", () => {
     cy.audit({
       accessibility: 100,
       "best-practices": 93,
-      seo: 100
-    });
-  });
+      seo: 100,
+    })
+  })
 
   describe("Accessibility tests", () => {
     beforeEach(() => {
@@ -24,37 +24,23 @@ describe("Blog Home", () => {
 
   describe("Blog summary", () => {
     it("Contains blog summaries", () => {
-      cy.get(".section")
-        .find(".content")
-        .its("length")
-        .should("be.gte", 3)
+      cy.get(".section").find(".content").its("length").should("be.gte", 3)
     })
 
     it("Contains a link", () => {
-      cy.get(".section .content h2")
-        .first()
-        .click()
+      cy.get(".section .content h2").first().click()
     })
 
     it("Contains a description", () => {
-      cy.get(".section .content p")
-        .first()
-        .its("length")
-        .should("be.eq", 1)
+      cy.get(".section .content p").first().its("length").should("be.eq", 1)
     })
 
     it("Contains a timestamp", () => {
-      cy.get(".section .content time")
-        .first()
-        .its("length")
-        .should("be.eq", 1)
+      cy.get(".section .content time").first().its("length").should("be.eq", 1)
     })
 
     it("Contains a tag", () => {
-      cy.get(".section .content .tag")
-        .first()
-        .its("length")
-        .should("be.eq", 1)
+      cy.get(".section .content .tag").first().its("length").should("be.eq", 1)
     })
   })
 })

@@ -9,9 +9,9 @@ describe("Root Home", () => {
     cy.audit({
       accessibility: 100,
       "best-practices": 93,
-      seo: 100
-    });
-  });
+      seo: 100,
+    })
+  })
 
   describe("Accessibility tests", () => {
     beforeEach(() => {

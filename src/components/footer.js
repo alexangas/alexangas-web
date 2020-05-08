@@ -5,52 +5,51 @@ import { IoLogoGithub } from "react-icons/io"
 
 export const PureFooter = ({ data }) => {
   const {
-    siteMetadata: {
-      author,
-      social: { github, linkedin } = {},
-    },
+    siteMetadata: { author, social: { github, linkedin } = {} },
   } = data.site
   return (
     <div className="footer-wrapper">
       <footer className="container footer">
         <div className="columns">
           <div className="column">
-              {github &&
-                <div className="columns is-mobile is-gapless">
-                  <div className="column is-narrow">
-                    <span className="icon">
-                      <IoLogoGithub/>
-                    </span>
-                  </div>
-                  <div className="column">
-                    <a href={`https://github.com/${github}/`}>{github}</a>
-                  </div>
+            {github && (
+              <div className="columns is-mobile is-gapless">
+                <div className="column is-narrow">
+                  <span className="icon">
+                    <IoLogoGithub />
+                  </span>
                 </div>
-              }
-              {linkedin &&
-                <div className="columns is-mobile is-gapless">
-                  <div className="column is-narrow">
-                    <span className="icon">
-                      <FaLinkedinIn/>
-                    </span>
-                  </div>
-                  <div className="column">
-                    <a href={`https://www.linkedin.com/in/${linkedin}/`}>
-                      {linkedin}
-                    </a>
-                  </div>
+                <div className="column">
+                  <a href={`https://github.com/${github}/`}>{github}</a>
                 </div>
-              }
+              </div>
+            )}
+            {linkedin && (
+              <div className="columns is-mobile is-gapless">
+                <div className="column is-narrow">
+                  <span className="icon">
+                    <FaLinkedinIn />
+                  </span>
+                </div>
+                <div className="column">
+                  <a href={`https://www.linkedin.com/in/${linkedin}/`}>
+                    {linkedin}
+                  </a>
+                </div>
+              </div>
+            )}
           </div>
           <div className="column is-half">
-            {author &&
+            {author && (
               <div>
-                &copy; {new Date().getFullYear()} {author} - <a href="https://www.xenger.co.uk/">Xenger Ltd</a>
+                &copy; {new Date().getFullYear()} {author} -{" "}
+                <a href="https://www.xenger.co.uk/">Xenger Ltd</a>
               </div>
-            }
+            )}
             <div>
               <small>
-                Built with <a href="https://www.gatsbyjs.org/">Gatsby</a> and <a href="https://bulma.io/">Bulma</a>.
+                Built with <a href="https://www.gatsbyjs.org/">Gatsby</a> and{" "}
+                <a href="https://bulma.io/">Bulma</a>.
               </small>
             </div>
           </div>

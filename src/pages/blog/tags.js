@@ -30,7 +30,7 @@ class TagsPage extends React.Component {
               <li key={tag.fieldValue}>
                 <Link to={`/blog/tags/${kebabCase(tag.fieldValue)}/`}>
                   <span className="icon is-medium has-text-grey-dark">
-                    <FaTag/>
+                    <FaTag />
                   </span>
                   {tag.fieldValue} ({tag.totalCount})
                 </Link>

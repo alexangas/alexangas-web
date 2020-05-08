@@ -11,21 +11,16 @@ describe("Blog Post", () => {
         .audit({
           accessibility: 100,
           "best-practices": 93,
-          seo: 100
-        });
+          seo: 100,
+        })
     })
 
     it("Last post passes the Lighthouse tests", () => {
-      cy.visit("/blog/")
-        .get(".content h2 a")
-        .last()
-        .click()
-        .get("main")
-        .audit({
-          accessibility: 100,
-          "best-practices": 93,
-          seo: 100
-        });
+      cy.visit("/blog/").get(".content h2 a").last().click().get("main").audit({
+        accessibility: 100,
+        "best-practices": 93,
+        seo: 100,
+      })
     })
   })
 
@@ -53,29 +48,19 @@ describe("Blog Post", () => {
 
   describe("Article header", () => {
     beforeEach(() => {
-      cy.visit("/blog/")
-        .get(".content a")
-        .first()
-        .click()
+      cy.visit("/blog/").get(".content a").first().click()
     })
 
     it("Header contains a title", () => {
-      cy.get("article header h1")
-        .its("length")
-        .should("be.eq", 1)
+      cy.get("article header h1").its("length").should("be.eq", 1)
     })
 
     it("Blog summary contains a timestamp", () => {
-      cy.get("article header time")
-        .its("length")
-        .should("be.eq", 1)
+      cy.get("article header time").its("length").should("be.eq", 1)
     })
 
     it("Blog summary contains a tag", () => {
-      cy.get("article header .tag")
-        .first()
-        .its("length")
-        .should("be.eq", 1)
+      cy.get("article header .tag").first().its("length").should("be.eq", 1)
     })
   })
 })

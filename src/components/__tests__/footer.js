@@ -9,16 +9,14 @@ describe("Footer", () => {
       site: {
         siteMetadata: {
           social: {
-            github: 'ghusername',
-            linkedin: 'liusername',
-          }
+            github: "ghusername",
+            linkedin: "liusername",
+          },
         },
       },
     }
 
-    const testRenderer = renderer.create(
-      <Footer data={data} />
-    )
+    const testRenderer = renderer.create(<Footer data={data} />)
     const tree = testRenderer.toJSON()
     expect(tree).toMatchSnapshot()
   })
@@ -27,14 +25,12 @@ describe("Footer", () => {
     const data = {
       site: {
         siteMetadata: {
-          author: 'Author'
+          author: "Author",
         },
       },
     }
 
-    const testRenderer = renderer.create(
-      <Footer data={data} />
-    )
+    const testRenderer = renderer.create(<Footer data={data} />)
     const tree = testRenderer.toJSON()
     expect(tree).toMatchSnapshot()
   })
