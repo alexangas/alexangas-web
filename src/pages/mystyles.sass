@@ -11,6 +11,7 @@ $tablet: 768px
 $primary: $blue
 $link-hover: $primary
 $text-string: $black-ter
+$red: #DF113A
 
 // Component variables
 $section-padding: $size-4
@@ -29,6 +30,8 @@ $pagination-shadow-inset: none
 
 $footer-background-color: $white
 $footer-padding: $size-4 0
+
+$tag-background-color: $white
 
 // Misc config
 $widescreen-enabled: false
@@ -89,17 +92,6 @@ a
 section > .container
   padding-bottom: $size-4
 
-article
-  .content
-    h2
-      font-size: $size-4
-    h3
-      font-size: $size-5
-    h4
-      font-size: $size-6
-  hr
-    margin-bottom: 0
-
 +mobile
   .section
     .section
@@ -111,14 +103,29 @@ header
 .footer-wrapper
   border-top: 1px solid $grey-lighter
 
-.blog
-  .content
-    p
-      padding: $size-9 0
+footer
+  .columns.is-gapless
+    margin-bottom: $size-9 !important
+    +tablet
+      margin-bottom: 0 !important
 
 .blog-metadata-separator::after
   content: '\00B7'
   padding: 0 $size-8
+
+article
+  header
+    h1
+      padding-bottom: $size-9
+  .content
+    h2
+      font-size: $size-4
+    h3
+      font-size: $size-5
+    h4
+      font-size: $size-6
+  hr
+    margin-bottom: 0
 
 .tags
   .icon

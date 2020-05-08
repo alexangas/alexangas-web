@@ -4,7 +4,7 @@ import TagList from "./tag-list"
 import Image from "gatsby-image"
 
 const PostMetadata = ({ dateTime, tags, avatar, author }) => (
-  <div className="blog-metadata has-text-grey">
+  <div className="blog-metadata">
     {avatar && (
       <Image
         fixed={avatar}

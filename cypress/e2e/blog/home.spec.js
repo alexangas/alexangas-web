@@ -5,6 +5,14 @@ describe("Blog Home", () => {
     cy.visit("/blog/")
   })
 
+  it("Should verify the lighthouse scores", () => {
+    cy.audit({
+      accessibility: 100,
+      "best-practices": 93,
+      seo: 100
+    });
+  });
+
   describe("Accessibility tests", () => {
     beforeEach(() => {
       cy.get("main").injectAxe()
@@ -14,20 +22,39 @@ describe("Blog Home", () => {
     })
   })
 
-  describe("Header", () => {
-    it("Links to the home page", () => {
-      cy.get("header a")
-        .should("contain.text", "Alex Angas")
-        .should("have.attr", "href", "/")
-    })
-  })
-
-  describe("Contents", () => {
-    it("Contains blog links", () => {
-      cy.get(".blog__post--container")
-        .find(".blog__post--summary")
+  describe("Blog summary", () => {
+    it("Contains blog summaries", () => {
+      cy.get(".section")
+        .find(".content")
         .its("length")
         .should("be.gte", 3)
+    })
+
+    it("Contains a link", () => {
+      cy.get(".section .content h2")
+        .first()
+        .click()
+    })
+
+    it("Contains a description", () => {
+      cy.get(".section .content p")
+        .first()
+        .its("length")
+        .should("be.eq", 1)
+    })
+
+    it("Contains a timestamp", () => {
+      cy.get(".section .content time")
+        .first()
+        .its("length")
+        .should("be.eq", 1)
+    })
+
+    it("Contains a tag", () => {
+      cy.get(".section .content .tag")
+        .first()
+        .its("length")
+        .should("be.eq", 1)
     })
   })
 })

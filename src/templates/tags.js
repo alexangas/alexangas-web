@@ -26,18 +26,16 @@ class TagTemplate extends React.Component {
               <Link to="/blog/tags">All tags</Link>
             </div>
           </header>
-          <ul>
-            {edges.map(({ node }) => (
-              <PostSummary
-                key={node.fields.slug}
-                slug={node.fields.slug}
-                title={node.frontmatter.title || node.fields.slug}
-                description={node.frontmatter.description}
-                excerpt={node.excerpt}
-                dateTime={node.frontmatter.date}
-              />
-            ))}
-          </ul>
+          {edges.map(({ node }) => (
+            <PostSummary
+              key={node.fields.slug}
+              slug={node.fields.slug}
+              title={node.frontmatter.title || node.fields.slug}
+              description={node.frontmatter.description}
+              excerpt={node.excerpt}
+              dateTime={node.frontmatter.date}
+            />
+          ))}
         </div>
       </Layout>
     )

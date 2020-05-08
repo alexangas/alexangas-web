@@ -1,10 +1,38 @@
 /// <reference types="Cypress" />
 
 describe("Blog Post", () => {
-  describe("Accessibility tests", () => {
-    itx("First post has no detectable accessibility violations on load", () => {
+  describe("Lighthouse tests", () => {
+    it("First post passes the Lighthouse tests", () => {
       cy.visit("/blog/")
-        .get(".blog__post--summary a")
+        .get(".content h2 a")
+        .first()
+        .click()
+        .get("main")
+        .audit({
+          accessibility: 100,
+          "best-practices": 93,
+          seo: 100
+        });
+    })
+
+    it("Last post passes the Lighthouse tests", () => {
+      cy.visit("/blog/")
+        .get(".content h2 a")
+        .last()
+        .click()
+        .get("main")
+        .audit({
+          accessibility: 100,
+          "best-practices": 93,
+          seo: 100
+        });
+    })
+  })
+
+  describe("Accessibility tests", () => {
+    xit("First post has no detectable accessibility violations on load", () => {
+      cy.visit("/blog/")
+        .get(".content h2 a")
         .first()
         .click()
         .get("main")
@@ -14,7 +42,7 @@ describe("Blog Post", () => {
 
     it("Last post has no detectable accessibility violations on load", () => {
       cy.visit("/blog/")
-        .get(".blog__post--summary a")
+        .get(".content h2 a")
         .last()
         .click()
         .get("main")
@@ -23,15 +51,31 @@ describe("Blog Post", () => {
     })
   })
 
-  describe("Header", () => {
+  describe("Article header", () => {
     beforeEach(() => {
-      cy.visit("/blog/").get(".blog__post--summary a").first().click()
+      cy.visit("/blog/")
+        .get(".content a")
+        .first()
+        .click()
     })
 
-    it("Links to the blog home page", () => {
-      cy.get("header a")
-        .should("contain.text", "Alex Angas")
-        .should("have.attr", "href", "/blog/")
+    it("Header contains a title", () => {
+      cy.get("article header h1")
+        .its("length")
+        .should("be.eq", 1)
+    })
+
+    it("Blog summary contains a timestamp", () => {
+      cy.get("article header time")
+        .its("length")
+        .should("be.eq", 1)
+    })
+
+    it("Blog summary contains a tag", () => {
+      cy.get("article header .tag")
+        .first()
+        .its("length")
+        .should("be.eq", 1)
     })
   })
 })

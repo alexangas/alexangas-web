@@ -14,7 +14,7 @@ exports[`Footer renders author 1`] = `
         className="column"
       />
       <div
-        className="column"
+        className="column is-half"
       >
         <div>
           © 
@@ -65,7 +65,7 @@ exports[`Footer renders social links 1`] = `
         className="column"
       >
         <div
-          className="columns is-mobile is-gapless is-marginless"
+          className="columns is-mobile is-gapless"
         >
           <div
             className="column is-narrow"
@@ -144,7 +144,7 @@ exports[`Footer renders social links 1`] = `
         </div>
       </div>
       <div
-        className="column"
+        className="column is-half"
       >
         <div>
           <small>

@@ -6,10 +6,12 @@ exports[`Timestamp renders timestamp 1`] = `
 <div
   className="is-inline-block-tablet"
 >
-  <time
-    dateTime="2020-05-08T12:58"
-  >
-    8 May 2020
-  </time>
+  <small>
+    <time
+      dateTime="2020-05-08T12:58"
+    >
+      8 May 2020
+    </time>
+  </small>
 </div>
 `;

@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { IconContext } from "react-icons"
 import { FaLinkedinIn } from "react-icons/fa"
 import { IoLogoGithub } from "react-icons/io"
 
@@ -16,9 +15,8 @@ export const PureFooter = ({ data }) => {
       <footer className="container footer">
         <div className="columns">
           <div className="column">
-            <IconContext.Provider value={{ size: "1em" }}>
               {github &&
-                <div className="columns is-mobile is-gapless is-marginless">
+                <div className="columns is-mobile is-gapless">
                   <div className="column is-narrow">
                     <span className="icon">
                       <IoLogoGithub/>
@@ -43,9 +41,8 @@ export const PureFooter = ({ data }) => {
                   </div>
                 </div>
               }
-            </IconContext.Provider>
           </div>
-          <div className="column">
+          <div className="column is-half">
             {author &&
               <div>
                 &copy; {new Date().getFullYear()} {author} - <a href="https://www.xenger.co.uk/">Xenger Ltd</a>

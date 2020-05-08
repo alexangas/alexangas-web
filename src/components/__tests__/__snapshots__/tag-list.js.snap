@@ -5,7 +5,7 @@ exports[`TagList renders multiple tags 1`] = `
   className="tags is-inline-block-tablet"
 >
   <a
-    className="tag"
+    className="tag is-paddingless"
     href="/blog/tags/tag-1/"
   >
     <span
@@ -33,7 +33,7 @@ exports[`TagList renders multiple tags 1`] = `
     tag1
   </a>
   <a
-    className="tag"
+    className="tag is-paddingless"
     href="/blog/tags/tag-2/"
   >
     <span
@@ -61,7 +61,7 @@ exports[`TagList renders multiple tags 1`] = `
     tag2
   </a>
   <a
-    className="tag"
+    className="tag is-paddingless"
     href="/blog/tags/tag-3/"
   >
     <span
@@ -98,7 +98,7 @@ exports[`TagList renders one tag 1`] = `
   className="tags is-inline-block-tablet"
 >
   <a
-    className="tag"
+    className="tag is-paddingless"
     href="/blog/tags/tag-1/"
   >
     <span
