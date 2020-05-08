@@ -8,7 +8,7 @@ export const PureFooter = ({ data }) => {
   const {
     siteMetadata: {
       author,
-      social: { github, linkedin },
+      social: { github, linkedin } = {},
     },
   } = data.site
   return (
@@ -17,34 +17,40 @@ export const PureFooter = ({ data }) => {
         <div className="columns">
           <div className="column">
             <IconContext.Provider value={{ size: "1em" }}>
-              <div className="columns is-mobile is-gapless is-marginless">
-                <div className="column is-narrow">
-                  <span className="icon">
-                    <IoLogoGithub />
-                  </span>
+              {github &&
+                <div className="columns is-mobile is-gapless is-marginless">
+                  <div className="column is-narrow">
+                    <span className="icon">
+                      <IoLogoGithub/>
+                    </span>
+                  </div>
+                  <div className="column">
+                    <a href={`https://github.com/${github}/`}>{github}</a>
+                  </div>
                 </div>
-                <div className="column">
-                  <a href={`https://github.com/${github}/`}>{github}</a>
+              }
+              {linkedin &&
+                <div className="columns is-mobile is-gapless">
+                  <div className="column is-narrow">
+                    <span className="icon">
+                      <FaLinkedinIn/>
+                    </span>
+                  </div>
+                  <div className="column">
+                    <a href={`https://www.linkedin.com/in/${linkedin}/`}>
+                      {linkedin}
+                    </a>
+                  </div>
                 </div>
-              </div>
-              <div className="columns is-mobile is-gapless">
-                <div className="column is-narrow">
-                  <span className="icon">
-                    <FaLinkedinIn />
-                  </span>
-                </div>
-                <div className="column">
-                  <a href={`https://www.linkedin.com/in/${linkedin}/`}>
-                    {linkedin}
-                  </a>
-                </div>
-              </div>
+              }
             </IconContext.Provider>
           </div>
           <div className="column">
-            <div>
-              &copy; {new Date().getFullYear()} {author} - <a href="https://www.xenger.co.uk/">Xenger Ltd</a>
-            </div>
+            {author &&
+              <div>
+                &copy; {new Date().getFullYear()} {author} - <a href="https://www.xenger.co.uk/">Xenger Ltd</a>
+              </div>
+            }
             <div>
               <small>
                 Built with <a href="https://www.gatsbyjs.org/">Gatsby</a> and <a href="https://bulma.io/">Bulma</a>.

@@ -4,55 +4,36 @@ import renderer from "react-test-renderer"
 import { PureFooter as Footer } from "../footer"
 
 describe("Footer", () => {
-  it("renders root path correctly", () => {
+  it("renders social links", () => {
     const data = {
       site: {
         siteMetadata: {
-          title: "Name of Blog",
+          social: {
+            github: 'ghusername',
+            linkedin: 'liusername',
+          }
         },
       },
     }
-    const location = {
-      pathname: "/",
-    }
+
     const testRenderer = renderer.create(
-      <Footer location={location} data={data} />
+      <Footer data={data} />
     )
     const tree = testRenderer.toJSON()
     expect(tree).toMatchSnapshot()
   })
 
-  it("renders blog path correctly", () => {
+  it("renders author", () => {
     const data = {
       site: {
         siteMetadata: {
-          title: "Name of Blog",
+          author: 'Author'
         },
       },
     }
-    const location = {
-      pathname: "/blog/",
-    }
-    const testRenderer = renderer.create(
-      <Footer location={location} data={data} />
-    )
-    const tree = testRenderer.toJSON()
-    expect(tree).toMatchSnapshot()
-  })
 
-  it("renders non-blog path correctly", () => {
-    const data = {
-      site: {
-        siteMetadata: {
-          title: "Some Page",
-        },
-      },
-    }
-    const location = {
-      pathname: "/some-page/",
-    }
     const testRenderer = renderer.create(
-      <Footer location={location} data={data} />
+      <Footer data={data} />
     )
     const tree = testRenderer.toJSON()
     expect(tree).toMatchSnapshot()
