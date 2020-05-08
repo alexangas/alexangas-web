@@ -106,10 +106,6 @@ module.exports = {
                 default: "Default Light+",
                 dark: "Default Dark+",
               },
-              replaceColor: (oldColor) =>
-                ({
-                  "#ffffff": "hsl(0, 0%, 96%)",
-                }[oldColor.toLowerCase()] || oldColor),
             },
           },
           {

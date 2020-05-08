@@ -21,7 +21,8 @@ exports[`Footer renders author 1`] = `
           2020
            
           Author
-           - 
+           -
+           
           <a
             href="https://www.xenger.co.uk/"
           >
@@ -36,7 +37,8 @@ exports[`Footer renders author 1`] = `
             >
               Gatsby
             </a>
-             and 
+             and
+             
             <a
               href="https://bulma.io/"
             >
@@ -154,7 +156,8 @@ exports[`Footer renders social links 1`] = `
             >
               Gatsby
             </a>
-             and 
+             and
+             
             <a
               href="https://bulma.io/"
             >

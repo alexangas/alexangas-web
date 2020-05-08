@@ -56,7 +56,11 @@ $size-9: 0.25rem
 @import "~bulma/sass/layout/footer.sass"
 
 .grvsc-container
-  padding: $size-7 0
+  padding: $size-7 !important
+  @media screen and (prefers-color-scheme: no-preference)
+    background-color: hsl(0, 0%, 96%) !important
+  @media screen and (prefers-color-scheme: light)
+    background-color: hsl(0, 0%, 96%) !important
   .grvsc-line
     padding: 0
 
