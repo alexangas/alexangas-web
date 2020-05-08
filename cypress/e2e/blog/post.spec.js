@@ -2,7 +2,7 @@
 
 describe("Blog Post", () => {
   describe("Accessibility tests", () => {
-    it("First post has no detectable accessibility violations on load", () => {
+    itx("First post has no detectable accessibility violations on load", () => {
       cy.visit("/blog/")
         .get(".blog__post--summary a")
         .first()
