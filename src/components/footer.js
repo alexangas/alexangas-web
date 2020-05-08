@@ -43,11 +43,11 @@ export const PureFooter = ({ data }) => {
           </div>
           <div className="column">
             <div>
-              &copy; {new Date().getFullYear()} {author}
+              &copy; {new Date().getFullYear()} {author} - <a href="https://www.xenger.co.uk/">Xenger Ltd</a>
             </div>
             <div>
               <small>
-                Built with <a href="https://www.gatsbyjs.org">Gatsby</a> and <a href="https://bulma.io/">Bulma</a>.
+                Built with <a href="https://www.gatsbyjs.org/">Gatsby</a> and <a href="https://bulma.io/">Bulma</a>.
               </small>
             </div>
           </div>
