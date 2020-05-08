@@ -22,7 +22,10 @@ class BlogPostTemplate extends React.Component {
         <article className="section">
           <header>
             <h1 className="title is-marginless">{post.frontmatter.title}</h1>
-            <PostMetadata dateTime={post.frontmatter.date} tags={post.frontmatter.tags} />
+            <PostMetadata
+              dateTime={post.frontmatter.date}
+              tags={post.frontmatter.tags}
+            />
           </header>
           <div className="content is-medium">
             <MDXRenderer>{post.body}</MDXRenderer>
@@ -30,17 +33,33 @@ class BlogPostTemplate extends React.Component {
           <hr />
         </article>
 
-        <nav className="pagination" role="navigation" aria-label="Post navigation">
-          {previous ?
-            <Link to={`/blog${previous.fields.slug}`} rel="prev" className="pagination-previous">
+        <nav
+          className="pagination"
+          role="navigation"
+          aria-label="Post navigation"
+        >
+          {previous ? (
+            <Link
+              to={`/blog${previous.fields.slug}`}
+              rel="prev"
+              className="pagination-previous"
+            >
               &#x2190; {previous.frontmatter.title}
             </Link>
-          : <span className="pagination-previous" /> }
-          {next ?
-            <Link to={`/blog${next.fields.slug}`} rel="next" className="pagination-next">
+          ) : (
+            <span className="pagination-previous" />
+          )}
+          {next ? (
+            <Link
+              to={`/blog${next.fields.slug}`}
+              rel="next"
+              className="pagination-next"
+            >
               {next.frontmatter.title} &#x2192;
             </Link>
-            : <span className="pagination-next" /> }
+          ) : (
+            <span className="pagination-next" />
+          )}
         </nav>
       </Layout>
     )

@@ -5,6 +5,7 @@
 // Initial variables
 $blue: #007acc;
 $family-sans-serif: 'Lato', $family-sans-serif;
+$tablet: 768px !default;
 
 // Derived variables
 $primary: $blue;
@@ -17,6 +18,7 @@ $section-padding: $size-4;
 $navbar-item-color: $black-bis;
 $navbar-item-hover-color: $black-bis;
 
+$pagination-color: $primary;
 $pagination-border-color: none;
 $pagination-hover-border-color: none;
 $pagination-focus-border-color: none;
@@ -45,20 +47,34 @@ body {
 .navbar-wrapper {
   box-shadow: 0 0 6px 0 $grey-light;
 
-  .navbar-start {
-    .navbar-item {
-      letter-spacing: 0.01rem;
+  .navbar {
+    .navbar-menu {
+      padding: $size-8;
     }
-  }
 
-  a.navbar-item {
-    text-underline-offset: 0.4rem;
-    text-decoration-thickness: 0.1rem;
+    .navbar-start {
+      .navbar-item {
+        letter-spacing: 0.01rem;
+      }
+    }
+
+    a.navbar-item {
+      text-underline-offset: 0.4rem;
+      text-decoration-thickness: 0.1rem;
+    }
   }
 }
 
 header {
   margin-bottom: $size-5;
+}
+
+@include mobile {
+  .section {
+    .section {
+      padding: 0;
+    }
+  }
 }
 
 .footer-wrapper {

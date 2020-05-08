@@ -10,7 +10,7 @@ class Layout extends React.Component {
       <>
         <NavBar location={this.props.location} />
         <section className="section">
-          <div className={`container${className ? " " + className : ''}`}>
+          <div className={`container${className ? " " + className : ""}`}>
             <main>{children}</main>
           </div>
           <Footer />

@@ -25,8 +25,7 @@ describe("Root Home", () => {
   describe("Contents", () => {
     it("Contains a blog link", () => {
       cy.findByText("Blog", { exact: false }).focus()
-      cy.focused()
-        .should("have.attr", "href", "/blog/")
+      cy.focused().should("have.attr", "href", "/blog/")
     })
   })
 
@@ -37,8 +36,7 @@ describe("Root Home", () => {
         .should("contain.text", "Alex Angas")
     })
     it("Focuses on the footer link and asserts its attributes", () => {
-      cy.get('footer a')
-        .should("have.attr", "href", "https://www.gatsbyjs.org")
+      cy.get("footer a").should("have.attr", "href", "https://www.gatsbyjs.org")
     })
   })
 })

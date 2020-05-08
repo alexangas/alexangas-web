@@ -20,17 +20,24 @@ class TagTemplate extends React.Component {
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title={siteTitle} />
         <div className="section">
-        <header>
-          <h1 className="title is-marginless">{tagHeader}</h1>
-          <div>
-            <Link to="/blog/tags">All tags</Link>
-          </div>
-        </header>
-        <ul>
-          {edges.map(({ node }) =>
-            <PostSummary key={node.fields.slug} slug={node.fields.slug} title={node.frontmatter.title || node.fields.slug} description={node.frontmatter.description} excerpt={node.excerpt} dateTime={node.frontmatter.date} />
-          )}
-        </ul>
+          <header>
+            <h1 className="title is-marginless">{tagHeader}</h1>
+            <div>
+              <Link to="/blog/tags">All tags</Link>
+            </div>
+          </header>
+          <ul>
+            {edges.map(({ node }) => (
+              <PostSummary
+                key={node.fields.slug}
+                slug={node.fields.slug}
+                title={node.frontmatter.title || node.fields.slug}
+                description={node.frontmatter.description}
+                excerpt={node.excerpt}
+                dateTime={node.frontmatter.date}
+              />
+            ))}
+          </ul>
         </div>
       </Layout>
     )

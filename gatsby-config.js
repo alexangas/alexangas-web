@@ -38,7 +38,7 @@ module.exports = {
                   date: edge.node.frontmatter.date,
                   url: `${site.siteMetadata.siteUrl}/blog${edge.node.fields.slug}`,
                   guid: `${site.siteMetadata.siteUrl}/blog${edge.node.fields.slug}`,
-                  custom_elements: [{ "content:encoded": edge.node.html }]
+                  custom_elements: [{ "content:encoded": edge.node.html }],
                 })
               })
             },
@@ -61,7 +61,7 @@ module.exports = {
             `,
             output: "/rss.xml",
             title: "Alex Angas",
-            match: "^/blog/"
+            match: "^/blog/",
           },
         ],
       },
@@ -109,13 +109,14 @@ module.exports = {
             resolve: `gatsby-remark-vscode`,
             options: {
               theme: {
-                default: 'Default Light+',
-                dark: 'Default Dark+',
+                default: "Default Light+",
+                dark: "Default Dark+",
               },
-              replaceColor: oldColor => ({
-                '#ffffff': 'hsl(0, 0%, 96%)',
-              })[oldColor.toLowerCase()] || oldColor
-            }
+              replaceColor: (oldColor) =>
+                ({
+                  "#ffffff": "hsl(0, 0%, 96%)",
+                }[oldColor.toLowerCase()] || oldColor),
+            },
           },
           {
             resolve: `gatsby-remark-copy-linked-files`,

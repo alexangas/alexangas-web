@@ -26,7 +26,8 @@ describe("Blog Home", () => {
     it("Contains blog links", () => {
       cy.get(".blog__post--container")
         .find(".blog__post--summary")
-        .its('length').should('be.gte', 3)
+        .its("length")
+        .should("be.gte", 3)
     })
   })
 })

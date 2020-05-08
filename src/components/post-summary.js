@@ -8,10 +8,11 @@ const PostSummary = ({ slug, title, description, excerpt, dateTime, tags }) => (
     <h2 className="subtitle is-marginless is-4">
       <Link to={`/blog${slug}`}>{title}</Link>
     </h2>
-    <p className="is-marginless"
-       dangerouslySetInnerHTML={{
-         __html: description || excerpt,
-       }}
+    <p
+      className="is-marginless"
+      dangerouslySetInnerHTML={{
+        __html: description || excerpt,
+      }}
     />
     <PostMetadata dateTime={dateTime} tags={tags} />
   </div>
