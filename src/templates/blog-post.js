@@ -4,7 +4,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import TagList from "../components/tag-list"
+import PostMetadata from "../components/post-metadata"
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -19,36 +19,47 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        <article className="blog__post--article">
+        <article className="section">
           <header>
-            <h1>{post.frontmatter.title}</h1>
-            <small>{post.frontmatter.date}</small>
-            <small>
-              <TagList tags={post.frontmatter.tags} />
-            </small>
+            <h1 className="title is-marginless">{post.frontmatter.title}</h1>
+            <PostMetadata
+              dateTime={post.frontmatter.date}
+              tags={post.frontmatter.tags}
+            />
           </header>
-          <MDXRenderer>{post.body}</MDXRenderer>
+          <div className="content is-medium">
+            <MDXRenderer>{post.body}</MDXRenderer>
+          </div>
           <hr />
-          {/*<footer>{<Bio />}</footer>*/}
         </article>
 
-        <nav className="blog__post--nav">
-          <ul>
-            <li>
-              {previous && (
-                <Link to={`/blog${previous.fields.slug}`} rel="prev">
-                  &#x2190; {previous.frontmatter.title}
-                </Link>
-              )}
-            </li>
-            <li>
-              {next && (
-                <Link to={`/blog${next.fields.slug}`} rel="next">
-                  {next.frontmatter.title} &#x2192;
-                </Link>
-              )}
-            </li>
-          </ul>
+        <nav
+          className="pagination"
+          role="navigation"
+          aria-label="Post navigation"
+        >
+          {previous ? (
+            <Link
+              to={`/blog${previous.fields.slug}`}
+              rel="prev"
+              className="pagination-previous"
+            >
+              &#x2190; {previous.frontmatter.title}
+            </Link>
+          ) : (
+            <span className="pagination-previous" />
+          )}
+          {next ? (
+            <Link
+              to={`/blog${next.fields.slug}`}
+              rel="next"
+              className="pagination-next"
+            >
+              {next.frontmatter.title} &#x2192;
+            </Link>
+          ) : (
+            <span className="pagination-next" />
+          )}
         </nav>
       </Layout>
     )
@@ -62,6 +73,14 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        author
+      }
+    }
+    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+      childImageSharp {
+        fixed(width: 48, height: 48) {
+          ...GatsbyImageSharpFixed
+        }
       }
     }
     mdx(fields: { slug: { eq: $slug } }) {

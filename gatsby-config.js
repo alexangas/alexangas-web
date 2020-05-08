@@ -4,11 +4,11 @@ module.exports = {
   siteMetadata: {
     title: `Alex Angas`,
     author: `Alex Angas`,
-    description: ``,
+    description: `The personal web site for Alex Angas.`,
     siteUrl: `https://www.alexangas.com/`,
     social: {
       linkedin: `alexangas`,
-      twitter: `alexangas`,
+      github: `alexangas`,
     },
   },
   plugins: [
@@ -38,7 +38,7 @@ module.exports = {
                   date: edge.node.frontmatter.date,
                   url: `${site.siteMetadata.siteUrl}/blog${edge.node.fields.slug}`,
                   guid: `${site.siteMetadata.siteUrl}/blog${edge.node.fields.slug}`,
-                  custom_elements: [{ "content:encoded": edge.node.html }]
+                  custom_elements: [{ "content:encoded": edge.node.html }],
                 })
               })
             },
@@ -61,7 +61,7 @@ module.exports = {
             `,
             output: "/rss.xml",
             title: "Alex Angas",
-            match: "^/blog/"
+            match: "^/blog/",
           },
         ],
       },
@@ -80,6 +80,7 @@ module.exports = {
         name: `assets`,
       },
     },
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
@@ -99,13 +100,13 @@ module.exports = {
             },
           },
           {
-            resolve: `gatsby-remark-responsive-iframe`,
-            options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
-          },
-          {
             resolve: `gatsby-remark-vscode`,
+            options: {
+              theme: {
+                default: "Default Light+",
+                dark: "Default Dark+",
+              },
+            },
           },
           {
             resolve: `gatsby-remark-copy-linked-files`,
@@ -133,13 +134,6 @@ module.exports = {
         icon: `content/assets/alex2017b_small_adj2_2.png`,
         legacy: false,
         theme_color_in_head: false,
-      },
-    },
-    // `gatsby-plugin-offline`,
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
       },
     },
     `gatsby-plugin-sitemap`,

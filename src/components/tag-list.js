@@ -1,16 +1,24 @@
 import React from "react"
 import { Link } from "gatsby"
 import kebabCase from "lodash/kebabCase"
+import { FaTag } from "react-icons/fa"
 
-const TagList = ({ tags }) => (
-  <ul className="tag-list">
-    {tags.map((tag, index) => (
-      <li key={tag}>
-        <Link to={`/blog/tags/${kebabCase(tag)}/`}>{tag}</Link>
-        {index < tags.length - 1 ? `, ` : ``}
-      </li>
-    ))}
-  </ul>
-)
+const TagList = ({ tags }) =>
+  tags ? (
+    <div className="tags is-inline-block-tablet">
+      {tags.map((tag) => (
+        <Link
+          key={tag}
+          to={`/blog/tags/${kebabCase(tag)}/`}
+          className="tag is-paddingless"
+        >
+          <span className="icon">
+            <FaTag />
+          </span>
+          {tag}
+        </Link>
+      ))}
+    </div>
+  ) : null
 
 export default TagList

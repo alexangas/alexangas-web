@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavBar renders title 1`] = `
+<div
+  className="navbar-wrapper"
+>
+  <nav
+    aria-label="Main navigation"
+    className="container navbar is-transparent"
+    role="navigation"
+  >
+    <div
+      className="navbar-menu is-active"
+    >
+      <div
+        className="navbar-start is-size-4"
+      >
+        <a
+          className="navbar-item has-text-weight-semibold"
+          href="/"
+        >
+          Site Title
+        </a>
+      </div>
+      <div
+        className="navbar-end is-size-5"
+      >
+        <a
+          className="navbar-item"
+          href="/blog/"
+        >
+          Blog
+        </a>
+      </div>
+    </div>
+  </nav>
+</div>
+`;

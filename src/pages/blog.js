@@ -1,46 +1,36 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import TagList from "../components/tag-list"
+import PostSummary from "../components/post-summary"
 
 class Blog extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = `Blog - ${data.site.siteMetadata.title}`
+    const pageTitle = `Posts`
     const posts = data.allMdx.edges
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="All posts" />
-        <Bio />
-        <div className="blog__post--container">
-          {posts.map(({ node }) => {
-            const title = node.frontmatter.title || node.fields.slug
-            const tags = node.frontmatter.tags || []
-            return (
-              <div className="blog__post--summary" key={node.fields.slug}>
-                <h2>
-                  <Link to={`/blog${node.fields.slug}`}>{title}</Link>
-                </h2>
-                {/* <small>{node.frontmatter.date}</small> */}
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt,
-                  }}
-                />
-                <small>
-                  <TagList tags={tags} />
-                </small>
-              </div>
-            )
-          })}
+      <Layout location={this.props.location} title={siteTitle} className="blog">
+        <SEO title={pageTitle} />
+        <div className="section">
+          <header>
+            <h1 className="title">{pageTitle}</h1>
+          </header>
+          {posts.map(({ node }) => (
+            <PostSummary
+              key={node.fields.slug}
+              slug={node.fields.slug}
+              title={node.frontmatter.title || node.fields.slug}
+              description={node.frontmatter.description}
+              excerpt={node.excerpt}
+              dateTime={node.frontmatter.date}
+              tags={node.frontmatter.tags || []}
+            />
+          ))}
         </div>
-        <Link to="/" className="link-button">
-          Go Home
-        </Link>
       </Layout>
     )
   }
@@ -63,7 +53,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "D MMMM YYYY")
+            date
             title
             description
             tags

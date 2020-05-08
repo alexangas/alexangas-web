@@ -1,17 +1,21 @@
 import React from "react"
-import Header from "./header"
+import NavBar from "./navbar"
 import Footer from "./footer"
 
 class Layout extends React.Component {
   render() {
-    const { children } = this.props
+    const { className, children } = this.props
 
     return (
-      <div className="container">
-        <Header location={this.props.location} />
-        <main>{children}</main>
-        <Footer />
-      </div>
+      <>
+        <NavBar location={this.props.location} />
+        <section className="section">
+          <div className={`container${className ? " " + className : ""}`}>
+            <main>{children}</main>
+          </div>
+          <Footer />
+        </section>
+      </>
     )
   }
 }

@@ -4,6 +4,7 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import PostSummary from "../components/post-summary"
 
 class TagTemplate extends React.Component {
   render() {
@@ -18,19 +19,24 @@ class TagTemplate extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title={siteTitle} />
-        <h1>{tagHeader}</h1>
-        <ul>
-          {edges.map(({ node }) => {
-            const { slug } = node.fields
-            const { title } = node.frontmatter
-            return (
-              <li key={slug}>
-                <Link to={`/blog${slug}`}>{title}</Link>
-              </li>
-            )
-          })}
-        </ul>
-        <Link to="/blog/tags">All tags</Link>
+        <div className="section">
+          <header>
+            <h1 className="title is-marginless">{tagHeader}</h1>
+            <div>
+              <Link to="/blog/tags">All tags</Link>
+            </div>
+          </header>
+          {edges.map(({ node }) => (
+            <PostSummary
+              key={node.fields.slug}
+              slug={node.fields.slug}
+              title={node.frontmatter.title || node.fields.slug}
+              description={node.frontmatter.description}
+              excerpt={node.excerpt}
+              dateTime={node.frontmatter.date}
+            />
+          ))}
+        </div>
       </Layout>
     )
   }
@@ -71,11 +77,14 @@ export const pageQuery = graphql`
       totalCount
       edges {
         node {
+          excerpt
           fields {
             slug
           }
           frontmatter {
+            date
             title
+            description
           }
         }
       }

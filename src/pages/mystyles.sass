@@ -1,0 +1,140 @@
+@charset "utf-8"
+
+@import "~bulma/sass/utilities/initial-variables.sass"
+
+// Initial variables
+$blue: #007acc
+$family-sans-serif: 'Lato', $family-sans-serif
+$tablet: 768px
+
+// Derived variables
+$primary: $blue
+$link-hover: $primary
+$text-string: $black-ter
+$red: #DF113A
+
+// Component variables
+$section-padding: $size-4
+
+$navbar-item-color: $black-bis
+$navbar-item-hover-color: $black-bis
+
+$pagination-color: $primary
+$pagination-border-color: none
+$pagination-hover-border-color: none
+$pagination-focus-border-color: none
+$pagination-active-border-color: none
+$pagination-disabled-border-color: none
+$pagination-current-border-color: none
+$pagination-shadow-inset: none
+
+$footer-background-color: $white
+$footer-padding: $size-4 0
+
+$tag-background-color: $white
+
+// Misc config
+$widescreen-enabled: false
+$fullhd-enabled: false
+$pre-code-font-size: $size-6
+$size-8: 0.5rem
+$size-9: 0.25rem
+
+// @import "~bulma/bulma.sass"
+@import "~bulma/sass/utilities/_all.sass"
+@import "~bulma/sass/base/_all.sass"
+@import "~bulma/sass/elements/container.sass"
+@import "~bulma/sass/elements/content.sass"
+@import "~bulma/sass/elements/icon.sass"
+@import "~bulma/sass/elements/image.sass"
+@import "~bulma/sass/elements/tag.sass"
+@import "~bulma/sass/elements/title.sass"
+@import "~bulma/sass/components/navbar.sass"
+@import "~bulma/sass/components/pagination.sass"
+@import "~bulma/sass/grid/columns.sass"
+@import "~bulma/sass/layout/section.sass"
+@import "~bulma/sass/layout/footer.sass"
+
+.grvsc-container
+  padding: $size-7 !important
+  @media screen and (prefers-color-scheme: no-preference)
+    background-color: hsl(0, 0%, 96%) !important
+  @media screen and (prefers-color-scheme: light)
+    background-color: hsl(0, 0%, 96%) !important
+  .grvsc-line
+    padding: 0
+
+body
+  font-kerning: normal
+  font-feature-settings: "kern", "liga", "clig", "calt"
+
+code
+  white-space: pre
+
+a
+  &:hover
+    text-decoration: underline
+
+.image.is-rounded
+  img
+    border-radius: $radius-rounded
+
+.navbar-wrapper
+  box-shadow: 0 0 1px 0 $grey-light
+  +desktop
+    box-shadow: 0 0 6px 0 $grey-light
+  .navbar
+    .navbar-menu
+      padding: $size-8
+    .navbar-start
+      .navbar-item
+        letter-spacing: 0.01rem
+    a.navbar-item
+      text-underline-offset: 0.4rem
+      text-decoration-thickness: 0.1rem
+
+section > .container
+  padding-bottom: $size-4
+
++mobile
+  .section
+    .section
+      padding: 0
+
+header
+  margin-bottom: $size-5
+
+.footer-wrapper
+  border-top: 1px solid $grey-lighter
+
+footer
+  .columns.is-gapless
+    margin-bottom: $size-9 !important
+    +tablet
+      margin-bottom: 0 !important
+
+.blog-metadata-separator::after
+  content: '\00B7'
+  padding: 0 $size-8
+
+article
+  header
+    h1
+      padding-bottom: $size-9
+  .content
+    h2
+      font-size: $size-4
+    h3
+      font-size: $size-5
+    h4
+      font-size: $size-6
+  hr
+    margin-bottom: 0
+
+.tags
+  .icon
+    margin-right: 0 !important
+
+.pagination-previous:active, .pagination-next:active, .pagination-link:active
+  // Needed because setting $pagination-shadow-inset does not work
+  box-shadow: none

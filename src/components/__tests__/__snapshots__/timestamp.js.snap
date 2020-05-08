@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Timestamp renders no timestamp 1`] = `null`;
+
+exports[`Timestamp renders timestamp 1`] = `
+<div
+  className="is-inline-block-tablet"
+>
+  <small>
+    <time
+      dateTime="2020-05-08T12:58"
+    >
+      8 May 2020
+    </time>
+  </small>
+</div>
+`;

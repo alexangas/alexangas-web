@@ -6,7 +6,7 @@ RUN mkdir /app
 WORKDIR /app
 
 COPY ./package.json .
-RUN yarn install
+RUN yarn install --no-lockfile
 
 COPY . .
 CMD ["yarn", "develop", "-H", "0.0.0.0" ]
