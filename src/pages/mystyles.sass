@@ -43,12 +43,17 @@ $size-9: 0.25rem
 // @import "~bulma/bulma.sass"
 @import "~bulma/sass/utilities/_all.sass"
 @import "~bulma/sass/base/_all.sass"
+@import "~bulma/sass/elements/button.sass"
 @import "~bulma/sass/elements/container.sass"
 @import "~bulma/sass/elements/content.sass"
 @import "~bulma/sass/elements/icon.sass"
 @import "~bulma/sass/elements/image.sass"
+@import "~bulma/sass/elements/notification.sass"
 @import "~bulma/sass/elements/tag.sass"
 @import "~bulma/sass/elements/title.sass"
+@import "~bulma/sass/form/shared.sass"
+@import "~bulma/sass/form/input-textarea.sass"
+@import "~bulma/sass/form/tools.sass"
 @import "~bulma/sass/components/navbar.sass"
 @import "~bulma/sass/components/pagination.sass"
 @import "~bulma/sass/grid/columns.sass"
@@ -112,6 +117,9 @@ footer
     margin-bottom: $size-9 !important
     +tablet
       margin-bottom: 0 !important
+
+#contactForm
+  margin-bottom: $size-7
 
 .blog-metadata-separator::after
   content: '\00B7'
