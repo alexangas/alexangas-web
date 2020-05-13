@@ -1,10 +1,7 @@
-import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import * as React from 'react'
+import { graphql, Link, useStaticQuery } from "gatsby"
 
-export const PureNavBar = ({ data }) => {
-  const { title } = data.site.siteMetadata
-
-  return (
+export const PureNavBar = ({ location, data }) => (
     <div className="navbar-wrapper">
       <nav
         className="container navbar is-transparent"
@@ -14,7 +11,7 @@ export const PureNavBar = ({ data }) => {
         <div className="navbar-menu is-active">
           <div className="navbar-start is-size-4">
             <Link to="/" className="navbar-item has-text-weight-semibold">
-              {title}
+              {data.site.siteMetadata.title}
             </Link>
           </div>
 
@@ -27,7 +24,6 @@ export const PureNavBar = ({ data }) => {
       </nav>
     </div>
   )
-}
 
 export const NavBar = (props) => {
   const data = useStaticQuery(graphql`

@@ -1,9 +1,9 @@
-import React from "react"
+import * as React from 'react'
 import { Link } from "gatsby"
 
 import PostMetadata from "./post-metadata"
 
-const PostSummary = ({ slug, title, description, excerpt, dateTime, tags }) => (
+const PostSummary = ({ slug, title, description, excerpt, dateTime, tags = [] }) => (
   <div key={slug} className="content">
     <h2 className="subtitle is-marginless is-4">
       <Link to={`/blog${slug}`}>{title}</Link>

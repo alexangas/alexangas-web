@@ -1,9 +1,9 @@
-import React from "react"
+import * as React from 'react'
 import Timestamp from "./timestamp"
 import TagList from "./tag-list"
 import Image from "gatsby-image"
 
-const PostMetadata = ({ dateTime, tags, avatar, author }) => (
+const PostMetadata = ({ dateTime, tags, avatar = null, author = '' }) => (
   <div className="blog-metadata">
     {avatar && (
       <Image
