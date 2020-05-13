@@ -1,9 +1,11 @@
-import * as React from 'react'
+import * as React from "react"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
 export const PureSEO = ({ description, lang, meta, title, data }) => {
-  const { site: { siteMetadata } } = data;
+  const {
+    site: { siteMetadata },
+  } = data
   const metaDescription = description || siteMetadata.description
 
   return (

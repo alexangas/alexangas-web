@@ -1,12 +1,12 @@
-import * as React from 'react'
+import * as React from "react"
 import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import PostSummary from "../components/post-summary"
 
 type TagTemplateProps = {
-  location: Location,
-  pageContext: any,
+  location: Location
+  pageContext: any
   data: any
 }
 
@@ -18,19 +18,19 @@ class TagTemplate extends React.Component<TagTemplateProps, {}> {
 
     return (
       <Layout location={location} title={`${tag} (${totalCount})`}>
-          <h2 className="subtitle">
-            <Link to="/blog/tags">All tags</Link>
-          </h2>
-          {edges.map(({ node }) => (
-            <PostSummary
-              key={node.fields.slug}
-              slug={node.fields.slug}
-              title={node.frontmatter.title || node.fields.slug}
-              description={node.frontmatter.description}
-              excerpt={node.excerpt}
-              dateTime={node.frontmatter.date}
-            />
-          ))}
+        <h2 className="subtitle">
+          <Link to="/blog/tags">All tags</Link>
+        </h2>
+        {edges.map(({ node }) => (
+          <PostSummary
+            key={node.fields.slug}
+            slug={node.fields.slug}
+            title={node.frontmatter.title || node.fields.slug}
+            description={node.frontmatter.description}
+            excerpt={node.excerpt}
+            dateTime={node.frontmatter.date}
+          />
+        ))}
       </Layout>
     )
   }

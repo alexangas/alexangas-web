@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from "react"
 import { Link, graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
@@ -6,30 +6,34 @@ import Layout from "../components/layout"
 import PostMetadata from "../components/post-metadata"
 
 type BlogPostTemplateProps = {
-  location: Location,
-  pageContext: any,
+  location: Location
+  pageContext: any
   data: any
 }
 
 class BlogPostTemplate extends React.Component<BlogPostTemplateProps, {}> {
-
   render() {
     const { location, pageContext, data } = this.props
     const post = data.mdx
     const { previous, next } = pageContext
 
     return (
-      <Layout location={location} title={post.frontmatter.title} description={post.frontmatter.description || post.excerpt} isMarginless={true}>
-          <PostMetadata
-            dateTime={post.frontmatter.date}
-            tags={post.frontmatter.tags}
-          />
+      <Layout
+        location={location}
+        title={post.frontmatter.title}
+        description={post.frontmatter.description || post.excerpt}
+        isMarginless={true}
+      >
+        <PostMetadata
+          dateTime={post.frontmatter.date}
+          tags={post.frontmatter.tags}
+        />
         <article>
           <div className="content is-medium">
             <MDXRenderer>{post.body}</MDXRenderer>
           </div>
         </article>
-          <hr />
+        <hr />
 
         <nav
           className="pagination"

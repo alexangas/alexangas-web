@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { FaLinkedinIn } from "react-icons/fa"
 import { IoLogoGithub } from "react-icons/io"
@@ -6,7 +6,7 @@ import { IoLogoGithub } from "react-icons/io"
 export const PureFooter = ({ data }) => {
   const { site } = data
   const {
-    siteMetadata: { author, social: { github = '', linkedin = '' } = {} },
+    siteMetadata: { author, social: { github = "", linkedin = "" } = {} },
   } = site
   return (
     <div className="footer-wrapper">

@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from "react"
 import { Link } from "gatsby"
 import { kebabCase } from "lodash"
 import { FaTag } from "react-icons/fa"

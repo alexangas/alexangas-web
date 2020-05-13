@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from "react"
 import { kebabCase } from "lodash"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import { FaTag } from "react-icons/fa"
@@ -6,26 +6,26 @@ import { FaTag } from "react-icons/fa"
 import Layout from "../../components/layout"
 
 export const PureTagsPage = ({
-                           location,
-                           data: {
-                             allMdx: { group },
-                           },
-                         }) => (
-      <Layout location={location} title={`Tags`}>
-          <ul>
-            {group.map((tag) => (
-              <li key={tag.fieldValue}>
-                <Link to={`/blog/tags/${kebabCase(tag.fieldValue)}/`}>
-                  <span className="icon is-medium has-text-grey-dark">
-                    <FaTag />
-                  </span>
-                  {tag.fieldValue} ({tag.totalCount})
-                </Link>
-              </li>
-            ))}
-          </ul>
-      </Layout>
-    )
+  location,
+  data: {
+    allMdx: { group },
+  },
+}) => (
+  <Layout location={location} title={`Tags`}>
+    <ul>
+      {group.map((tag) => (
+        <li key={tag.fieldValue}>
+          <Link to={`/blog/tags/${kebabCase(tag.fieldValue)}/`}>
+            <span className="icon is-medium has-text-grey-dark">
+              <FaTag />
+            </span>
+            {tag.fieldValue} ({tag.totalCount})
+          </Link>
+        </li>
+      ))}
+    </ul>
+  </Layout>
+)
 
 export const TagsPage = (props) => {
   const data = useStaticQuery(graphql`
