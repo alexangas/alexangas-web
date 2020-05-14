@@ -1,5 +1,4 @@
 import * as React from "react"
-import "./mystyles.sass"
 
 import Layout from "../components/layout"
 
