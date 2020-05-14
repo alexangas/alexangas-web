@@ -7,7 +7,9 @@ describe("Blog Post", () => {
         .get(".content h2 a")
         .first()
         .click()
-        .get("main")
+      cy.location("pathname")
+        .should("not.equal", "/blog/")
+      cy.get("main")
         .audit({
           accessibility: 100,
           "best-practices": 93,
@@ -16,7 +18,13 @@ describe("Blog Post", () => {
     })
 
     it("Last post passes the Lighthouse tests", () => {
-      cy.visit("/blog/").get(".content h2 a").last().click().get("main").audit({
+      cy.visit("/blog/")
+        .get(".content h2 a")
+        .last()
+        .click()
+      cy.location("pathname")
+        .should("not.equal", "/blog/")
+      cy.get("main").audit({
         accessibility: 100,
         "best-practices": 93,
         seo: 100,
@@ -30,7 +38,9 @@ describe("Blog Post", () => {
         .get(".content h2 a")
         .first()
         .click()
-        .get("main")
+      cy.location("pathname")
+        .should("not.equal", "/blog/")
+      cy.get("main")
         .injectAxe()
         .checkA11y()
     })
@@ -40,7 +50,9 @@ describe("Blog Post", () => {
         .get(".content h2 a")
         .last()
         .click()
-        .get("main")
+      cy.location("pathname")
+        .should("not.equal", "/blog/")
+      cy.get("main")
         .injectAxe()
         .checkA11y()
     })
@@ -48,7 +60,12 @@ describe("Blog Post", () => {
 
   describe("Article header", () => {
     beforeEach(() => {
-      cy.visit("/blog/").get(".content a").first().click()
+      cy.visit("/blog/")
+        .get(".content a")
+        .first()
+        .click()
+      cy.location("pathname")
+        .should("not.equal", "/blog/")
     })
 
     it("Header contains a title", () => {

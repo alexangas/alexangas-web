@@ -2,7 +2,12 @@
 
 describe("Tag", () => {
   beforeEach(() => {
-    cy.visit("/blog/").get(".tag").first().click()
+    cy.visit("/blog/")
+      .get(".tag")
+      .first()
+      .click()
+    cy.location("pathname")
+      .should("contain", "/blog/tags/")
   })
 
   it("Should verify the lighthouse scores", () => {
