@@ -12,7 +12,10 @@ exports[`Footer renders author 1`] = `
     >
       <div
         className="column"
-      />
+      >
+        
+        
+      </div>
       <div
         className="column is-half"
       >
