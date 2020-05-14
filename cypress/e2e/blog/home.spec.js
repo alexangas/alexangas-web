@@ -36,11 +36,11 @@ describe("Blog Home", () => {
     })
 
     it("Contains a timestamp", () => {
-      cy.get(".section .content time").first().its("length").should("be.eq", 1)
+      cy.get(".blog-metadata time").first().its("length").should("be.eq", 1)
     })
 
     it("Contains a tag", () => {
-      cy.get(".section .content .tag").first().its("length").should("be.eq", 1)
+      cy.get(".blog-metadata .tag").first().its("length").should("be.eq", 1)
     })
   })
 })

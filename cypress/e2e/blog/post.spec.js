@@ -52,15 +52,15 @@ describe("Blog Post", () => {
     })
 
     it("Header contains a title", () => {
-      cy.get("article header h1").its("length").should("be.eq", 1)
+      cy.get(".section header h1").its("length").should("be.eq", 1)
     })
 
     it("Blog summary contains a timestamp", () => {
-      cy.get("article header time").its("length").should("be.eq", 1)
+      cy.get(".blog-metadata time").its("length").should("be.eq", 1)
     })
 
     it("Blog summary contains a tag", () => {
-      cy.get("article header .tag").first().its("length").should("be.eq", 1)
+      cy.get(".blog-metadata .tag").first().its("length").should("be.eq", 1)
     })
   })
 })

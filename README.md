@@ -5,6 +5,13 @@
 
 This is the source for https://www.alexangas.com. It contains the following nifty aspects...
 
+- Build
+  - Gatsby
+  - Bulma
+  - TypeScript
+- Test
+  - Jest
+  - Cypress
 - DevOps
   - Azure Pipelines (YAML)
     - Deployment to Azure Storage blob container with azcopy
