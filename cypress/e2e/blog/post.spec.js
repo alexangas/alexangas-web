@@ -72,7 +72,7 @@ describe("Blog Post", () => {
       cy.get(".section header h1").its("length").should("be.eq", 1)
     })
 
-    itx("Blog summary contains a timestamp", () => {
+    xit("Blog summary contains a timestamp", () => {
       cy.get(".blog-metadata time").its("length").should("be.eq", 1)
     })
 
