@@ -39,7 +39,7 @@ class TagTemplate extends React.Component<TagTemplateProps, {}> {
 export default TagTemplate
 
 export const pageQuery = graphql`
-  query($tag: String) {
+  query Tag($tag: String) {
     allMdx(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }

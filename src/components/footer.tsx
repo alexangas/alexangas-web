@@ -6,7 +6,7 @@ import { IoLogoGithub } from "react-icons/io"
 export const PureFooter = ({ data }) => {
   const { site } = data
   const {
-    siteMetadata: { author, social: { github = "", linkedin = "" } = {} },
+    siteMetadata: { author, social: { github = ``, linkedin = `` } = {} },
   } = site
   return (
     <div className="footer-wrapper">
@@ -43,13 +43,13 @@ export const PureFooter = ({ data }) => {
           <div className="column is-half">
             {author && (
               <div>
-                &copy; {new Date().getFullYear()} {author} -{" "}
+                &copy; {new Date().getFullYear()} {author} -{` `}
                 <a href="https://www.xenger.co.uk/">Xenger Ltd</a>
               </div>
             )}
             <div>
               <small>
-                Built with <a href="https://www.gatsbyjs.org/">Gatsby</a> and{" "}
+                Built with <a href="https://www.gatsbyjs.org/">Gatsby</a> and{` `}
                 <a href="https://bulma.io/">Bulma</a>.
               </small>
             </div>

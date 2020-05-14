@@ -3,7 +3,7 @@ import Timestamp from "./timestamp"
 import TagList from "./tag-list"
 import Image from "gatsby-image"
 
-const PostMetadata = ({ dateTime, tags, avatar = null, author = "" }) => (
+const PostMetadata = ({ dateTime, tags, avatar = null, author = `` }) => (
   <div className="blog-metadata">
     {avatar && (
       <Image
