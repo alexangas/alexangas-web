@@ -26,7 +26,7 @@ export const Layout = ({
     <SEO title={title} description={description} />
     <NavBar location={location} />
     <section className="section">
-      <div className={`container${className ? ` ` + className : ``}`}>
+      <div className={`container${className ? ` ${className}` : ``}`}>
         <main>
           <div className="section">
             <header className={isMarginless ? `is-marginless` : ``}>

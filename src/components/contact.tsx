@@ -131,8 +131,7 @@ class Contact extends React.Component<{}, ContactState> {
   }
 
   sendFormData() {
-    const formAction =
-      `https://getform.io/f/e731342f-c998-42c5-b994-14534e42f5dc`
+    const formAction = `https://getform.io/f/e731342f-c998-42c5-b994-14534e42f5dc`
     const form = document.querySelector(`#contactForm`) as HTMLElement
     const name = (form.querySelector(`[name="name"]`) as HTMLInputElement).value
     const email = (form.querySelector(`[name="email"]`) as HTMLInputElement)

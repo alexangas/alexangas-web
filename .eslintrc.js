@@ -6,7 +6,7 @@ module.exports = {
     // "prettier/@typescript-eslint",
     "plugin:react/recommended",
   ],
-  plugins: ["@typescript-eslint"/*, "prettier"*/],
+  plugins: ["@typescript-eslint" /*, "prettier"*/],
   parserOptions: {
     ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
     sourceType: "module", // Allows for the use of imports
@@ -27,14 +27,12 @@ module.exports = {
     "@typescript-eslint/member-delimiter-style": [
       2,
       {
-        "multiline": {
-          "delimiter": "none",
+        multiline: {
+          delimiter: "none",
         },
-      }
+      },
     ],
-    "react/prop-types": [
-      0
-      ],
+    "react/prop-types": [0],
     indent: ["error", 2, { SwitchCase: 1 }],
     // "prettier/prettier": [
     //   "error",
@@ -46,12 +44,12 @@ module.exports = {
     //   },
     // ],
   },
-  "overrides": [
+  overrides: [
     {
-      "files": ["*.tsx"],
-      "rules": {
-        "@typescript-eslint/explicit-function-return-type": "off"
-      }
-    }
+      files: ["*.tsx"],
+      rules: {
+        "@typescript-eslint/explicit-function-return-type": "off",
+      },
+    },
   ],
 }

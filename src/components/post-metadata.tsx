@@ -10,7 +10,12 @@ type PostMetadataProps = {
   author?: string
 }
 
-const PostMetadata = ({ dateTime = ``, tags = [], avatar, author }: PostMetadataProps) => (
+const PostMetadata = ({
+  dateTime = ``,
+  tags = [],
+  avatar,
+  author,
+}: PostMetadataProps) => (
   <div className="blog-metadata">
     {avatar && (
       <Image

@@ -54,7 +54,8 @@ export const PureFooter = ({ data }: FooterProps) => {
             )}
             <div>
               <small>
-                Built with <a href="https://www.gatsbyjs.org/">Gatsby</a> and{` `}
+                Built with <a href="https://www.gatsbyjs.org/">Gatsby</a> and
+                {` `}
                 <a href="https://bulma.io/">Bulma</a>.
               </small>
             </div>
