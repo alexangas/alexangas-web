@@ -3,14 +3,14 @@ import renderer from "react-test-renderer"
 
 import { PureFooter as Footer } from "../footer"
 
-describe("Footer", () => {
-  it("renders social links", () => {
+describe(`Footer`, () => {
+  it(`renders social links`, () => {
     const data = {
       site: {
         siteMetadata: {
           social: {
-            github: "ghusername",
-            linkedin: "liusername",
+            github: `ghusername`,
+            linkedin: `liusername`,
           },
         },
       },
@@ -21,11 +21,11 @@ describe("Footer", () => {
     expect(tree).toMatchSnapshot()
   })
 
-  it("renders author", () => {
+  it(`renders author`, () => {
     const data = {
       site: {
         siteMetadata: {
-          author: "Author",
+          author: `Author`,
         },
       },
     }

@@ -50,7 +50,7 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   // Create blog post pages
-  const blogPostTemplate = path.resolve(`./src/templates/blog-post.js`)
+  const blogPostTemplate = path.resolve(`./src/templates/blog-post.tsx`)
   const posts = result.data.posts.edges
   posts.forEach((post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
@@ -68,7 +68,7 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   // Make tag pages
-  const tagTemplate = path.resolve(`./src/templates/tags.js`)
+  const tagTemplate = path.resolve(`./src/templates/tag.tsx`)
   const tags = result.data.tagsGroup.group
   tags.forEach((tag) => {
     createPage({

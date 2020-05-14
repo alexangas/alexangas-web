@@ -1,24 +1,21 @@
-import React from "react"
-import PropTypes from "prop-types"
+import * as React from "react"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-const SEO = ({ description, lang, meta, title }) => {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-          }
-        }
-      }
-    `
-  )
+type SEOProps = {
+  description?: string
+  lang?: string
+  meta?: string
+  title: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  data?: any
+}
 
-  const metaDescription = description || site.siteMetadata.description
+export const PureSEO = ({ description, lang, title, data }: SEOProps) => {
+  const {
+    site: { siteMetadata },
+  } = data
+  const metaDescription = description || siteMetadata.description
 
   return (
     <Helmet
@@ -26,7 +23,7 @@ const SEO = ({ description, lang, meta, title }) => {
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`%s | ${siteMetadata.title}`}
       meta={[
         {
           name: `description`,
@@ -50,7 +47,7 @@ const SEO = ({ description, lang, meta, title }) => {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: siteMetadata.author,
         },
         {
           name: `twitter:title`,
@@ -60,22 +57,31 @@ const SEO = ({ description, lang, meta, title }) => {
           name: `twitter:description`,
           content: metaDescription,
         },
-      ].concat(meta)}
+      ]}
     />
   )
 }
 
-SEO.defaultProps = {
+PureSEO.defaultProps = {
   lang: `en`,
   meta: [],
   description: ``,
 }
 
-SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
+export const SEO = (props: SEOProps) => {
+  const data = useStaticQuery(graphql`
+    query SEOQuery {
+      site {
+        siteMetadata {
+          title
+          description
+          author
+        }
+      }
+    }
+  `)
+
+  return <PureSEO {...props} data={data} />
 }
 
 export default SEO

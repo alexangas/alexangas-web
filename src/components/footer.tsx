@@ -1,12 +1,18 @@
-import React from "react"
+import * as React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { FaLinkedinIn } from "react-icons/fa"
 import { IoLogoGithub } from "react-icons/io"
 
-export const PureFooter = ({ data }) => {
+type FooterProps = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  data?: any
+}
+
+export const PureFooter = ({ data }: FooterProps) => {
+  const { site } = data
   const {
-    siteMetadata: { author, social: { github, linkedin } = {} },
-  } = data.site
+    siteMetadata: { author, social: { github = ``, linkedin = `` } = {} },
+  } = site
   return (
     <div className="footer-wrapper">
       <footer className="container footer">
@@ -42,13 +48,14 @@ export const PureFooter = ({ data }) => {
           <div className="column is-half">
             {author && (
               <div>
-                &copy; {new Date().getFullYear()} {author} -{" "}
+                &copy; {new Date().getFullYear()} {author} -{` `}
                 <a href="https://www.xenger.co.uk/">Xenger Ltd</a>
               </div>
             )}
             <div>
               <small>
-                Built with <a href="https://www.gatsbyjs.org/">Gatsby</a> and{" "}
+                Built with <a href="https://www.gatsbyjs.org/">Gatsby</a> and
+                {` `}
                 <a href="https://bulma.io/">Bulma</a>.
               </small>
             </div>
@@ -59,7 +66,7 @@ export const PureFooter = ({ data }) => {
   )
 }
 
-export const Footer = (props) => {
+export const Footer = (props: FooterProps) => {
   const data = useStaticQuery(graphql`
     query FooterQuery {
       site {

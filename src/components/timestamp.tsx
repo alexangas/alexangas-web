@@ -1,7 +1,11 @@
-import React from "react"
+import * as React from "react"
 import dayjs from "dayjs"
 
-const Timestamp = ({ dateTime }) =>
+type TimestampProps = {
+  dateTime?: string
+}
+
+const Timestamp = ({ dateTime }: TimestampProps) =>
   dateTime ? (
     <div className="is-inline-block-tablet">
       <small>

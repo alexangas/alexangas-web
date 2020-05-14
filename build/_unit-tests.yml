@@ -16,10 +16,10 @@ steps:
       mergeTestResults: true
       failTaskOnFailedTests: true
 
-  - task: PublishCodeCoverageResults@1
-    condition: succeededOrFailed()
-    displayName: 'Publish code coverage'
-    inputs:
-      codeCoverageTool: Cobertura
-      summaryFileLocation: '$(System.DefaultWorkingDirectory)/coverage/cobertura-coverage.xml'
-      failIfCoverageEmpty: true
+#  - task: PublishCodeCoverageResults@1
+#    condition: succeededOrFailed()
+#    displayName: 'Publish code coverage'
+#    inputs:
+#      codeCoverageTool: Cobertura
+#      summaryFileLocation: '$(System.DefaultWorkingDirectory)/coverage/cobertura-coverage.xml'
+#      failIfCoverageEmpty: true

@@ -1,37 +1,41 @@
-import React from "react"
+import * as React from "react"
 import { Link, graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
 import PostMetadata from "../components/post-metadata"
 
-class BlogPostTemplate extends React.Component {
+type BlogPostTemplateProps = {
+  location: Location
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  pageContext: any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  data: any
+}
+
+class BlogPostTemplate extends React.Component<BlogPostTemplateProps, {}> {
   render() {
-    const { data } = this.props
+    const { location, pageContext, data } = this.props
     const post = data.mdx
-    const siteTitle = `Blog - ${data.site.siteMetadata.title}`
-    const { previous, next } = this.props.pageContext
+    const { previous, next } = pageContext
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO
-          title={post.frontmatter.title}
-          description={post.frontmatter.description || post.excerpt}
+      <Layout
+        location={location}
+        title={post.frontmatter.title}
+        description={post.frontmatter.description || post.excerpt}
+        isMarginless={true}
+      >
+        <PostMetadata
+          dateTime={post.frontmatter.date}
+          tags={post.frontmatter.tags}
         />
-        <article className="section">
-          <header>
-            <h1 className="title is-marginless">{post.frontmatter.title}</h1>
-            <PostMetadata
-              dateTime={post.frontmatter.date}
-              tags={post.frontmatter.tags}
-            />
-          </header>
+        <article>
           <div className="content is-medium">
             <MDXRenderer>{post.body}</MDXRenderer>
           </div>
-          <hr />
         </article>
+        <hr />
 
         <nav
           className="pagination"
