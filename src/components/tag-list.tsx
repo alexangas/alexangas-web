@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import { kebabCase } from "lodash"
 import { FaTag } from "react-icons/fa"
 
-const TagList = ({ tags }) =>
+const TagList = ({ tags = [] as string[] }) =>
   tags ? (
     <div className="tags is-inline-block-tablet">
       {tags.map((tag) => (
