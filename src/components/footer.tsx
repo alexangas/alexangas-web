@@ -3,7 +3,12 @@ import { graphql, useStaticQuery } from "gatsby"
 import { FaLinkedinIn } from "react-icons/fa"
 import { IoLogoGithub } from "react-icons/io"
 
-export const PureFooter = ({ data }) => {
+type FooterProps = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  data?: any
+}
+
+export const PureFooter = ({ data }: FooterProps) => {
   const { site } = data
   const {
     siteMetadata: { author, social: { github = ``, linkedin = `` } = {} },
@@ -60,7 +65,7 @@ export const PureFooter = ({ data }) => {
   )
 }
 
-export const Footer = (props) => {
+export const Footer = (props: FooterProps) => {
   const data = useStaticQuery(graphql`
     query FooterQuery {
       site {

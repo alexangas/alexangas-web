@@ -23,6 +23,7 @@
     "gatsby-plugin-sass": "~2.3.1",
     "gatsby-plugin-sharp": "~2.6.2",
     "gatsby-plugin-sitemap": "~2.4.2",
+    "gatsby-plugin-ts": "^2.7.1",
     "gatsby-remark-copy-linked-files": "~2.3.2",
     "gatsby-remark-images": "~3.3.2",
     "gatsby-remark-smartypants": "~2.3.1",
@@ -36,7 +37,8 @@
     "react-helmet": "~6.0.0",
     "react-icons": "~3.10.0",
     "remark-grid-tables": "~2.1.1",
-    "typeface-lato": "~0.0.75"
+    "typeface-lato": "~0.0.75",
+    "typescript": "^3.9.2"
   },
   "devDependencies": {
     "@testing-library/cypress": "^6.0.0",
@@ -44,6 +46,8 @@
     "@types/node": "^12.12.11",
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.4",
+    "@types/react-helmet": "^6.0.0",
+    "@types/react-test-renderer": "^16.9.2",
     "@typescript-eslint/eslint-plugin": "^2.8.0",
     "@typescript-eslint/parser": "^2.8.0",
     "axe-core": "^3.5.3",
@@ -61,8 +65,7 @@
     "jest-junit": "^10.0.0",
     "prettier": "^2.0.5",
     "react-test-renderer": "^16.13.1",
-    "start-server-and-test": "^1.11.0",
-    "typescript": "^3.9.2"
+    "start-server-and-test": "^1.11.0"
   },
   "homepage": "https://www.alexangas.com",
   "keywords": [

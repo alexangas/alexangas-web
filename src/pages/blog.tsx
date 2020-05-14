@@ -4,9 +4,16 @@ import { graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
 import PostSummary from "../components/post-summary"
 
-export const PureBlog = ({ location, data }) => (
+type BlogProps = {
+  location: Location
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  data: any
+}
+
+export const PureBlog = ({ location, data }: BlogProps) => (
   <Layout location={location} title={`Posts`} className="blog">
-    {data.allMdx.edges.map(({ node }) => (
+    {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+    {data.allMdx.edges.map(({ node }: any) => (
       <PostSummary
         key={node.fields.slug}
         slug={node.fields.slug}
@@ -20,7 +27,7 @@ export const PureBlog = ({ location, data }) => (
   </Layout>
 )
 
-export const Blog = (props) => {
+export const Blog = (props: BlogProps) => {
   const data = useStaticQuery(graphql`
     query BlogHomeQuery {
       allMdx(sort: { fields: [frontmatter___date], order: DESC }) {

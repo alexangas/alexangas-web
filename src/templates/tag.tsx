@@ -6,7 +6,9 @@ import PostSummary from "../components/post-summary"
 
 type TagTemplateProps = {
   location: Location
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   pageContext: any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data: any
 }
 
@@ -21,7 +23,8 @@ class TagTemplate extends React.Component<TagTemplateProps, {}> {
         <h2 className="subtitle">
           <Link to="/blog/tags">All tags</Link>
         </h2>
-        {edges.map(({ node }) => (
+        {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+        {edges.map(({ node }: any) => (
           <PostSummary
             key={node.fields.slug}
             slug={node.fields.slug}

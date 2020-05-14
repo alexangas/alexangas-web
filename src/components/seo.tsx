@@ -2,7 +2,16 @@ import * as React from "react"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-export const PureSEO = ({ description, lang, meta, title, data }) => {
+type SEOProps = {
+  description?: string
+  lang?: string
+  meta?: string
+  title: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  data?: any
+}
+
+export const PureSEO = ({ description, lang, title, data }: SEOProps) => {
   const {
     site: { siteMetadata },
   } = data
@@ -48,7 +57,7 @@ export const PureSEO = ({ description, lang, meta, title, data }) => {
           name: `twitter:description`,
           content: metaDescription,
         },
-      ].concat(meta)}
+      ]}
     />
   )
 }
@@ -59,7 +68,7 @@ PureSEO.defaultProps = {
   description: ``,
 }
 
-export const SEO = (props) => {
+export const SEO = (props: SEOProps) => {
   const data = useStaticQuery(graphql`
     query SEOQuery {
       site {

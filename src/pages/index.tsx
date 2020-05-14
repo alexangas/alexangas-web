@@ -3,7 +3,11 @@ import "./mystyles.sass"
 
 import Layout from "../components/layout"
 
-export const IndexPage = ({ location }) => (
+type IndexPageProps = {
+  location: Location
+}
+
+export const IndexPage = ({ location }: IndexPageProps) => (
   <Layout location={location} title={`Home`}>
     <h2 className="subtitle">
       Hey people{` `}

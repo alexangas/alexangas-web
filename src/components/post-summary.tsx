@@ -3,6 +3,15 @@ import { Link } from "gatsby"
 
 import PostMetadata from "./post-metadata"
 
+type PostSummaryProps = {
+  slug: string
+  title: string
+  description: string
+  excerpt: string
+  dateTime: string
+  tags?: string[]
+}
+
 const PostSummary = ({
   slug,
   title,
@@ -10,7 +19,7 @@ const PostSummary = ({
   excerpt,
   dateTime,
   tags = [],
-}) => (
+}: PostSummaryProps) => (
   <div key={slug} className="content">
     <h2 className="subtitle is-marginless is-4">
       <Link to={`/blog${slug}`}>{title}</Link>

@@ -1,7 +1,14 @@
 import * as React from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
 
-export const PureNavBar = ({ location, data }) => (
+type NavBarProps = {
+  location: Location
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  data?: any
+}
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const PureNavBar = ({ location, data }: NavBarProps) => (
   <div className="navbar-wrapper">
     <nav
       className="container navbar is-transparent"
@@ -25,7 +32,7 @@ export const PureNavBar = ({ location, data }) => (
   </div>
 )
 
-export const NavBar = (props) => {
+export const NavBar = (props: NavBarProps) => {
   const data = useStaticQuery(graphql`
     query NavBarQuery {
       site {
