@@ -3,27 +3,18 @@
 describe("Blog Post", () => {
   describe("Lighthouse tests", () => {
     it("First post passes the Lighthouse tests", () => {
-      cy.visit("/blog/")
-        .get(".content h2 a")
-        .first()
-        .click()
-      cy.location("pathname")
-        .should("not.equal", "/blog/")
-      cy.get("main")
-        .audit({
-          accessibility: 100,
-          "best-practices": 93,
-          seo: 100,
-        })
+      cy.visit("/blog/").get(".content h2 a").first().click()
+      cy.location("pathname").should("not.equal", "/blog/")
+      cy.get("main").audit({
+        accessibility: 100,
+        "best-practices": 93,
+        seo: 100,
+      })
     })
 
     it("Last post passes the Lighthouse tests", () => {
-      cy.visit("/blog/")
-        .get(".content h2 a")
-        .last()
-        .click()
-      cy.location("pathname")
-        .should("not.equal", "/blog/")
+      cy.visit("/blog/").get(".content h2 a").last().click()
+      cy.location("pathname").should("not.equal", "/blog/")
       cy.get("main").audit({
         accessibility: 100,
         "best-practices": 93,
@@ -34,38 +25,22 @@ describe("Blog Post", () => {
 
   describe("Accessibility tests", () => {
     xit("First post has no detectable accessibility violations on load", () => {
-      cy.visit("/blog/")
-        .get(".content h2 a")
-        .first()
-        .click()
-      cy.location("pathname")
-        .should("not.equal", "/blog/")
-      cy.get("main")
-        .injectAxe()
-        .checkA11y()
+      cy.visit("/blog/").get(".content h2 a").first().click()
+      cy.location("pathname").should("not.equal", "/blog/")
+      cy.get("main").injectAxe().checkA11y()
     })
 
     it("Last post has no detectable accessibility violations on load", () => {
-      cy.visit("/blog/")
-        .get(".content h2 a")
-        .last()
-        .click()
-      cy.location("pathname")
-        .should("not.equal", "/blog/")
-      cy.get("main")
-        .injectAxe()
-        .checkA11y()
+      cy.visit("/blog/").get(".content h2 a").last().click()
+      cy.location("pathname").should("not.equal", "/blog/")
+      cy.get("main").injectAxe().checkA11y()
     })
   })
 
   describe("Article header", () => {
     beforeEach(() => {
-      cy.visit("/blog/")
-        .get(".content a")
-        .first()
-        .click()
-      cy.location("pathname")
-        .should("not.equal", "/blog/")
+      cy.visit("/blog/").get(".content a").first().click()
+      cy.location("pathname").should("not.equal", "/blog/")
     })
 
     it("Header contains a title", () => {
