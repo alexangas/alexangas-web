@@ -1,5 +1,6 @@
 import * as React from "react"
 import { ReactNode } from "react"
+import clsx from "clsx"
 
 import NavBar from "./navbar"
 import Footer from "./footer"
@@ -26,10 +27,10 @@ export const Layout = ({
     <SEO title={title} description={description} />
     <NavBar location={location} />
     <section className="section">
-      <div className={`container${className ? ` ${className}` : ``}`}>
+      <div className={clsx(`container`, className)}>
         <main>
           <div className="section">
-            <header className={isMarginless ? `is-marginless` : ``}>
+            <header className={clsx(isMarginless && `is-marginless`)}>
               <h1 className="title">{title}</h1>
             </header>
             {children}
