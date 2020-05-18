@@ -55,7 +55,7 @@
     "babel-jest": "^26.0.1",
     "babel-preset-gatsby": "^0.4.2",
     "cypress": "^4.5.0",
-    "cypress-audit": "0.0.5",
+    "cypress-audit": "0.1.0",
     "cypress-axe": "^0.8.1",
     "eslint": "^7.0.0",
     "eslint-config-prettier": "^6.11.0",
