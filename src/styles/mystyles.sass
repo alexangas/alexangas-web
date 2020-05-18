@@ -44,6 +44,7 @@ $size-9: 0.25rem
 // @import "~bulma/bulma.sass"
 @import "~bulma/sass/utilities/_all.sass"
 @import "~bulma/sass/base/_all.sass"
+@import "~bulma/sass/elements/box.sass"
 @import "~bulma/sass/elements/button.sass"
 @import "~bulma/sass/elements/container.sass"
 @import "~bulma/sass/elements/content.sass"
@@ -118,6 +119,22 @@ footer
     margin-bottom: $size-9 !important
     +tablet
       margin-bottom: 0 !important
+
+.home
+  article
+    margin-top: $size-3
+    padding: 0 $size-5
+    font-size: $size-4
+    .column:last-child
+      padding-left: 0
+    .box
+      margin-top: $size-4
+      //background-color: #edf1f4
+      //background-image: linear-gradient(147deg, #edf1f4 0%,  #c3cbdc 74%)
+      //background-color: #b8c6db
+      //background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%)
+      background-color: #edf1f4
+      background-image: linear-gradient(315deg, #edf1f4 0%, #f5f7fa 74%)
 
 #contactForm
   margin-bottom: $size-7
