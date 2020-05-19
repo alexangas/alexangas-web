@@ -14,56 +14,45 @@ export const IndexPage = ({ location }: IndexPageProps) => (
         👋
       </span>
     </h2>
-    <article>
-      <div className="columns">
-        <div className="column is-narrow">
+    <article className="section">
+      <ul>
+        <li>
           <span role="img" aria-label="Globe showing Europe emoji">
             🌍
           </span>
-        </div>
-        <div className="column">
           I am a software developer and technical architect.
-        </div>
-      </div>
-      <div className="columns">
-        <div className="column is-narrow">
+        </li>
+        <li>
           <span role="img" aria-label="Koala emoji">
             🐨
           </span>
-        </div>
-        <div className="column">
           Australian discovering London with my family.
-        </div>
-      </div>
-      <div className="columns">
-        <div className="column is-narrow">
+        </li>
+        <li>
           <span role="img" aria-label="Floppy disk emoji">
             💾
           </span>
-        </div>
-        <div className="column">
-          Computers have been my primary creative outlet and work since
-          childhood.
-        </div>
-      </div>
-      <div className="columns">
-        <div className="column is-narrow">
+          Computers have always been my primary creative outlet and work.
+        </li>
+        <li>
           <span role="img" aria-label="Thumbs up emoji">
             👍
           </span>
-        </div>
-        <div className="column">Welcome!</div>
-      </div>
-      <div className="columns box">
-        <div className="column is-narrow">
-          <span role="img" aria-label="Rocket emoji">
-            🚀
-          </span>
-        </div>
-        <div className="column">
-          Currently &quot;attending&quot; Microsoft Build and working on{` `}
-          <a href="https://alexangas.com">alexangas.com</a>.
-        </div>
+          Welcome!
+        </li>
+      </ul>
+
+      <div className="box">
+        <ul>
+          <li>
+            <span role="img" aria-label="Rocket emoji">
+              🚀
+            </span>
+            {` `}
+            Currently &quot;attending&quot; Microsoft Build and working on{` `}
+            <a href="https://alexangas.com">alexangas.com</a>.
+          </li>
+        </ul>
       </div>
     </article>
   </Layout>
