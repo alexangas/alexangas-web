@@ -6,7 +6,7 @@
   "author": "Alex Angas",
   "sideEffects": false,
   "dependencies": {
-    "@mdx-js/mdx": "~1.6.1",
+    "@mdx-js/mdx": "~1.6.4",
     "@mdx-js/react": "~1.6.1",
     "axios": "~0.19.2",
     "bulma": "~0.8.2",
