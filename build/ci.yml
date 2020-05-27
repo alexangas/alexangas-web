@@ -27,7 +27,7 @@ jobs:
       ${{ if eq(parameters.managed, true) }}:
         vmImage: 'ubuntu-latest'
       ${{ if eq(parameters.managed, false) }}:
-        Default
+        name: Default
     steps:
     - template: ./_e2e-tests.yml
 
