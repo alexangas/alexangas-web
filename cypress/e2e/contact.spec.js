@@ -28,7 +28,7 @@ describe("Contact", () => {
     })
 
     it("Submits form", () => {
-      cy.route("POST", "https://getform.io/f/**")
+      cy.route("POST", "https://getform.io/f/**", "")
         .as("postForm")
         .get("#name")
         .type("FirstName LastName")
@@ -48,7 +48,7 @@ describe("Contact", () => {
     })
 
     it("Shows submission progress", () => {
-      cy.route({ method: "POST", url: "https://getform.io/f/**", delay: 3000 })
+      cy.route({ method: "POST", url: "https://getform.io/f/**", delay: 3000, response: "" })
         .as("postForm")
         .get("#name")
         .type("FirstName LastName")
