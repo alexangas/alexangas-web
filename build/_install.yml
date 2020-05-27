@@ -1,3 +1,8 @@
+parameters:
+  - name: cache
+    type: boolean
+    default: true
+
 steps:
   - task: CmdLine@2
     displayName: 'Set environment variables'
@@ -9,13 +14,14 @@ steps:
     inputs:
       versionSpec: '12.x'
 
-  - task: Cache@2
-    displayName: Cache npm
-    inputs:
-      key: 'npm | "$(Agent.OS)" | package-lock.json'
-      restoreKeys: |
-        npm | "$(Agent.OS)"
-      path: $(npm_config_cache)
+  - ${{ if eq(parameters.cache, true) }}:
+    - task: Cache@2
+      displayName: Cache npm
+      inputs:
+        key: 'npm | "$(Agent.OS)" | package-lock.json'
+        restoreKeys: |
+          npm | "$(Agent.OS)"
+        path: $(npm_config_cache)
 
   - script: npm ci
     displayName: 'npm ci'

@@ -1,5 +1,7 @@
 steps:
   - template: ./_install.yml
+    parameters:
+      cache: false
 
   - task: Npm@1
     displayName: 'Run e2e tests'
