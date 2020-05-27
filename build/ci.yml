@@ -12,7 +12,7 @@ variables:
 
 jobs:
   - job: UnitTests
-    timeoutInMinutes: 5
+    timeoutInMinutes: 10
     cancelTimeoutInMinutes: 1
     pool:
       ${{ if eq(parameters.managed, true) }}:
@@ -36,7 +36,7 @@ jobs:
 
   - job: Build
     dependsOn: [ 'UnitTests', 'e2eTests' ]
-    timeoutInMinutes: 5
+    timeoutInMinutes: 10
     cancelTimeoutInMinutes: 1
     pool:
       ${{ if eq(parameters.managed, true) }}:
