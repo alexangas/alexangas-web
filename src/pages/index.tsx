@@ -49,8 +49,8 @@ export const IndexPage = ({ location }: IndexPageProps) => (
               🚀
             </span>
             {` `}
-            Currently &quot;attending&quot; Microsoft Build and working on{` `}
-            <a href="https://alexangas.com">alexangas.com</a>.
+            Currently completing the Microsoft Build Cloud Skills Challenge 2020
+            and studying for Azure exams.
           </li>
         </ul>
       </div>
