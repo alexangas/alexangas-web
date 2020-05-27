@@ -15,7 +15,10 @@ jobs:
     timeoutInMinutes: 5
     cancelTimeoutInMinutes: 1
     pool:
-      vmImage: 'ubuntu-latest'
+      ${{ if eq(parameters.managed, true) }}:
+        vmImage: 'ubuntu-latest'
+      ${{ if eq(parameters.managed, false) }}:
+        name: Default
     steps:
     - template: ./_unit-tests.yml
 
@@ -36,6 +39,9 @@ jobs:
     timeoutInMinutes: 5
     cancelTimeoutInMinutes: 1
     pool:
-      vmImage: 'ubuntu-latest'
+      ${{ if eq(parameters.managed, true) }}:
+        vmImage: 'ubuntu-latest'
+      ${{ if eq(parameters.managed, false) }}:
+        name: Default
     steps:
       - template: ./_build.yml
