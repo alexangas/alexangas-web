@@ -5,21 +5,25 @@ describe("Blog Post", () => {
     it("First post passes the Lighthouse tests", () => {
       cy.visit("/blog/").get(".content h2 a").first().click()
       cy.location("pathname").should("not.equal", "/blog/")
-      cy.get("main").audit({
+      cy.get("main")
+      cy.lighthouse({
         accessibility: 100,
-        "best-practices": 93,
+        "best-practices": 92,
         seo: 100,
       })
+      cy.pa11y()
     })
 
     it("Last post passes the Lighthouse tests", () => {
       cy.visit("/blog/").get(".content h2 a").last().click()
       cy.location("pathname").should("not.equal", "/blog/")
-      cy.get("main").audit({
+      cy.get("main")
+      cy.lighthouse({
         accessibility: 100,
-        "best-practices": 93,
+        "best-practices": 92,
         seo: 100,
       })
+      cy.pa11y()
     })
   })
 

@@ -104,7 +104,7 @@ module.exports = {
             options: {
               theme: {
                 default: "Default Light+",
-                dark: "Default Dark+",
+                dark: "High Contrast",
               },
             },
           },

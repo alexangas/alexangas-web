@@ -10,4 +10,4 @@ RUN npm install
 RUN npm run build
 
 COPY . .
-CMD ["npm", "run", "serve", "-H", "0.0.0.0" ]
+CMD ["npm", "run", "serve" ]
