@@ -1,3 +1,9 @@
+parameters:
+  - name: managed
+    displayName: Use managed pool
+    type: boolean
+    default: true
+
 trigger:
   - master
 
@@ -18,7 +24,10 @@ jobs:
     timeoutInMinutes: 10
     cancelTimeoutInMinutes: 1
     pool:
-      vmImage: 'ubuntu-latest'
+      ${{ if eq(parameters.managed, true) }}:
+        vmImage: 'ubuntu-latest'
+      ${{ if eq(parameters.managed, false) }}:
+        Default
     steps:
     - template: ./_e2e-tests.yml
 
