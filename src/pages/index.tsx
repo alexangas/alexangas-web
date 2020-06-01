@@ -49,8 +49,7 @@ export const IndexPage = ({ location }: IndexPageProps) => (
               🚀
             </span>
             {` `}
-            Currently completing the Microsoft Build Cloud Skills Challenge 2020
-            and studying for Azure exams.
+            Currently cementing Azure knowledge as certification.
           </li>
         </ul>
       </div>
