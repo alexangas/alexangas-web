@@ -11,7 +11,12 @@ type SEOProps = {
   data?: any
 }
 
-export const PureSEO = ({ description, lang, title, data }: SEOProps): JSX.Element => {
+export const PureSEO = ({
+  description,
+  lang,
+  title,
+  data,
+}: SEOProps): JSX.Element => {
   const {
     site: { siteMetadata },
   } = data
