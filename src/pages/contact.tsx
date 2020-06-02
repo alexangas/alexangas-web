@@ -7,7 +7,7 @@ type ContactPageProps = {
   location: Location
 }
 
-export const ContactPage = ({ location }: ContactPageProps) => (
+export const ContactPage = ({ location }: ContactPageProps): JSX.Element => (
   <Layout location={location} title={`Contact me`} className="contact">
     <Contact />
   </Layout>

@@ -13,8 +13,8 @@ type BlogPostTemplateProps = {
   data: any
 }
 
-class BlogPostTemplate extends React.Component<BlogPostTemplateProps, {}> {
-  render() {
+class BlogPostTemplate extends React.Component<BlogPostTemplateProps, unknown> {
+  render(): JSX.Element {
     const { location, pageContext, data } = this.props
     const post = data.mdx
     const { previous, next } = pageContext

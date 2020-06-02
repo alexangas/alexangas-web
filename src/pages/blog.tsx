@@ -10,7 +10,7 @@ type BlogProps = {
   data: any
 }
 
-export const PureBlog = ({ location, data }: BlogProps) => (
+export const PureBlog = ({ location, data }: BlogProps): JSX.Element => (
   <Layout location={location} title={`Posts`} className="blog">
     {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
     {data.allMdx.edges.map(({ node }: any) => (
@@ -27,7 +27,7 @@ export const PureBlog = ({ location, data }: BlogProps) => (
   </Layout>
 )
 
-export const Blog = (props: BlogProps) => {
+export const Blog = (props: BlogProps): JSX.Element => {
   const data = useStaticQuery(graphql`
     query BlogHomeQuery {
       allMdx(sort: { fields: [frontmatter___date], order: DESC }) {

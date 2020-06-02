@@ -19,7 +19,7 @@ const PostSummary = ({
   excerpt,
   dateTime,
   tags = [],
-}: PostSummaryProps) => (
+}: PostSummaryProps): JSX.Element => (
   <div key={slug} className="content">
     <h2 className="subtitle is-marginless is-4">
       <Link to={`/blog${slug}`}>{title}</Link>

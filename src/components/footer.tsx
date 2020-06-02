@@ -8,7 +8,7 @@ type FooterProps = {
   data?: any
 }
 
-export const PureFooter = ({ data }: FooterProps) => {
+export const PureFooter = ({ data }: FooterProps): JSX.Element => {
   const { site } = data
   const {
     siteMetadata: { author, social: { github = ``, linkedin = `` } = {} },
@@ -66,7 +66,7 @@ export const PureFooter = ({ data }: FooterProps) => {
   )
 }
 
-export const Footer = (props: FooterProps) => {
+export const Footer = (props: FooterProps): JSX.Element => {
   const data = useStaticQuery(graphql`
     query FooterQuery {
       site {
