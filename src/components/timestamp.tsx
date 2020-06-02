@@ -5,7 +5,7 @@ type TimestampProps = {
   dateTime?: string
 }
 
-const Timestamp = ({ dateTime }: TimestampProps) =>
+const Timestamp = ({ dateTime }: TimestampProps): JSX.Element | null =>
   dateTime ? (
     <div className="is-inline-block-tablet">
       <small>

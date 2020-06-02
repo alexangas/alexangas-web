@@ -1,5 +1,5 @@
 import * as React from "react"
-import axios, { AxiosError } from "axios"
+import axios, { AxiosError, AxiosResponse } from "axios"
 import { FaEnvelope, FaPhone, FaUser } from "react-icons/fa"
 import clsx from "clsx"
 
@@ -10,7 +10,7 @@ type ContactState = {
   message: string
 }
 
-class Contact extends React.Component<{}, ContactState> {
+class Contact extends React.Component<unknown, ContactState> {
   state: ContactState = {
     isSubmitting: false,
     hasSubmitted: false,
@@ -18,7 +18,7 @@ class Contact extends React.Component<{}, ContactState> {
     message: ``,
   }
 
-  render = () => (
+  render = (): JSX.Element => (
     <>
       <form id="contactForm" method="POST" onSubmit={this.handleSubmit}>
         <div className="field">
@@ -132,12 +132,12 @@ class Contact extends React.Component<{}, ContactState> {
     </>
   )
 
-  handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault()
     this.setState({ isSubmitting: true, hasSubmitted: true }, this.sendFormData)
   }
 
-  sendFormData = () => {
+  sendFormData = (): Promise<void | AxiosResponse<void>> => {
     const formAction = `https://getform.io/f/e731342f-c998-42c5-b994-14534e42f5dc`
     const form = document.querySelector(`#contactForm`) as HTMLElement
     const name = (form.querySelector(`[name="name"]`) as HTMLInputElement).value
@@ -147,7 +147,7 @@ class Contact extends React.Component<{}, ContactState> {
     const text = (form.querySelector(`[name="text"]`) as HTMLTextAreaElement)
       .value
     const button = form.querySelector(`button`) as HTMLButtonElement
-    axios
+    return axios
       .post(formAction, {
         name,
         email,

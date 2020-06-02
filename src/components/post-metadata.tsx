@@ -15,7 +15,7 @@ const PostMetadata = ({
   tags = [],
   avatar,
   author,
-}: PostMetadataProps) => (
+}: PostMetadataProps): JSX.Element => (
   <div className="blog-metadata">
     {avatar && (
       <Image

@@ -22,7 +22,7 @@ export const Layout = ({
   className,
   isMarginless,
   children,
-}: LayoutProps) => (
+}: LayoutProps): JSX.Element => (
   <>
     <SEO title={title} description={description} />
     <NavBar location={location} />

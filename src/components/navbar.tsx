@@ -8,7 +8,7 @@ type NavBarProps = {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const PureNavBar = ({ location, data }: NavBarProps) => (
+export const PureNavBar = ({ location, data }: NavBarProps): JSX.Element => (
   <div className="navbar-wrapper">
     <nav
       className="container navbar is-transparent"
@@ -32,7 +32,7 @@ export const PureNavBar = ({ location, data }: NavBarProps) => (
   </div>
 )
 
-export const NavBar = (props: NavBarProps) => {
+export const NavBar = (props: NavBarProps): JSX.Element => {
   const data = useStaticQuery(graphql`
     query NavBarQuery {
       site {

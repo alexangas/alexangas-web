@@ -12,8 +12,8 @@ type TagTemplateProps = {
   data: any
 }
 
-class TagTemplate extends React.Component<TagTemplateProps, {}> {
-  render() {
+class TagTemplate extends React.Component<TagTemplateProps, unknown> {
+  render(): JSX.Element {
     const { pageContext, data, location } = this.props
     const { tag } = pageContext
     const { edges, totalCount } = data.allMdx

@@ -16,7 +16,7 @@ export const PureTagsPage = ({
   data: {
     allMdx: { group },
   },
-}: TagsPageProps) => (
+}: TagsPageProps): JSX.Element => (
   <Layout location={location} title={`Tags`}>
     <ul>
       {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
@@ -34,7 +34,7 @@ export const PureTagsPage = ({
   </Layout>
 )
 
-export const TagsPage = (props: TagsPageProps) => {
+export const TagsPage = (props: TagsPageProps): JSX.Element => {
   const data = useStaticQuery(graphql`
     query TagsPageQuery {
       allMdx(limit: 1000) {

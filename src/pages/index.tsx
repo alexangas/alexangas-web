@@ -6,7 +6,7 @@ type IndexPageProps = {
   location: Location
 }
 
-export const IndexPage = ({ location }: IndexPageProps) => (
+export const IndexPage = ({ location }: IndexPageProps): JSX.Element => (
   <Layout location={location} title={`Home`} className={`home`}>
     <h2 className="subtitle">
       Hello!{` `}

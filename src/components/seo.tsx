@@ -11,7 +11,7 @@ type SEOProps = {
   data?: any
 }
 
-export const PureSEO = ({ description, lang, title, data }: SEOProps) => {
+export const PureSEO = ({ description, lang, title, data }: SEOProps): JSX.Element => {
   const {
     site: { siteMetadata },
   } = data
@@ -68,7 +68,7 @@ PureSEO.defaultProps = {
   description: ``,
 }
 
-export const SEO = (props: SEOProps) => {
+export const SEO = (props: SEOProps): JSX.Element => {
   const data = useStaticQuery(graphql`
     query SEOQuery {
       site {
