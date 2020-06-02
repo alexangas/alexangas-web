@@ -49,7 +49,7 @@ export const IndexPage = ({ location }: IndexPageProps) => (
               🚀
             </span>
             {` `}
-            Currently cementing Azure knowledge as certification.
+            Currently turning my Azure knowledge into certification.
           </li>
         </ul>
       </div>
