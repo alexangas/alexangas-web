@@ -49,7 +49,8 @@ export const IndexPage = ({ location }: IndexPageProps): JSX.Element => (
               🚀
             </span>
             {` `}
-            Currently turning my Azure knowledge into certification.
+            {/*Currently turning my Azure knowledge into certification.*/}
+            Building <a href="https://supportmusic.online">supportmusic.online</a>.
           </li>
         </ul>
       </div>
