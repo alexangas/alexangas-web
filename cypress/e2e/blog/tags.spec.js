@@ -6,11 +6,12 @@ describe("Tag List", () => {
   })
 
   it("Should verify the lighthouse scores", () => {
-    cy.audit({
+    cy.lighthouse({
       accessibility: 98,
       "best-practices": 93,
       seo: 100,
     })
+    cy.pa11y()
   })
 
   describe("Accessibility tests", () => {
