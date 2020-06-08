@@ -14,7 +14,7 @@ export const IndexPage = ({ location }: IndexPageProps): JSX.Element => (
         👋
       </span>
     </h2>
-    <article className="section">
+    <article className="section mt-5">
       <ul>
         <li>
           <span role="img" aria-label="Globe showing Europe emoji">
@@ -42,7 +42,7 @@ export const IndexPage = ({ location }: IndexPageProps): JSX.Element => (
         </li>
       </ul>
 
-      <div className="box">
+      <div className="box mt-5">
         <ul>
           <li>
             <span role="img" aria-label="Rocket emoji">
@@ -51,7 +51,7 @@ export const IndexPage = ({ location }: IndexPageProps): JSX.Element => (
             {` `}
             {/*Currently turning my Azure knowledge into certification.*/}
             {/*Building <a href="https://supportmusic.online">supportmusic.online</a>,*/}
-            Turning my Azure knowledge into certification, and updating{" "}
+            Turning my Azure knowledge into certification, and updating{` `}
             <a href="https://alexangas.com">alexangas.com</a>.
           </li>
         </ul>

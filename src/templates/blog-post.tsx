@@ -31,7 +31,7 @@ class BlogPostTemplate extends React.Component<BlogPostTemplateProps, unknown> {
           tags={post.frontmatter.tags}
         />
         <article>
-          <div className="content is-medium">
+          <div className="content mt-4 is-medium">
             <MDXRenderer>{post.body}</MDXRenderer>
           </div>
         </article>

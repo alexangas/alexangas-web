@@ -20,7 +20,12 @@ class Contact extends React.Component<unknown, ContactState> {
 
   render = (): JSX.Element => (
     <>
-      <form id="contactForm" method="POST" onSubmit={this.handleSubmit}>
+      <form
+        id="contactForm"
+        method="POST"
+        onSubmit={this.handleSubmit}
+        className="mb-3"
+      >
         <div className="field">
           <label className="label" htmlFor="name">
             Name:

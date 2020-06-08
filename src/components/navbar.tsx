@@ -1,5 +1,6 @@
 import * as React from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
+import clsx from "clsx"
 
 type NavBarProps = {
   location: Location
@@ -24,7 +25,7 @@ export const PureNavBar = ({ location, data }: NavBarProps): JSX.Element => {
         role="navigation"
         aria-label="Main navigation"
       >
-        <div className="navbar-menu is-active">
+        <div className="navbar-menu is-active px-2 py-2">
           <div className="navbar-start is-size-4">
             <Link to="/" className="navbar-item has-text-weight-semibold">
               {data.site.siteMetadata.title}
@@ -34,17 +35,21 @@ export const PureNavBar = ({ location, data }: NavBarProps): JSX.Element => {
           <div className="navbar-end is-size-5">
             <Link
               to="/contact/"
-              className={`navbar-item is-tab ${
-                locationIsActive(`Contact`) ? `is-active` : null
-              }`}
+              className={clsx(
+                `navbar-item`,
+                `is-tab`,
+                locationIsActive(`Contact`) && `is-active`
+              )}
             >
               Contact
             </Link>
             <Link
               to="/blog/"
-              className={`navbar-item is-tab ${
-                locationIsActive(`Blog`) ? `is-active` : null
-              }`}
+              className={clsx(
+                `navbar-item`,
+                `is-tab`,
+                locationIsActive(`Blog`) && `is-active`
+              )}
             >
               Blog
             </Link>
