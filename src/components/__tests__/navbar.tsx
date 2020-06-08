@@ -6,7 +6,7 @@ import { PureNavBar as NavBar } from "../navbar"
 describe(`NavBar`, () => {
   it(`renders title`, () => {
     const location: Partial<Location> = {
-      pathname: `nowhere`
+      pathname: `nowhere`,
     }
 
     const data = {
@@ -26,7 +26,7 @@ describe(`NavBar`, () => {
 
   it(`renders Contact`, () => {
     const location: Partial<Location> = {
-      pathname: `/contact`
+      pathname: `/contact`,
     }
 
     const data = {
@@ -46,7 +46,7 @@ describe(`NavBar`, () => {
 
   it(`renders Blog`, () => {
     const location: Partial<Location> = {
-      pathname: `/blog/post`
+      pathname: `/blog/post`,
     }
 
     const data = {
