@@ -76,4 +76,5 @@ yarn-error.log
 
 # Tests
 junit.xml
+cypress/screenshots/
 cypress/videos/

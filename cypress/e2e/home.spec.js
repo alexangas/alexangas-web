@@ -31,8 +31,14 @@ describe("Root Home", () => {
   })
 
   describe("Contents", () => {
+    it("Links to the contact page", () => {
+      cy.get(".navbar-end .navbar-item:first-child")
+        .should("contain.text", "Contact")
+        .should("have.attr", "href", "/contact/")
+    })
+
     it("Links to the blog home", () => {
-      cy.get(".navbar-end a")
+      cy.get(".navbar-end .navbar-item:last-child")
         .should("contain.text", "Blog")
         .should("have.attr", "href", "/blog/")
     })
