@@ -41,26 +41,7 @@ $pre-code-font-size: $size-6
 $size-8: 0.5rem
 $size-9: 0.25rem
 
-// @import "~bulma/bulma.sass"
-@import "~bulma/sass/utilities/_all.sass"
-@import "~bulma/sass/base/_all.sass"
-@import "~bulma/sass/elements/box.sass"
-@import "~bulma/sass/elements/button.sass"
-@import "~bulma/sass/elements/container.sass"
-@import "~bulma/sass/elements/content.sass"
-@import "~bulma/sass/elements/icon.sass"
-@import "~bulma/sass/elements/image.sass"
-@import "~bulma/sass/elements/notification.sass"
-@import "~bulma/sass/elements/tag.sass"
-@import "~bulma/sass/elements/title.sass"
-@import "~bulma/sass/form/shared.sass"
-@import "~bulma/sass/form/input-textarea.sass"
-@import "~bulma/sass/form/tools.sass"
-@import "~bulma/sass/components/navbar.sass"
-@import "~bulma/sass/components/pagination.sass"
-@import "~bulma/sass/grid/columns.sass"
-@import "~bulma/sass/layout/section.sass"
-@import "~bulma/sass/layout/footer.sass"
+@import "~bulma/bulma.sass"
 
 .grvsc-container
   padding: $size-7 !important
@@ -78,7 +59,7 @@ body
 code
   white-space: pre
 
-a
+a:not(.navbar-item)
   &:hover
     text-decoration: underline
 
@@ -91,14 +72,21 @@ a
   +desktop
     box-shadow: 0 0 6px 0 $grey-light
   .navbar
-    .navbar-menu
-      padding: $size-8
     .navbar-start
       .navbar-item
         letter-spacing: 0.01rem
-    a.navbar-item
-      text-underline-offset: 0.4rem
-      text-decoration-thickness: 0.1rem
+    .navbar-item
+      &.is-tab
+        &:hover
+          background-color: $navbar-tab-active-background-color
+          border-bottom-color: $navbar-tab-active-border-bottom-color
+          border-bottom-style: $navbar-tab-active-border-bottom-style
+          border-bottom-width: $navbar-tab-active-border-bottom-width
+          color: $navbar-tab-active-color
+          padding-bottom: calc(0.5rem - #{$navbar-tab-active-border-bottom-width})
+        &.is-active
+          border-bottom-color: $navbar-item-hover-color
+          color: $navbar-item-hover-color
 
 section > .container
   padding-bottom: $size-4
@@ -107,9 +95,6 @@ section > .container
   .section
     .section
       padding: 0
-
-header
-  margin-bottom: $size-5
 
 .footer-wrapper
   border-top: 1px solid $grey-lighter
@@ -122,7 +107,6 @@ footer
 
 .home
   article
-    margin-top: $size-3
     padding: 0 $size-5
     font-size: $size-4
     ul
@@ -140,16 +124,8 @@ footer
           width: $size-2
           text-align: center
     .box
-      margin-top: $size-4
-      //background-color: #edf1f4
-      //background-image: linear-gradient(147deg, #edf1f4 0%,  #c3cbdc 74%)
-      //background-color: #b8c6db
-      //background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%)
       background-color: #edf1f4
       background-image: linear-gradient(315deg, #edf1f4 0%, #f5f7fa 74%)
-
-#contactForm
-  margin-bottom: $size-7
 
 .blog-metadata-separator::after
   content: '\00B7'
@@ -157,19 +133,12 @@ footer
 
 article
   .content
-    margin-top: $size-6
     h2
       font-size: $size-4
     h3
       font-size: $size-5
     h4
       font-size: $size-6
-  hr
-    margin-bottom: 0
-
-.tags
-  .icon
-    margin-right: 0 !important
 
 .pagination-previous:active, .pagination-next:active, .pagination-link:active
   // Needed because setting $pagination-shadow-inset does not work

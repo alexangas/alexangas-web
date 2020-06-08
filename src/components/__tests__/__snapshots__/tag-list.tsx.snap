@@ -9,7 +9,7 @@ exports[`TagList renders multiple tags 1`] = `
     href="/blog/tags/tag-1/"
   >
     <span
-      className="icon"
+      className="icon mr-0"
     >
       <svg
         fill="currentColor"
@@ -37,7 +37,7 @@ exports[`TagList renders multiple tags 1`] = `
     href="/blog/tags/tag-2/"
   >
     <span
-      className="icon"
+      className="icon mr-0"
     >
       <svg
         fill="currentColor"
@@ -65,7 +65,7 @@ exports[`TagList renders multiple tags 1`] = `
     href="/blog/tags/tag-3/"
   >
     <span
-      className="icon"
+      className="icon mr-0"
     >
       <svg
         fill="currentColor"
@@ -106,7 +106,7 @@ exports[`TagList renders one tag 1`] = `
     href="/blog/tags/tag-1/"
   >
     <span
-      className="icon"
+      className="icon mr-0"
     >
       <svg
         fill="currentColor"

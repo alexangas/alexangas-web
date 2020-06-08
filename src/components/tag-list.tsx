@@ -16,7 +16,7 @@ const TagList = ({ tags = [] }: TagListProps): JSX.Element | null =>
           to={`/blog/tags/${kebabCase(tag)}/`}
           className="tag is-paddingless"
         >
-          <span className="icon">
+          <span className="icon mr-0">
             <FaTag />
           </span>
           {tag}

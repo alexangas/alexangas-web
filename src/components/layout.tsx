@@ -30,7 +30,7 @@ export const Layout = ({
       <div className={clsx(`container`, className)}>
         <main>
           <div className="section">
-            <header className={clsx(isMarginless && `is-marginless`)}>
+            <header className={clsx(isMarginless ? `is-marginless` : `mb-5`)}>
               <h1 className="title">{title}</h1>
             </header>
             {children}
