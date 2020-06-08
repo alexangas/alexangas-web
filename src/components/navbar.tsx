@@ -7,30 +7,53 @@ type NavBarProps = {
   data?: any
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const PureNavBar = ({ location, data }: NavBarProps): JSX.Element => (
-  <div className="navbar-wrapper">
-    <nav
-      className="container navbar is-transparent"
-      role="navigation"
-      aria-label="Main navigation"
-    >
-      <div className="navbar-menu is-active">
-        <div className="navbar-start is-size-4">
-          <Link to="/" className="navbar-item has-text-weight-semibold">
-            {data.site.siteMetadata.title}
-          </Link>
-        </div>
+export const PureNavBar = ({ location, data }: NavBarProps): JSX.Element => {
+  const locationIsActive = (key: string): boolean => {
+    const locationMap: Record<string, string> = {
+      Blog: `/blog`,
+      Contact: `/contact`,
+    }
 
-        <div className="navbar-end is-size-5">
-          <Link to="/blog/" className="navbar-item">
-            Blog
-          </Link>
+    return location.pathname.startsWith(locationMap[key])
+  }
+
+  return (
+    <div className="navbar-wrapper">
+      <nav
+        className="container navbar is-transparent"
+        role="navigation"
+        aria-label="Main navigation"
+      >
+        <div className="navbar-menu is-active">
+          <div className="navbar-start is-size-4">
+            <Link to="/" className="navbar-item has-text-weight-semibold">
+              {data.site.siteMetadata.title}
+            </Link>
+          </div>
+
+          <div className="navbar-end is-size-5">
+            <Link
+              to="/contact/"
+              className={`navbar-item is-tab ${
+                locationIsActive(`Contact`) ? `is-active` : null
+              }`}
+            >
+              Contact
+            </Link>
+            <Link
+              to="/blog/"
+              className={`navbar-item is-tab ${
+                locationIsActive(`Blog`) ? `is-active` : null
+              }`}
+            >
+              Blog
+            </Link>
+          </div>
         </div>
-      </div>
-    </nav>
-  </div>
-)
+      </nav>
+    </div>
+  )
+}
 
 export const NavBar = (props: NavBarProps): JSX.Element => {
   const data = useStaticQuery(graphql`

@@ -59,7 +59,7 @@ class Contact extends React.Component<unknown, ContactState> {
             </span>
           </div>
         </div>
-        <div className="field">
+        <div className="field is-hidden">
           <label className="label" htmlFor="tel">
             Phone (optional):
           </label>
