@@ -1,7 +1,7 @@
 {
   "name": "alexangas-web",
   "private": true,
-  "description": "Based on the personal blog starter for a blog powered by Netlify CMS",
+  "description": "The personal web site for Alex Angas.",
   "version": "1.0.0",
   "author": "Alex Angas",
   "sideEffects": false,
@@ -19,7 +19,6 @@
     "gatsby-plugin-manifest": "~2.4.10",
     "gatsby-plugin-mdx": "~1.2.14",
     "gatsby-plugin-meta-redirect": "~1.1.1",
-    "gatsby-plugin-netlify-cms": "~4.3.4",
     "gatsby-plugin-react-helmet": "~3.3.3",
     "gatsby-plugin-sass": "~2.3.3",
     "gatsby-plugin-sharp": "~2.6.10",
