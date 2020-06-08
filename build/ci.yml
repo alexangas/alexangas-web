@@ -1,5 +1,11 @@
 trigger:
-  - master
+  branches:
+    include:
+      - master
+  paths:
+    exclude:
+      - docker*
+      - README*
 
 variables:
   npm_config_cache: $(Pipeline.Workspace)/.npm
