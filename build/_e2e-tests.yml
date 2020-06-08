@@ -9,7 +9,7 @@ steps:
 
   - task: PublishBuildArtifacts@1
     condition: succeededOrFailed()
-    displayName: "Public test artifacts"
+    displayName: "Publish test artifacts"
     inputs:
       PathtoPublish: "$(Build.SourcesDirectory)/cypress/videos"
       ArtifactName: "e2e"
