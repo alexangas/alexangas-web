@@ -1,5 +1,91 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`NavBar renders Blog 1`] = `
+<div
+  className="navbar-wrapper"
+>
+  <nav
+    aria-label="Main navigation"
+    className="container navbar is-transparent"
+    role="navigation"
+  >
+    <div
+      className="navbar-menu is-active px-2 py-2"
+    >
+      <div
+        className="navbar-start is-size-4"
+      >
+        <a
+          className="navbar-item has-text-weight-semibold"
+          href="/"
+        >
+          Blog Post
+        </a>
+      </div>
+      <div
+        className="navbar-end is-size-5"
+      >
+        <a
+          className="navbar-item is-tab"
+          href="/contact/"
+        >
+          Contact
+        </a>
+        <a
+          className="navbar-item is-tab is-active"
+          href="/blog/"
+        >
+          Blog
+        </a>
+      </div>
+    </div>
+  </nav>
+</div>
+`;
+
+exports[`NavBar renders Contact 1`] = `
+<div
+  className="navbar-wrapper"
+>
+  <nav
+    aria-label="Main navigation"
+    className="container navbar is-transparent"
+    role="navigation"
+  >
+    <div
+      className="navbar-menu is-active px-2 py-2"
+    >
+      <div
+        className="navbar-start is-size-4"
+      >
+        <a
+          className="navbar-item has-text-weight-semibold"
+          href="/"
+        >
+          Contact
+        </a>
+      </div>
+      <div
+        className="navbar-end is-size-5"
+      >
+        <a
+          className="navbar-item is-tab is-active"
+          href="/contact/"
+        >
+          Contact
+        </a>
+        <a
+          className="navbar-item is-tab"
+          href="/blog/"
+        >
+          Blog
+        </a>
+      </div>
+    </div>
+  </nav>
+</div>
+`;
+
 exports[`NavBar renders title 1`] = `
 <div
   className="navbar-wrapper"
@@ -10,7 +96,7 @@ exports[`NavBar renders title 1`] = `
     role="navigation"
   >
     <div
-      className="navbar-menu is-active"
+      className="navbar-menu is-active px-2 py-2"
     >
       <div
         className="navbar-start is-size-4"
@@ -26,7 +112,13 @@ exports[`NavBar renders title 1`] = `
         className="navbar-end is-size-5"
       >
         <a
-          className="navbar-item"
+          className="navbar-item is-tab"
+          href="/contact/"
+        >
+          Contact
+        </a>
+        <a
+          className="navbar-item is-tab"
           href="/blog/"
         >
           Blog
