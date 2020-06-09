@@ -21,9 +21,9 @@ const ProjectSummary = ({
     {/*<div className="card-image"></div>*/}
     <div className="card-content">
       <div className="content">
-        <p className="title is-4 is-marginless">{title}</p>
+        <p className="title is-4 is-marginless mb-2">{title}</p>
         {link && (
-          <div className="my-2">
+          <div>
             <FaExternalLinkAlt />
             <a
               className="ml-1"
@@ -36,7 +36,7 @@ const ProjectSummary = ({
           </div>
         )}
         <p
-          className="is-marginless mb-2"
+          className="is-marginless my-2"
           dangerouslySetInnerHTML={{
             __html: (description || excerpt) as string,
           }}
