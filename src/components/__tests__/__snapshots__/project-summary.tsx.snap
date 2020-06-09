@@ -11,13 +11,13 @@ exports[`ProjectSummary renders project summary with description 1`] = `
       className="content"
     >
       <p
-        className="title is-4 is-marginless"
+        className="title is-4 is-marginless mb-2"
       >
         Project Title
       </p>
       
       <p
-        className="is-marginless mb-2"
+        className="is-marginless my-2"
         dangerouslySetInnerHTML={
           Object {
             "__html": "The description of the project.",
@@ -125,13 +125,13 @@ exports[`ProjectSummary renders project summary with excerpt 1`] = `
       className="content"
     >
       <p
-        className="title is-4 is-marginless"
+        className="title is-4 is-marginless mb-2"
       >
         Project Title
       </p>
       
       <p
-        className="is-marginless mb-2"
+        className="is-marginless my-2"
         dangerouslySetInnerHTML={
           Object {
             "__html": "The excerpt of the project.",
@@ -239,13 +239,11 @@ exports[`ProjectSummary renders project summary with link 1`] = `
       className="content"
     >
       <p
-        className="title is-4 is-marginless"
+        className="title is-4 is-marginless mb-2"
       >
         Project Title
       </p>
-      <div
-        className="my-2"
-      >
+      <div>
         <svg
           fill="currentColor"
           height="1em"
@@ -274,7 +272,7 @@ exports[`ProjectSummary renders project summary with link 1`] = `
         </a>
       </div>
       <p
-        className="is-marginless mb-2"
+        className="is-marginless my-2"
         dangerouslySetInnerHTML={
           Object {
             "__html": "The description of the project.",
