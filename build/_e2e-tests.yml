@@ -16,7 +16,7 @@ steps:
       publishLocation: "Container"
 
   - task: PublishBuildArtifacts@1
-    condition: succeededOrFailed()
+    condition: failed()
     displayName: "Publish npm logs"
     inputs:
       PathtoPublish: "$(Pipeline.Workspace)/.npm/_logs"
