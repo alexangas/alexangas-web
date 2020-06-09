@@ -11,7 +11,6 @@ describe(`Blog Post`, () => {
         "best-practices": 92,
         seo: 100,
       })
-      cy.pa11y()
     })
 
     it(`Last post passes the Lighthouse tests`, () => {
@@ -23,7 +22,6 @@ describe(`Blog Post`, () => {
         "best-practices": 92,
         seo: 100,
       })
-      cy.pa11y()
     })
   })
 

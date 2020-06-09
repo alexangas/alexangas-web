@@ -11,7 +11,6 @@ describe(`Blog Home`, () => {
       "best-practices": 92,
       seo: 100,
     })
-    cy.pa11y()
   })
 
   describe(`Accessibility tests`, () => {
