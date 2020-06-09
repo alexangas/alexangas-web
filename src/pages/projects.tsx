@@ -2,36 +2,38 @@ import * as React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 
 import Layout from "../components/layout"
-import PostSummary from "../components/post-summary"
+import ProjectSummary from "../components/project-summary"
 
-type BlogProps = {
+type ProjectListProps = {
   location: Location
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data: any
 }
 
-export const PureBlog = ({ location, data }: BlogProps): JSX.Element => (
-  <Layout location={location} title={`Posts`} className="blog">
+export const PureProjectList = ({
+  location,
+  data,
+}: ProjectListProps): JSX.Element => (
+  <Layout location={location} title={`Projects`} className="projects">
     {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
     {data.allMdx.nodes.map((node: any) => (
-      <PostSummary
+      <ProjectSummary
         key={node.fields.slug}
-        slug={node.fields.slug}
         title={node.frontmatter.title || node.fields.slug}
         description={node.frontmatter.description}
         excerpt={node.excerpt}
-        dateTime={node.frontmatter.date}
         tags={node.frontmatter.tags}
+        link={node.frontmatter.link || ``}
       />
     ))}
   </Layout>
 )
 
-export const Blog = (props: BlogProps): JSX.Element => {
+export const ProjectList = (props: ProjectListProps): JSX.Element => {
   const data = useStaticQuery(graphql`
-    query BlogHomeQuery {
+    query ProjectListQuery {
       allMdx(
-        filter: { fields: { collection: { eq: "blog" } } }
+        filter: { fields: { collection: { eq: "project" } } }
         sort: { fields: [frontmatter___date], order: DESC }
       ) {
         nodes {
@@ -40,17 +42,17 @@ export const Blog = (props: BlogProps): JSX.Element => {
             slug
           }
           frontmatter {
-            date
             title
             description
             tags
+            link
           }
         }
       }
     }
   `)
 
-  return <PureBlog {...props} data={data} />
+  return <PureProjectList {...props} data={data} />
 }
 
-export default Blog
+export default ProjectList

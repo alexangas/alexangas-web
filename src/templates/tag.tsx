@@ -16,7 +16,7 @@ class TagTemplate extends React.Component<TagTemplateProps, unknown> {
   render(): JSX.Element {
     const { pageContext, data, location } = this.props
     const { tag } = pageContext
-    const { edges, totalCount } = data.allMdx
+    const { nodes, totalCount } = data.allMdx
 
     return (
       <Layout location={location} title={`${tag} (${totalCount})`}>
@@ -24,7 +24,7 @@ class TagTemplate extends React.Component<TagTemplateProps, unknown> {
           <Link to="/blog/tags">All tags</Link>
         </h2>
         {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-        {edges.map(({ node }: any) => (
+        {nodes.map((node: any) => (
           <PostSummary
             key={node.fields.slug}
             slug={node.fields.slug}
@@ -44,22 +44,20 @@ export default TagTemplate
 export const pageQuery = graphql`
   query Tag($tag: String) {
     allMdx(
-      limit: 2000
-      sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { tags: { in: [$tag] } } }
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: 1000
     ) {
       totalCount
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            date
-            title
-            description
-          }
+      nodes {
+        excerpt
+        fields {
+          slug
+        }
+        frontmatter {
+          date
+          title
+          description
         }
       }
     }
