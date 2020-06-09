@@ -12,7 +12,7 @@ variables:
 
 jobs:
   - job: UnitTests
-    timeoutInMinutes: 5
+    timeoutInMinutes: 10
     cancelTimeoutInMinutes: 1
     pool:
       vmImage: 'ubuntu-latest'
@@ -30,7 +30,7 @@ jobs:
 
   - job: Build
     dependsOn: [ 'UnitTests', 'e2eTests' ]
-    timeoutInMinutes: 5
+    timeoutInMinutes: 10
     cancelTimeoutInMinutes: 1
     pool:
       vmImage: 'ubuntu-latest'
