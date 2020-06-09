@@ -4,8 +4,8 @@ import { FaExternalLinkAlt } from "react-icons/fa"
 
 type ProjectSummaryProps = {
   title: string
-  description: string
-  excerpt: string
+  description?: string
+  excerpt?: string
   tags: string[]
   link?: string
 }
@@ -38,7 +38,7 @@ const ProjectSummary = ({
         <p
           className="is-marginless mb-2"
           dangerouslySetInnerHTML={{
-            __html: description || excerpt,
+            __html: (description || excerpt) as string,
           }}
         />
         <TagList tags={tags} noLinks={true} />
