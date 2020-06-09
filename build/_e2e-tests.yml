@@ -9,8 +9,16 @@ steps:
 
   - task: PublishBuildArtifacts@1
     condition: succeededOrFailed()
-    displayName: "Public test artifacts"
+    displayName: "Publish test artifacts"
     inputs:
       PathtoPublish: "$(Build.SourcesDirectory)/cypress/videos"
       ArtifactName: "e2e"
+      publishLocation: "Container"
+
+  - task: PublishBuildArtifacts@1
+    condition: failed()
+    displayName: "Publish npm logs"
+    inputs:
+      PathtoPublish: "$(Pipeline.Workspace)/.npm/_logs"
+      ArtifactName: "npm_logs"
       publishLocation: "Container"
