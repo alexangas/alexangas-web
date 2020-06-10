@@ -1,6 +1,6 @@
 import * as React from "react"
-import { kebabCase } from "lodash"
 import { Link, graphql, useStaticQuery } from "gatsby"
+import { kebabCase } from "case-anything"
 import { FaTag } from "react-icons/fa"
 
 import Layout from "../../components/layout"
