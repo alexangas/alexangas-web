@@ -1,13 +1,14 @@
 FROM node:12
 
-RUN yarn global add gatsby-cli
+RUN npm install -g gatsby-cli
 
 RUN mkdir /app
 WORKDIR /app
 
 COPY ./package.json .
-RUN yarn install --no-lockfile
-RUN yarn clean
+
+RUN /bin/sh -c 'npm install; npm run clean'
 
 COPY . .
-CMD ["yarn", "develop", "-H", "0.0.0.0" ]
+
+CMD ["gatsby", "develop", "-H", "0.0.0.0" ]
