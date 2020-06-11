@@ -6,9 +6,11 @@ RUN mkdir /app
 WORKDIR /app
 
 COPY ./package.json .
-RUN npm install
-RUN npm run clean
-RUN npm run build
+
+RUN /bin/sh -c 'npm install; npm run clean'
+
+RUN /bin/sh -c 'npm run build'
 
 COPY . .
-CMD ["npm", "run", "serve", "-H", "0.0.0.0" ]
+
+CMD ["gatsby", "serve", "-H", "0.0.0.0" ]
