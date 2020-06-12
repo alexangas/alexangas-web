@@ -43,7 +43,10 @@ module.exports = {
             },
             query: `
               {
-                allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+                allMdx(
+                  filter: { fields: { collection: { eq: "blog" } } }
+                  sort: { fields: [frontmatter___date], order: DESC }
+                ) {
                   edges {
                     node {
                       excerpt
