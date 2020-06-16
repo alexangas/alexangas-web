@@ -2,10 +2,10 @@ resources:
   pipelines:
   - pipeline: alexangasweb
     source: alexangas.alexangas-web-ci
-    branch: master
+    branch: latest
     trigger:
       branches:
-        - master
+        - latest
 trigger: none  # Disable CI builds, so we rely on the pipeline
 pr: none       # Disable PR builds, not wanted for deployment
 
