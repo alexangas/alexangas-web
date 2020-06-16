@@ -1,6 +1,6 @@
 # alexangas-web
 
-[![Build Status](https://dev.azure.com/alexangas/blog/_apis/build/status/alexangas.alexangas-web-ci?branchName=master)](https://dev.azure.com/alexangas/blog/_build/latest?definitionId=7&branchName=master)
+[![Build Status](https://dev.azure.com/alexangas/blog/_apis/build/status/alexangas.alexangas-web-ci?branchName=latest)](https://dev.azure.com/alexangas/blog/_build/latest?definitionId=7&branchName=latest)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=alexangas_alexangas-web&metric=alert_status)](https://sonarcloud.io/dashboard?id=alexangas_alexangas-web)
 
 This is the source for https://www.alexangas.com. It contains the following nifty aspects...
