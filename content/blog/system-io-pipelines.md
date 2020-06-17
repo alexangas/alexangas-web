@@ -1,7 +1,7 @@
 ---
 path: adding-cypress-to-azure-static-web-apps-pull-request-staging-pipeline
 date: 2020-06-17T17:15:38Z
-title: Updating legacy code to use C# async streams
+title: Updating legacy code to use System.IO.Pipelines
 description: >-
   I once wrote a podcast feed reader library. Now it's time to make that code readable.
 tags: ["csharp", "async", "streams"]
@@ -36,6 +36,12 @@ That last point is an additional goal since that original library was written, w
 There were good reasons for this, mainly around performance, but (no surprises!) it made the library too difficult to maintain.
 So then I took just the feed reading aspect and [put it on GitHub](https://github.com/alexangas/podcast-feed-reader).
 There were still maintenance problems (and bugs) because the stream reading code attempting to meet those goals [was so complex](https://github.com/alexangas/podcast-feed-reader/blob/b09d0e6757c44a5bfd82cc0ac46510070b82c103/src/PodcastFeedReader/Readers/FeedReader.cs#L197).
-Now that async streams are available, and fortunately the library has fairly good unit test coverage, I'm hopeful the code can be greatly simplified.
+Now that Pipelines are available, and fortunately the library has fairly good unit test coverage, I'm hopeful the code can be greatly simplified.
 Let's dig in and find out!
- 
+
+## Using Pipelines to read from a stream
+
+For a great explanation of what Pipelines are, take a look at [this post](https://blog.marcgravell.com/2018/07/pipe-dreams-part-1.html) by Marc Gravell.
+For the purposes of my use case, it promises to make that complex stream reading code I linked to earlier much simpler.
+In particular, the management of multiple buffers should go away!
+
