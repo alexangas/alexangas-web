@@ -49,9 +49,10 @@ export const IndexPage = ({ location }: IndexPageProps): JSX.Element => (
               🚀
             </span>
             {` `}
-            Updating <a href="https://supportmusic.online">supportmusic.online</a>.
+            {/*Updating <a href="https://supportmusic.online">supportmusic.online</a>.*/}
             {/*Turning my Azure knowledge into certification.*/}
-            {/*<a href="https://alexangas.com">alexangas.com</a>.*/}
+            Planning blog posts and
+            refreshing <a href="https://alexangas.com">alexangas.com</a>.
           </li>
         </ul>
       </div>
