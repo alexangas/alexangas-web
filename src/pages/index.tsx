@@ -51,8 +51,8 @@ export const IndexPage = ({ location }: IndexPageProps): JSX.Element => (
             {` `}
             {/*Updating <a href="https://supportmusic.online">supportmusic.online</a>.*/}
             {/*Turning my Azure knowledge into certification.*/}
-            Planning blog posts and
-            refreshing <a href="https://alexangas.com">alexangas.com</a>.
+            Writing <a href="https://alexangas.com">blog</a> posts about C# async streams.
+            {/*refreshing <a href="https://alexangas.com">alexangas.com</a>.*/}
           </li>
         </ul>
       </div>
