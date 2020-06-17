@@ -18,7 +18,7 @@ const PostSummary = ({
   description,
   excerpt,
   dateTime,
-  tags = [],
+  tags,
 }: PostSummaryProps): JSX.Element => (
   <div className="content">
     <h2 className="subtitle is-marginless is-4">

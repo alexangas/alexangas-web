@@ -5,14 +5,14 @@ import Image, { FixedObject } from "gatsby-image"
 
 type PostMetadataProps = {
   dateTime: string
-  tags: string[]
+  tags?: string[]
   avatar?: FixedObject
   author?: string
 }
 
 const PostMetadata = ({
   dateTime = ``,
-  tags = [],
+  tags,
   avatar,
   author,
 }: PostMetadataProps): JSX.Element => (
