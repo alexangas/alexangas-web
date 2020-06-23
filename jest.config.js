@@ -13,11 +13,11 @@ module.exports = {
     `cypress`,
   ],
   transformIgnorePatterns: [`node_modules/(?!(gatsby)/)`],
-  collectCoverageFrom: [`src/**/*.js`],
+  collectCoverageFrom: [`src/**/*.js`, `src/**/*.ts`, `src/**/*.tsx`],
   globals: {
     __PATH_PREFIX__: ``,
   },
   setupFiles: [`<rootDir>/loadershim.js`],
   reporters: ["default", "jest-junit"],
-  coverageReporters: ["cobertura", "html", "text"],
+  coverageReporters: ["cobertura", "text"],
 }
