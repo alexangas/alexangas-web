@@ -45,3 +45,14 @@ For a great explanation of what Pipelines are, take a look at [this post](https:
 For the purposes of my use case, it promises to make that complex stream reading code I linked to earlier much simpler.
 In particular, the management of multiple buffers should go away!
 
+Even better than just Pipelines, we now have SequenceReader which can wrap the Pipeline buffer and gives us the option to perform [many useful operations](https://docs.microsoft.com/en-us/dotnet/api/system.buffers.sequencereader-1).
+(Interesting discussion on the [API proposal for this](https://github.com/dotnet/runtime/issues/27522).)
+
+## References
+
+- [An Introduction to SequenceReader](https://www.stevejgordon.co.uk/an-introduction-to-sequencereader) and [SequenceReaderSample](https://github.com/stevejgordon/SequenceReaderSample): by Steve Gordon
+- [Pipe Dreams](https://blog.marcgravell.com/2018/07/pipe-dreams-part-1.html): Blog post by Marc Gravell
+- [Pipelines.Sockets.Unofficial](https://github.com/mgravell/Pipelines.Sockets.Unofficial): Sockets (and streams) wrapper around Pipelines
+- [Nerdbank.Streams](https://github.com/AArnott/Nerdbank.Streams): Several stream helpers, including for Pipelines
+- [system-io-pipelines-demo](https://github.com/tulis/system-io-pipelines-demo): Various examples of reading and writing using Pipelines
+- [TcpEcho](https://github.com/davidfowl/TcpEcho): Simple client/server example using Pipelines
