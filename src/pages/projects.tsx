@@ -16,7 +16,7 @@ export const PureProjectList = ({
 }: ProjectListProps): JSX.Element => (
   <Layout location={location} title={`Projects`} className="projects">
     {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-    {data.allMdx.nodes.map((node: any) => (
+    {data.allMarkdownRemark.nodes.map((node: any) => (
       <ProjectSummary
         key={node.fields.slug}
         title={node.frontmatter.title || node.fields.slug}
@@ -32,7 +32,7 @@ export const PureProjectList = ({
 export const ProjectList = (props: ProjectListProps): JSX.Element => {
   const data = useStaticQuery(graphql`
     query ProjectListQuery {
-      allMdx(
+      allMarkdownRemark(
         filter: { fields: { collection: { eq: "project" } } }
         sort: { fields: [frontmatter___date], order: DESC }
       ) {

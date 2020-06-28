@@ -14,7 +14,7 @@ type TagsPageProps = {
 export const PureTagsPage = ({
   location,
   data: {
-    allMdx: { group },
+    allMarkdownRemark: { group },
   },
 }: TagsPageProps): JSX.Element => (
   <Layout location={location} title={`Tags`}>
@@ -37,7 +37,7 @@ export const PureTagsPage = ({
 export const TagsPage = (props: TagsPageProps): JSX.Element => {
   const data = useStaticQuery(graphql`
     query TagsPageQuery {
-      allMdx(filter: { fields: { collection: { eq: "blog" } } }, limit: 1000) {
+      allMarkdownRemark(filter: { fields: { collection: { eq: "blog" } } }, limit: 1000) {
         group(field: frontmatter___tags) {
           fieldValue
           totalCount
