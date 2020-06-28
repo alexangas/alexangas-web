@@ -13,7 +13,7 @@ type BlogProps = {
 export const PureBlog = ({ location, data }: BlogProps): JSX.Element => (
   <Layout location={location} title={`Posts`} className="blog">
     {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-    {data.allMdx.nodes.map((node: any) => (
+    {data.allMarkdownRemark.nodes.map((node: any) => (
       <PostSummary
         key={node.fields.slug}
         slug={node.fields.slug}
@@ -30,7 +30,7 @@ export const PureBlog = ({ location, data }: BlogProps): JSX.Element => (
 export const Blog = (props: BlogProps): JSX.Element => {
   const data = useStaticQuery(graphql`
     query BlogHomeQuery {
-      allMdx(
+      allMarkdownRemark(
         filter: { fields: { collection: { eq: "blog" } } }
         sort: { fields: [frontmatter___date], order: DESC }
       ) {

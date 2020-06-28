@@ -1,5 +1,3 @@
-const tables = require(`remark-grid-tables`)
-
 module.exports = {
   siteMetadata: {
     title: `Alex Angas`,
@@ -14,7 +12,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-plugin-feed-mdx`,
+      resolve: `gatsby-plugin-feed`,
       options: {
         query: `
           {
@@ -30,8 +28,8 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMdx } }) => {
-              return allMdx.edges.map((edge) => {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges.map((edge) => {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.date,
@@ -43,7 +41,7 @@ module.exports = {
             },
             query: `
               {
-                allMdx(
+                allMarkdownRemark(
                   filter: { fields: { collection: { eq: "blog" } } }
                   sort: { fields: [frontmatter___date], order: DESC }
                 ) {
@@ -98,10 +96,9 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     {
-      resolve: `gatsby-plugin-mdx`,
+      resolve: `gatsby-transformer-remark`,
       options: {
-        extensions: [".mdx", ".md"],
-        gatsbyRemarkPlugins: [
+        plugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -125,7 +122,6 @@ module.exports = {
             resolve: `gatsby-remark-smartypants`,
           },
         ],
-        remarkPlugins: [tables],
       },
     },
     {

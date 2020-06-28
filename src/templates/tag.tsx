@@ -16,7 +16,7 @@ class TagTemplate extends React.Component<TagTemplateProps, unknown> {
   render(): JSX.Element {
     const { pageContext, data, location } = this.props
     const { tag } = pageContext
-    const { nodes, totalCount } = data.allMdx
+    const { nodes, totalCount } = data.allMarkdownRemark
 
     return (
       <Layout location={location} title={`${tag} (${totalCount})`}>
@@ -43,7 +43,7 @@ export default TagTemplate
 
 export const pageQuery = graphql`
   query Tag($tag: String) {
-    allMdx(
+    allMarkdownRemark(
       filter: { frontmatter: { tags: { in: [$tag] } } }
       sort: { fields: [frontmatter___date], order: DESC }
       limit: 1000
