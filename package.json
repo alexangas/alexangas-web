@@ -37,9 +37,10 @@
     "react-icons": "~3.10.0",
     "remark-grid-tables": "~2.1.1",
     "typeface-lato": "~0.0.75",
-    "typescript": "^3.9.5"
+    "typescript": "~3.9.5"
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.8.1",
     "@testing-library/cypress": "^6.0.0",
     "@types/jest": "^26.0.0",
     "@types/node": "^14.0.13",

@@ -12,9 +12,12 @@
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
 
-// Cypress Audit
 const { lighthouse, pa11y, prepareAudit } = require("cypress-audit")
+
 module.exports = (on, config) => {
+  require('@cypress/code-coverage/task')(on, config)
+
+  // Cypress Audit
   on("before:browser:launch", (browser = {}, launchOptions) => {
     prepareAudit(launchOptions)
   })
