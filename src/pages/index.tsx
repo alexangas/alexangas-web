@@ -53,7 +53,11 @@ export const IndexPage = ({ location }: IndexPageProps): JSX.Element => (
             {/*Turning my Azure knowledge into certification.*/}
             {/*Planning blog posts and refreshing{` `}*/}
             {/*<a href="https://alexangas.com">alexangas.com</a>.*/}
-            Giving <a href="https://github.com/alexangas/podcast-feed-reader">podcast-feed-reader</a> some love.
+            Giving{` `}
+            <a href="https://github.com/alexangas/podcast-feed-reader">
+              podcast-feed-reader
+            </a>{` `}
+            some love.
           </li>
         </ul>
       </div>
