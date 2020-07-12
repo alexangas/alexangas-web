@@ -37,7 +37,10 @@ export const PureTagsPage = ({
 export const TagsPage = (props: TagsPageProps): JSX.Element => {
   const data = useStaticQuery(graphql`
     query TagsPageQuery {
-      allMarkdownRemark(filter: { fields: { collection: { eq: "blog" } } }, limit: 1000) {
+      allMarkdownRemark(
+        filter: { fields: { collection: { eq: "blog" } } }
+        limit: 1000
+      ) {
         group(field: frontmatter___tags) {
           fieldValue
           totalCount

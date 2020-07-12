@@ -32,7 +32,8 @@ class BlogPostTemplate extends React.Component<BlogPostTemplateProps, unknown> {
         <article>
           <div
             className="content mt-4 is-medium"
-            dangerouslySetInnerHTML={{ __html: post.html }} />
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
         </article>
         <hr />
 
