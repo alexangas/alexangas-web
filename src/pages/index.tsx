@@ -42,25 +42,20 @@ export const IndexPage = ({ location }: IndexPageProps): JSX.Element => (
         </li>
       </ul>
 
-      <div className="box mt-5">
+      {/* <div className="box mt-5">
         <ul>
           <li>
             <span role="img" aria-label="Rocket emoji">
               🚀
-            </span>
-            {` `}
-            {/*Updating <a href="https://supportmusic.online">supportmusic.online</a>.*/}
-            {/*Turning my Azure knowledge into certification.*/}
-            {/*Planning blog posts and refreshing{` `}*/}
-            {/*<a href="https://alexangas.com">alexangas.com</a>.*/}
-            Giving{` `}
-            <a href="https://github.com/alexangas/podcast-feed-reader">
-              podcast-feed-reader
-            </a>{` `}
-            some love.
-          </li>
+            </span> */}
+      {/*Updating <a href="https://supportmusic.online">supportmusic.online</a>.*/}
+      {/*Turning my Azure knowledge into certification.*/}
+      {/*Planning blog posts and refreshing{` `}*/}
+      {/*<a href="https://alexangas.com">alexangas.com</a>.*/}
+      {/*Giving <a href="https://github.com/alexangas/podcast-feed-reader">podcast-feed-reader</a> some love.*/}
+      {/* </li>
         </ul>
-      </div>
+      </div> */}
     </article>
   </Layout>
 )
