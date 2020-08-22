@@ -34,7 +34,7 @@
     "react-helmet": "~6.1.0",
     "react-icons": "~3.11.0",
     "typeface-lato": "~0.0.75",
-    "typescript": "^3.9.7"
+    "typescript": "^4.0.2"
   },
   "devDependencies": {
     "@testing-library/cypress": "^6.0.0",
