@@ -1,6 +1,6 @@
 import * as React from "react"
 import TagList from "./tag-list"
-import { FaExternalLinkAlt } from "react-icons/fa"
+import { FaExternalLinkAlt } from "@react-icons/all-files/fa/FaExternalLinkAlt"
 
 type ProjectSummaryProps = {
   title: string
