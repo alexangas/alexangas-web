@@ -1,7 +1,7 @@
 import * as React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { FaLinkedinIn } from "react-icons/fa"
-import { IoLogoGithub } from "react-icons/io"
+import { FaLinkedinIn } from "@react-icons/all-files/fa/FaLinkedinIn"
+import { IoLogoGithub } from "@react-icons/all-files/io/IoLogoGithub"
 
 type FooterProps = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

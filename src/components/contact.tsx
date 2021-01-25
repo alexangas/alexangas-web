@@ -1,6 +1,8 @@
 import * as React from "react"
 import axios, { AxiosError, AxiosResponse } from "axios"
-import { FaEnvelope, FaPhone, FaUser } from "react-icons/fa"
+import { FaEnvelope } from "@react-icons/all-files/fa/FaEnvelope"
+import { FaPhone } from "@react-icons/all-files/fa/FaPhone"
+import { FaUser } from "@react-icons/all-files/fa/FaUser"
 import clsx from "clsx"
 
 type ContactState = {

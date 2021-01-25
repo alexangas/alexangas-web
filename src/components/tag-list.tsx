@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { kebabCase } from "case-anything"
-import { FaTag } from "react-icons/fa"
+import { FaTag } from "@react-icons/all-files/fa/FaTag"
 
 type TagListProps = {
   tags?: string[]
