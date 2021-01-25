@@ -23,12 +23,8 @@ describe(`Contact`, () => {
   })
 
   describe(`Submit`, () => {
-    beforeEach(() => {
-      cy.server()
-    })
-
     it(`Submits form`, () => {
-      cy.route(`POST`, `https://getform.io/f/**`, ``)
+      cy.intercept(`POST`, `https://getform.io/f/**`)
         .as(`postForm`)
         .get(`#name`)
         .type(`FirstName LastName`)
@@ -48,12 +44,16 @@ describe(`Contact`, () => {
     })
 
     it(`Shows submission progress`, () => {
-      cy.route({
-        method: `POST`,
-        url: `https://getform.io/f/**`,
-        delay: 3000,
-        response: ``,
-      })
+      cy.intercept(
+        {
+          method: `POST`,
+          url: `https://getform.io/f/**`,
+        },
+        {
+          delay: 5000,
+          response: ``,
+        }
+      )
         .as(`postForm`)
         .get(`#name`)
         .type(`FirstName LastName`)
