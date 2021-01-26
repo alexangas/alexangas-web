@@ -1,6 +1,21 @@
 steps:
   - template: ./_install.yml
 
+  - task: CmdLine@2
+    displayName: 'Increase file watchers limit'
+    inputs:
+      script: 'echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p'
+
+  - task: CmdLine@2
+    displayName: 'Update browserslist'
+    inputs:
+      script: 'npx browserslist@latest --update-db'
+
+  - task: CmdLine@2
+    displayName: 'Enable Cypress debugging'
+    inputs:
+      script: 'export DEBUG=cypress:*'
+
   - task: Npm@1
     displayName: 'Run e2e tests'
     inputs:
