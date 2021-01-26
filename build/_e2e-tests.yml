@@ -11,11 +11,6 @@ steps:
     inputs:
       script: 'npx browserslist@latest --update-db'
 
-  - task: CmdLine@2
-    displayName: 'Enable Cypress debugging'
-    inputs:
-      script: 'export DEBUG=cypress:*'
-
   - task: Npm@1
     displayName: 'Run e2e tests'
     inputs:
