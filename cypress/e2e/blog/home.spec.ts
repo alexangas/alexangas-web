@@ -5,7 +5,7 @@ describe(`Blog Home`, () => {
     cy.visit(`/blog/`)
   })
 
-  it(`Should verify the lighthouse scores`, () => {
+  xit(`Should verify the lighthouse scores`, () => {
     cy.lighthouse({
       accessibility: 100,
       "best-practices": 92,
@@ -17,7 +17,7 @@ describe(`Blog Home`, () => {
     beforeEach(() => {
       cy.get(`main`).injectAxe()
     })
-    it(`Has no detectable accessibility violations on load`, () => {
+    xit(`Has no detectable accessibility violations on load`, () => {
       cy.checkA11y()
     })
   })

@@ -6,7 +6,7 @@ describe(`Tag`, () => {
     cy.location(`pathname`).should(`contain`, `/blog/tags/`)
   })
 
-  it(`Should verify the lighthouse scores`, () => {
+  xit(`Should verify the lighthouse scores`, () => {
     cy.lighthouse({
       accessibility: 100,
       "best-practices": 92,
@@ -18,7 +18,7 @@ describe(`Tag`, () => {
     beforeEach(() => {
       cy.get(`main`).injectAxe()
     })
-    it(`Has no detectable accessibility violations on load`, () => {
+    xit(`Has no detectable accessibility violations on load`, () => {
       cy.checkA11y()
     })
   })
