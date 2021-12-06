@@ -1,7 +1,6 @@
 ---
 const {title, description} = Astro.props;
 ---
-<html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="description" property="og:description" content={description}>
@@ -12,21 +11,3 @@ const {title, description} = Astro.props;
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700;900&amp;display=swap" rel="stylesheet">
   </head>
-  <body>
-    <header>
-      <div>
-        <img width="60" height="80" src="/assets/logo.svg" alt="Astro logo">
-        <h1>Welcome to <a href="https://astro.build/">Astro</a></h1>
-        <nav>
-          <a href="#">Home</a>
-          <a href="#">Posts</a>
-          <a href="#">Contact</a>
-        </nav>
-      </div>
-    </header>
-    <main>
-      <!-- slot: your page content will be injected here. -->
-      <slot />
-    </main>
-  </body>
-</html>

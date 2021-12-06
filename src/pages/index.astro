@@ -1,12 +1,12 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 import Tour from '../components/Tour.astro';
 import Counter from '../components/Counter/Counter.tsx'
 ---
-<BaseLayout title="Home">
+<PageLayout title="Home">
     <Tour />
 
     <Counter client:visible>
         <h1>Hello, Preact!</h1>
     </Counter>
-</BaseLayout>
+</PageLayout>
