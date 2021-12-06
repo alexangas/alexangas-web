@@ -1,28 +1,12 @@
 ---
-import MainHead from '../components/MainHead.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import Tour from '../components/Tour.astro';
-import Counter from '../components/Counter.tsx'
-
-let title = 'My Astro Site';
+import Counter from '../components/Counter/Counter.tsx'
 ---
-<html lang="en">
-<head>
-    <MainHead title={title} description="Jeanine White: Developer, Speaker, and Writer..." />
-</head>
-<body>
-    <main>
-        <header>
-            <div>
-                <img width="60" height="80" src="/assets/logo.svg" alt="Astro logo">
-                <h1>Welcome to <a href="https://astro.build/">Astro</a></h1>
-            </div>
-        </header>
+<BaseLayout title="Home">
+    <Tour />
 
-        <Tour />
-
-      <Counter client:visible>
+    <Counter client:visible>
         <h1>Hello, Preact!</h1>
-      </Counter>
-    </main>
-</body>
-</html>
+    </Counter>
+</BaseLayout>
