@@ -1,9 +1,8 @@
 export default function Header() {
   return (
-    <>
     <header>
       <div>
-        <img width="60" height="80" src="/assets/logo.svg" alt="Astro logo">
+        <img width="60" height="80" src="/assets/logo.svg" alt="Astro logo" />
         <h1>Welcome to <a href="https://astro.build/">Astro</a></h1>
         <nav>
           <a href="#">Home</a>
@@ -12,6 +11,5 @@ export default function Header() {
         </nav>
       </div>
     </header>
-    </>
-  );
+  )
 }
