@@ -1,14 +1,16 @@
-export default function Header() {
+import NavBar from '../NavBar'
+
+type HeaderProps = {
+  url: URL;
+}
+
+export default function Header({url}: HeaderProps) {
   return (
     <header>
       <div>
         <img width="60" height="80" src="/assets/logo.svg" alt="Astro logo" />
         <h1>Welcome to <a href="https://astro.build/">Astro</a></h1>
-        <nav>
-          <a href="#">Home</a>
-          <a href="#">Posts</a>
-          <a href="#">Contact</a>
-        </nav>
+        <NavBar url={url} />
       </div>
     </header>
   )

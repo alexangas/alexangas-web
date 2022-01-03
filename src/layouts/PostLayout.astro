@@ -8,7 +8,7 @@ const { content } = Astro.props;
     <BaseHead title={content.title} description={content.description} isArticle=true />
   </head>
   <body>
-    <Header />
+    <Header url={Astro.request.canonicalURL} />
     <main>
       <h1>{content.title}</h1>
       <h2>{content.description}</h2>
