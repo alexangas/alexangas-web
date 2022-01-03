@@ -1,12 +1,9 @@
 ---
-import PageLayout from '../layouts/PageLayout.astro';
-import Tour from '../components/Tour.astro';
-import Counter from '../components/Counter/Counter.tsx'
+import PageLayout from '../layouts/PageLayout.astro'
+import Hello from '../components/Hello.astro'
+import WhoAmI from '../components/WhoAmI.astro'
 ---
 <PageLayout title="Home">
-    <Tour />
-
-    <Counter client:visible>
-        <h1>Hello, Preact!</h1>
-    </Counter>
+    <Hello />
+    <WhoAmI />
 </PageLayout>
