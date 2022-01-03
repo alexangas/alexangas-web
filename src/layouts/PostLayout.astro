@@ -5,7 +5,7 @@ const { content } = Astro.props;
 ---
 <html lang="en">
   <head>
-    <BaseHead title={content.title} description={content.description} />
+    <BaseHead title={content.title} description={content.description} isArticle=true />
   </head>
   <body>
     <Header />
