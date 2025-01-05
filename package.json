@@ -1,7 +1,16 @@
 {
-  "name": "",
+  "name": "alexangas-web",
+  "private": true,
+  "description": "The personal web site for Alex Angas.",
+  "version": "2.0.0",
+  "author": "Alex Angas",
+  "homepage": "https://www.alexangas.com",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexangas/alexangas-web.git"
+  },
   "type": "module",
-  "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
