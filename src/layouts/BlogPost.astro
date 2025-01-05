@@ -17,14 +17,17 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
 	<body>
 		<Header />
-		<main>
+		<main class="container">
 			<article>
 				<section class="hero">
-					<div class="hero-body">
-						<figure class="image is-2by1">
-							{heroImage && <img src={heroImage} alt="" />}
-						</figure>
-						<p class="title">
+					<div class="hero-body pb-3">
+						<h1 class="title mb-1">
+							{title}
+						</h1>
+						<p class="subtitle mb-1">
+							{description}
+						</p>
+						<p class="mb-1">
 							<FormattedDate date={pubDate} />
 							{
 								updatedDate && (
@@ -33,11 +36,15 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 									</div>
 								)
 							}
-							{title}
 						</p>
+						{heroImage && 
+							<figure class="image is-2by1">
+								<img src={heroImage} alt="" />
+							</figure>
+						}
 					</div>
 				</section>
-				<section class="content">
+				<section class="section content pt-0">
 					<slot />
 				</section>
 			</article>
