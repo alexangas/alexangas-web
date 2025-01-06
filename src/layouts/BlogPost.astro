@@ -10,7 +10,7 @@ type Props = CollectionEntry<'blog'>['data'];
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" class="theme-light">
 	<head>
 		<BaseHead title={title} description={description} />
 	</head>
@@ -39,7 +39,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 						</p>
 						{heroImage && 
 							<figure class="image is-2by1">
-								<img src={heroImage} alt="" />
+								<Image src={heroImage} alt="Hero" />
 							</figure>
 						}
 					</div>

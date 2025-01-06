@@ -2,7 +2,7 @@
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 
@@ -12,9 +12,9 @@ const posts = (await getCollection('blog')).sort(
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="theme-light">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title="Blog" description="Recent blog posts by Alex Angas." />
 	</head>
 	<body>
 		<Header />
@@ -25,8 +25,10 @@ const posts = (await getCollection('blog')).sort(
 				</h1>
 				<p class="pb-5">
 					Blog posts come and blog posts go...
-					I only keep recent posts that still get traffic, and usually can't write about what I'm working on.
-					So here's what we have for now:
+					I only keep recent posts that still get traffic, and usually can't write about what I'm working on. 🤷
+				</p>
+				<p>
+					Here's what we have right now:
 				</p>
 					{
 						posts.map((post) => (
@@ -35,7 +37,7 @@ const posts = (await getCollection('blog')).sort(
 									{post.data.heroImage && 
 										<div class="media-left">
 											<figure class="image is-128x128">
-												<img src={post.data.heroImage} alt="" />
+												<Image src={post.data.heroImage} alt="Hero" width="128" height="128" loading="eager" decoding="sync" />
 											</figure>
 										</div>
 									}

@@ -9,11 +9,11 @@ tags: ["performance", "entity-framework", "sql-server"]
 heroImage: '/speed-of-light-640x427.jpg'
 ---
 
+_Credit: [Speed of Light](https://www.flickr.com/photos/91369701@N00/473868198/)_
+
 This post gives some tips on how to **improve the performance of your applications running Entity Framework** (EF6 era), and access to SQL generally.
 
 EF has been the primary ORM I've worked with since 2011 (up to the date of this post - who knows what the future holds). Over the last year I've needed to optimize a very data access intensive project (synchronising complex data from one system to another during peak periods) that used EF. I profiled, measured, tested, and then did it all again... Based on this experience and other research, here are some thoughts on getting the best from EF.
-
-Credit: [Speed of Light](https://www.flickr.com/photos/91369701@N00/473868198/)
 
 ## Keep context open only for as long as necessary
 
