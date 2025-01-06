@@ -40,7 +40,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 						</p>
 						{heroImage && 
 							<figure class="image is-2by1">
-								<Image src={heroImage} alt="Hero" width="1" height="1" />
+								<Image src={heroImage} alt="Hero" width="1" height="1" loading="eager" decoding="sync" />
 							</figure>
 						}
 					</div>
