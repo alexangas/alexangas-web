@@ -1,9 +1,9 @@
 ---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import { Image } from 'astro:assets';
-import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 
 const posts = (await getCollection('blog')).sort(
@@ -27,7 +27,7 @@ const posts = (await getCollection('blog')).sort(
 					Blog posts come and blog posts go...
 					I only keep recent posts that still get traffic, and usually can't write about what I'm working on. 🤷
 				</p>
-				<p>
+				<p class="pb-5">
 					Here's what we have right now:
 				</p>
 					{
