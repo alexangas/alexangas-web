@@ -1,0 +1,33 @@
+@use "bulma/sass" with (
+  $family-primary: '"Lato", sans-serif',
+  $footer-background-color: #ffffff
+);
+
+@use "bulma/sass/utilities/mixins";
+
+:root {
+  --bulma-link-h: 204deg;
+  --bulma-link-l: 40%;
+}
+
+a:not(.navbar-item) {
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.navbar-wrapper {
+  box-shadow: 0 0 1px 0 #b5b5b5;
+  @include mixins.desktop {
+    box-shadow: 0 0 6px 0 #b5b5b5;
+  }
+}
+
+a.navbar-item.is-active, a.navbar-item.is-selected, .navbar-link.is-active, .navbar-link.is-selected {
+  background-color: #ffffff;
+  border-bottom-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
