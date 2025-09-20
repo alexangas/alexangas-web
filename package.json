@@ -20,7 +20,7 @@
   "dependencies": {
     "@astrojs/mdx": "^4.3.5",
     "@astrojs/rss": "^4.0.12",
-    "@astrojs/sitemap": "^3.5.1",
+    "@astrojs/sitemap": "^3.6.0",
     "astro": "^5.13.7",
     "bulma": "^1.0.4",
     "sass": "^1.92.1",
