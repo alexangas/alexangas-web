@@ -21,7 +21,7 @@
     "@astrojs/mdx": "^5.0.0",
     "@astrojs/rss": "^4.0.17",
     "@astrojs/sitemap": "^3.7.1",
-    "astro": "^6.0.4",
+    "astro": "^6.0.8",
     "bulma": "^1.0.4",
     "sass": "^1.98.0",
     "sharp-ico": "^0.1.5"
